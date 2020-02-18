@@ -4,13 +4,14 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-12">
-                <a class="btn btn-primary" href="{{route('color.create')}} ">Create</a>
-                <table class="table table-bordered mt-3">
+            <div class="col-12">
+                <a class="btn btn-outline-primary" href="{{route('color.create')}} ">Create</a>
+                <table class="table table-bordered mt-3" style="text-align: center">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Color</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,9 @@
                             <tr>
                                 <th scope="row">{{++$key}}</th>
                                 <td>{{$color->color}}</td>
+                                <td><a href="{{route('color.edit',$color->id)}}" class="btn btn-secondary">sửa</a><a
+                                        href="{{route('color.destroy',$color->id)}}" class="btn btn-danger"
+                                        onclick="return confirm('Bạn chắc chắn muốn xóa?')">xóa</a></td>
                             </tr>
                         @endforeach
                     @endif
