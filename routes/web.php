@@ -27,10 +27,27 @@ Route::middleware('auth')->prefix('admin')->group(function (){
     Route::get('/',function (){
         return view('admin.dashboard');
     });
+
+
+    Route::prefix('/post')->group(function (){
+        Route::get('/list','PostController@index')->name('post.index');
+        Route::get('/create','PostController@create')->name('post.create');
+
+    });
+
+    Route::prefix('color')->group(function () {
+        Route::get('/','ColorController@index')->name('color.list');
+        Route::get('/create','ColorController@create')->name('color.create');
+        Route::post('/store','ColorController@store')->name('color.store');
+    });
+
+
+
 });
 
-Route::prefix('color')->group(function () {
-    Route::get('/','ColorController@index')->name('color.list');
-    Route::get('/create','ColorController@create')->name('color.create');
-    Route::post('/store','ColorController@store')->name('color.store');
-});
+
+
+
+
+
+
