@@ -262,7 +262,7 @@
   }
 }
 
-// Sidebar Color Variants
+// Sidebar color Variants
 
 // Sidebar Light
 .sidebar-light {
@@ -303,7 +303,7 @@
       }
     }
   }
-  // Color the sidebar toggler
+  // color the sidebar toggler
   #sidebarToggle {
     background-color: $gray-200;
     &::after {
@@ -354,7 +354,7 @@
       }
     }
   }
-  // Color the sidebar toggler
+  // color the sidebar toggler
   #sidebarToggle {
     background-color: fade-out($white, 0.8);
     &::after {
