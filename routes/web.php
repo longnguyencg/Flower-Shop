@@ -27,7 +27,4 @@ Route::middleware('auth')->prefix('admin')->group(function (){
     Route::get('/',function (){
         return view('admin.dashboard');
     });
-
-
-
 });
