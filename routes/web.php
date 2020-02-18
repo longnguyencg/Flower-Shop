@@ -42,7 +42,16 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/{id}edit', 'ColorController@edit')->name('color.edit');
         Route::post('/{id}update', 'ColorController@update')->name('color.update');
     });
+    Route::prefix('themes')->group(function (){
+        Route::get('/index','ThemeController@index')->name('theme.index');
+        Route::get('/delete/{id}','ThemeController@destroy')->name('theme.destroy');
+        Route::post('/create','ThemeController@store')->name('theme.create');
+        Route::post('/edit/{id}','ThemeController@update')->name('theme.edit');
+
+    });
 });
+
+
 
 
 
