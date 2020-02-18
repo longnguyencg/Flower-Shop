@@ -27,4 +27,25 @@ class ColorController extends Controller
         return redirect()->route('color.list');
 
     }
+
+    public function destroy($id)
+    {
+        $colors = Color::findOrFail($id);
+        $colors->delete();
+        return redirect()->route('color.list');
+    }
+
+    public function edit($id)
+    {
+        $colors = Color::findOrFail($id);
+        return view('admin.color.edit',compact('colors'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $colors = Color::findOrFail($id);
+        $colors->color = $request->input('color');
+        $colors->save();
+        return redirect()->route('color.list');
+    }
 }
