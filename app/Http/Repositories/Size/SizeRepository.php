@@ -1,12 +1,10 @@
 <?php
 
 
-namespace App\Http\Repositories\Theme;
+namespace App\Http\Repositories\Size;
 
 
-
-
-class ThemeRepository implements ThemeRepositoryInterface
+class SizeRepository implements SizeRepositoryInterface
 {
 
     public function getAll()

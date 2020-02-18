@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,10 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::middleware('auth')->prefix('admin')->group(function (){
-    Route::get('/',function (){
+    Route::get('/', function () {
         return view('admin.dashboard');
     });
-
-
-
+    Route::prefix('size')->group(function () {
+        Route::get('/list','SizeController@index')->name('size.index');
+    });
 });
