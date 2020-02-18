@@ -5,37 +5,46 @@ namespace App\Http\Repositories\Theme;
 
 
 
+use App\Http\Repositories\Request;
+use App\Theme;
 
 class ThemeRepository implements ThemeRepositoryInterface
 {
+    protected $theme;
+
+    public function __construct(Theme $theme)
+    {
+        $this->theme = $theme;
+    }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return $this->theme->all();
     }
 
     public function store($obj)
     {
-        // TODO: Implement store() method.
-    }
-
-    public function show($id)
-    {
-        // TODO: Implement show() method.
+        $obj->save();
     }
 
     public function update($obj)
     {
-        // TODO: Implement update() method.
+        $obj->save();
     }
 
     public function destroy($obj)
     {
-        // TODO: Implement destroy() method.
+        $obj->delete();
     }
 
     public function search($key)
     {
-        // TODO: Implement search() method.
+        return $this->theme->where('theme', 'like', '%' . $key . '%')->get();
+    }
+
+    public function findById($id)
+    {
+        return $this->theme->findOrFail($id);
+
     }
 }
