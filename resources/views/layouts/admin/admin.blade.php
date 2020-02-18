@@ -74,6 +74,20 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#theme"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Theme</span>
+            </a>
+            <div id="theme" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">THEME</h6>
+                    <a class="collapse-item" href="#">Create Theme</a>
+                    <a class="collapse-item" href="#">List Theme</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwos"
                aria-expanded="true" aria-controls="collapseTwos">
                 <i class="fas fa-fw fa-sad-cry"></i>
