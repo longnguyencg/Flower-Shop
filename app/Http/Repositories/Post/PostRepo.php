@@ -44,4 +44,9 @@ class PostRepo implements PostRepoInterface
     {
         // TODO: Implement search() method.
     }
+
+    public function findById($id)
+    {
+        // TODO: Implement findById() method.
+    }
 }
