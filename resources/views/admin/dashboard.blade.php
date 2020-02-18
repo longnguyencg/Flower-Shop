@@ -189,7 +189,7 @@
                 </div>
             </div>
 
-            <!-- Color System -->
+            <!-- color System -->
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card bg-primary text-white shadow">
