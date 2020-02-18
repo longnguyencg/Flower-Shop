@@ -28,3 +28,8 @@ Route::middleware('auth')->prefix('admin')->group(function (){
         return view('admin.dashboard');
     });
 });
+Route::prefix('themes')->group(function (){
+    Route::get('/index',function (){
+        return view('admin.themes.index');
+    });
+});
