@@ -26,3 +26,9 @@ Route::get('test', function () {
     return view('admin.dashboard');
 
 });
+
+Route::prefix('color')->group(function () {
+    Route::get('/','ColorController@index')->name('color.list');
+    Route::get('/create','ColorController@create')->name('color.create');
+    Route::post('/store','ColorController@store')->name('color.store');
+});

@@ -48,7 +48,7 @@
   @return $string;
 }
 
-// Color contrast
+// color contrast
 @function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
   $r: red($color);
   $g: green($color);
