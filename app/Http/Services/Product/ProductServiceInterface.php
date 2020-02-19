@@ -8,5 +8,8 @@ use App\Http\Services\ServiceInterface;
 
 interface ProductServiceInterface extends ServiceInterface
 {
+    public function paginating();
+
+    public function getEightProduct();
 
 }
