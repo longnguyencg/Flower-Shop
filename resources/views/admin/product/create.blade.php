@@ -1,7 +1,8 @@
 @extends('layouts.admin.admin')
 @section('page-heading','Add Product')
 @section('content')
-    <form>
+    <form method="post" action="{{route('product.store')}}" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label >Name</label>
             <input type="text" class="form-control" name="name" required >
@@ -90,8 +91,6 @@
             <textarea class="form-control ckeditor" name="description" rows="10"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-
     </form>
-
 
 @endsection
