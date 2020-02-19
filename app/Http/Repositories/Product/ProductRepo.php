@@ -41,12 +41,12 @@ class ProductRepo implements ProductRepoInterface
 
     public function search($key)
     {
-        // TODO: Implement search() method.
+        return $this->product->where('name','LIKE','%'.$key.'%')->paginate(5);
     }
 
     public function paginating()
     {
-        return $this->product->paginate(9);
+        return $this->product->paginate(12);
     }
 
     public function getEightProduct()

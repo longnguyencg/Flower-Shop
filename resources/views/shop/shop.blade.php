@@ -197,8 +197,8 @@
                                                             alt=""/></a>
                                                     <div class="product_details">
                                                         <h2>{{$product->name}}</h2>
-                                                        <p><span class="regular_price">{{number_format($product->price)}}.VND</span><span
-                                                                class="popular_price">{{number_format($product->sale)}}</span></p>
+                                                        <p><span class="regular_price">$ {{number_format($product->price)}}</span><span
+                                                                class="popular_price">$ {{number_format($product->sale)}}</span></p>
                                                     </div>
                                                     <div class="product_detail">
                                                         <div class="star_icon">
