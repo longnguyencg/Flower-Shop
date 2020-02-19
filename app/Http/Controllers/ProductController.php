@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\Product\ProductServiceInterface;
+use App\Http\Services\Size\SizeService;
+use App\Http\Services\Type\TypeService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
 
     protected $productService;
+    protected $typeService;
+    protected $sizeService;
 
-    public function __construct(ProductServiceInterface $productService)
+    public function __construct(ProductServiceInterface $productService, TypeService $typeService, SizeService $sizeService)
     {
         $this->productService = $productService;
+        $this->typeService = $typeService;
+        $this->sizeService = $sizeService;
     }
 
     /**
