@@ -109,12 +109,18 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $this->productService->destroy($id);
         return redirect()->route('product.index');
+    }
+
+    public function search(Request $request)
+    {
+        $products = $this->productService->search($request);
+        return view('shop.shop',['products'=>$products]);
     }
 }
