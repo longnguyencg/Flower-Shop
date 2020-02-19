@@ -20,4 +20,9 @@ class ReturnShopController extends Controller
     {
         return view('layouts.shop.blog');
     }
+
+    public function showCart()
+    {
+        return view('layouts.shop.cart');
+    }
 }
