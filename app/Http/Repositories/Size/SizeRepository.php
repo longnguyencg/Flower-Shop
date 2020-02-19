@@ -4,32 +4,40 @@
 namespace App\Http\Repositories\Size;
 
 
+use App\Size;
+
 class SizeRepository implements SizeRepositoryInterface
 {
+    protected $size;
+
+    public function __construct(Size $size)
+    {
+        $this->size = $size;
+    }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return $this->size->all();
     }
 
     public function store($obj)
     {
-        // TODO: Implement store() method.
+        $obj->save();
     }
 
-    public function show($id)
+    public function findById($id)
     {
-        // TODO: Implement show() method.
+        return $this->size->findOrfail($id);
     }
 
     public function update($obj)
     {
-        // TODO: Implement update() method.
+        $obj->save();
     }
 
     public function destroy($obj)
     {
-        // TODO: Implement destroy() method.
+        $obj->delete();
     }
 
     public function search($key)
