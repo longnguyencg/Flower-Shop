@@ -44,7 +44,8 @@ class ReturnShopController extends Controller
 
     public function showBlog()
     {
-        return view('shop.blog');
+        $posts = $this->postService->getAll();
+        return view('shop.blog',compact('posts'));
     }
 
     public function showCart()

@@ -54,48 +54,6 @@
                 </div>
 
 
-                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    <div class="breadcrumb-single blog_top_area">
-                        <ul id="breadcrumbs">
-                            <li><a href=""><i class="fa fa-home"></i>Home</a></li>
-                            <li><span>Ι</span></li>
-                            <li>Blog</li>
-                        </ul>
-                    </div>
-                    @foreach($posts as $post)
-                        <div class="single_blog_area">
-                            <img src="{{asset('storage/images/posts/'.$post->image)}}" alt=""/>
-                        </div>
-                        <div class="blog_details_area">
-                            <i class="fa fa-picture-o"></i>
-                            <div class="blog_details_list">
-                                <ul class="blog_author">
-                                    <li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>
-                                    <li><i class="fa fa-user"></i> {{$post->user->name}}</li>
-                                    <li><i class="fa fa-eye"></i> Hits: 256</li>
-                                    <li>
-                                        <div class="star_blog">
-                                            Rating:
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog_info_details">
-                                <h2><a class="blog_info_heading" href="#">{{$post->title}}</a></h2>
-                                <p>{!! $post->description !!}</p>
-                                <a class="readmore_link" href="#" title="Images">Read more ...</a>
-                                <a class="comments_link" href="#" title="1 comment">1 comment</a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-
 
             </div>
 
