@@ -8,21 +8,21 @@ class ReturnShopController extends Controller
 {
     public function index()
     {
-        return view('layouts.shop.index');
+        return view('shop.index');
     }
 
     public function showShop()
     {
-        return view('layouts.shop.shop');
+        return view('shop.shop');
     }
 
     public function showBlog()
     {
-        return view('layouts.shop.blog');
+        return view('shop.blog');
     }
 
     public function showCart()
     {
-        return view('layouts.shop.cart');
+        return view('shop.cart');
     }
 }
