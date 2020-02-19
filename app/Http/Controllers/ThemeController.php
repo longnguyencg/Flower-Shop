@@ -23,6 +23,7 @@ class ThemeController extends Controller
     public function store(Request $request)
     {
         $this->themeService->store($request);
+        return redirect()->route('theme.index');
     }
 
     public function findById($id)
@@ -34,11 +35,13 @@ class ThemeController extends Controller
     {
         $theme = $this->themeService->findById($id);
         $this->themeService->update($request,$theme);
+        return redirect()->route('theme.index');
     }
 
     public function destroy($id)
     {
         $theme = $this->themeService->findById($id);
         $this->themeService->destroy($theme);
+        return redirect()->route('theme.index');
     }
 }
