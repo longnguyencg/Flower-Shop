@@ -10,4 +10,6 @@ interface ProductServiceInterface extends ServiceInterface
 {
     public function paginating();
 
+    public function getEightProduct();
+
 }

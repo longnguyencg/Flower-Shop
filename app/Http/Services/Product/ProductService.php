@@ -103,8 +103,14 @@ class ProductService implements ProductServiceInterface
         // TODO: Implement search() method.
     }
 
+
     public function paginating()
     {
         return $this->productRepo->paginating();
+    }
+
+    public function getEightProduct()
+    {
+        return $this->productRepo->getEightProduct();
     }
 }

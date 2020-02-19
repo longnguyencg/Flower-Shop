@@ -21,7 +21,8 @@ class ReturnShopController extends Controller
     protected $sizeService;
     protected $postService;
     protected $themeService;
-    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService )
+
+    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService)
     {
         $this->productService = $productService;
         $this->formService = $formService;
@@ -34,7 +35,8 @@ class ReturnShopController extends Controller
 
     public function index()
     {
-        return view('shop.index');
+        $products = $this->productService->getEightProduct();
+        return view('shop.index',compact('products'));
     }
 
     public function showShop()

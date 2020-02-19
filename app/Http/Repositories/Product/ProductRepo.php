@@ -48,4 +48,9 @@ class ProductRepo implements ProductRepoInterface
     {
         return $this->product->paginate(9);
     }
+
+    public function getEightProduct()
+    {
+        return Product::orderBy('id', 'desc')->take(4)->get();
+    }
 }
