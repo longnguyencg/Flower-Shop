@@ -123,8 +123,7 @@
             <div id="form" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">FORM</h6>
-                    <a class="collapse-item" href="#">Create Form</a>
-                    <a class="collapse-item" href="#">List Form</a>
+                    <a class="collapse-item" href="{{route('form.index')}}">List Form</a>
                 </div>
             </div>
         </li>
@@ -182,8 +181,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">PRODUCT</h6>
-                    <a class="collapse-item" href="#">Show Product</a>
-                    <a class="collapse-item" href="#">Create Product</a>
+                    <a class="collapse-item" href="{{route('product.index')}}">Show Product</a>
+                    <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
                 </div>
             </div>
         </li>
