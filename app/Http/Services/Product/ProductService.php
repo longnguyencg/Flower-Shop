@@ -100,7 +100,12 @@ class ProductService implements ProductServiceInterface
 
     public function search($request)
     {
-        // TODO: Implement search() method.
+        $key = $request->key;
+        if (!$key) {
+            return redirect()->route('showShop');
+        } else {
+            return $this->productRepo->search($key);
+        }
     }
 
 

@@ -86,6 +86,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/delete/{id}', 'ProductController@destroy')->name('product.delete');
         Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
         Route::post('/edit/{id}', 'ProductController@update')->name('product.update');
+        Route::get('/search', 'ProductController@search')->name('product.search');
     });
 
     Route::prefix('types')->group(function () {
