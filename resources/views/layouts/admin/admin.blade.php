@@ -30,6 +30,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
+
 
 </head>
 
@@ -163,8 +166,8 @@
             <div id="post" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">POST</h6>
-                    <a class="collapse-item" href="#">Create Post</a>
-                    <a class="collapse-item" href="#">List Post</a>
+                    <a class="collapse-item" href="{{route('post.create')}}">Create Post</a>
+                    <a class="collapse-item" href="{{route('post.index')}}">List Post</a>
                 </div>
             </div>
         </li>
