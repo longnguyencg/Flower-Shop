@@ -18,7 +18,6 @@
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
 
-
 </head>
 
 <body id="page-top">
