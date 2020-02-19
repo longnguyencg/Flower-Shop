@@ -86,7 +86,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#theme"
-               aria-expanded="true" aria-controls="collapseTwo">
+               aria-expanded="true" aria-controls="theme">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Theme</span>
             </a>

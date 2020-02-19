@@ -19,13 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'ReturnShopController@index')->name('showList');
+//    Route::get('index','ReturnShopController@index')->name('showList');
+Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
+Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
+
 
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     });
+
 
 
     Route::prefix('/post')->group(function () {
@@ -62,6 +67,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     });
 });
+
+
 
 
 
