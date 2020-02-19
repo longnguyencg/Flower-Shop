@@ -37,7 +37,7 @@ class UserRepository implements UserRepositoryInterface
 
     public function search($key)
     {
-        return $this->user->where('user', 'like', '%' . $key . '%')->get();
+        return $this->user->where('name', 'like', '%' . $key . '%')->get();
     }
 
     public function findById($id)

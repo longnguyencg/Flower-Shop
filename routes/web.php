@@ -48,6 +48,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
 
     });
+    Route::prefix('users')->group(function () {
+        Route::get('/index', 'UserController@index')->name('user.index');
+        Route::get('/delete/{id}', 'UserController@destroy')->name('user.destroy');
+        Route::post('/edit/{id}', 'UserController@update')->name('user.edit');
+    });
 
     Route::prefix('color')->group(function () {
         Route::get('/', 'ColorController@index')->name('color.list');
