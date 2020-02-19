@@ -49,14 +49,6 @@
         </li>
 
 
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
-
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -86,19 +78,21 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwos"
-               aria-expanded="true" aria-controls="collapseTwos">
-                <i class="fas fa-fw fa-sad-cry"></i>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
+               aria-expanded="true" aria-controls="collapseCategories">
+                <i class="fas fa-fw fa-list-alt"></i>
                 <span>Size</span>
             </a>
-            <div id="collapseTwos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseCategories" class="collapse" aria-labelledby="headingCategories"
+                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">SIZE</h6>
+                    <h6 class="collapse-header">Size</h6>
                     <a class="collapse-item" href="{{route('size.create')}}">Create Size</a>
-                    <a class="collapse-item" href="{{route('size.index')}}">List Size</a>
+                    <a class="collapse-item" href="{{route('size.index')}}">Show Size</a>
                 </div>
             </div>
         </li>
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#form"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -108,8 +102,7 @@
             <div id="form" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">FORM</h6>
-                    <a class="collapse-item" href="#">Create Form</a>
-                    <a class="collapse-item" href="#">List Form</a>
+                    <a class="collapse-item" href="{{route('form.index')}}">List Form</a>
                 </div>
             </div>
         </li>
@@ -167,8 +160,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">PRODUCT</h6>
-                    <a class="collapse-item" href="#">Show Product</a>
-                    <a class="collapse-item" href="#">Create Product</a>
+                    <a class="collapse-item" href="{{route('product.index')}}">Show Product</a>
+                    <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
                 </div>
             </div>
         </li>
