@@ -17,31 +17,32 @@ class PostRepo implements PostRepoInterface
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return $this->post->all();
     }
 
     public function store($obj)
     {
-        // TODO: Implement store() method.
+       $obj->save();
     }
 
-    public function show($id)
-    {
-        // TODO: Implement show() method.
-    }
 
     public function update($obj)
     {
-        // TODO: Implement update() method.
+        $obj->save();
     }
 
     public function destroy($obj)
     {
-        // TODO: Implement destroy() method.
+        $obj->delete();
     }
 
     public function search($key)
     {
         // TODO: Implement search() method.
+    }
+
+    public function findById($id)
+    {
+        return $this->post->findOrFail($id);
     }
 }

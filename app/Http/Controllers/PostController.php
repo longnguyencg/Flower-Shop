@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Http\Services\Post\PostServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
@@ -21,7 +23,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.list');
+        $posts = $this->postService->getAll();
+        return view('admin.post.list',compact('posts'));
     }
 
     /**
@@ -40,9 +43,12 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $this->postService->store($request);
+        Session::flash('succes','Create thành công');
+
+        return redirect()->route('post.index');
     }
 
     /**
@@ -64,7 +70,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = $this->postService->findById($id);
+
+        return  view('admin.post.edit',compact('post'));
     }
 
     /**
@@ -74,9 +82,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $this->postService->update($request,$id);
+        Session::flash('succes','Edit thành công');
+        return redirect()->route('post.index');
     }
 
     /**
@@ -87,6 +97,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->postService->destroy($id);
+        Session::flash('succes','Delete thành công');
+
+        return redirect()->route('post.index');
     }
 }

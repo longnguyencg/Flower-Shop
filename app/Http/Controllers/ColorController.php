@@ -3,49 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Color;
+use App\Http\Services\Color\ColorService;
 use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
+
+    protected $coloService;
+
+    public function __construct(ColorService $colorService)
+    {
+        $this->coloService = $colorService;
+    }
+
     public function index()
     {
-        $colors = Color::all();
+        $colors = $this->coloService->getAll();
         return view('admin.color.list', compact('colors'));
     }
 
     public function create()
     {
-        $colors = Color::all();
+        $colors = $this->coloService->getAll();
         return view('admin.color.create', compact('colors'));
     }
 
     public function store(Request $request)
     {
-        $colors = new Color();
-        $colors->color = $request->color;
-        $colors->save();
+        $this->coloService->store($request);
         return redirect()->route('color.list');
 
     }
 
     public function destroy($id)
     {
-        $colors = Color::findOrFail($id);
-        $colors->delete();
+        $colors = $this->coloService->findById($id);
+        $this->coloService->destroy($colors);
         return redirect()->route('color.list');
     }
 
     public function edit($id)
     {
-        $colors = Color::findOrFail($id);
-        return view('admin.color.edit',compact('colors'));
+        $colors = $this->coloService->findById($id);
+        return view('admin.color.edit', compact('colors'));
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        $colors = Color::findOrFail($id);
-        $colors->color = $request->input('color');
-        $colors->save();
+        $colors = $this->coloService->findById($id);
+        $this->coloService->update($request,$colors);
         return redirect()->route('color.list');
     }
 }
