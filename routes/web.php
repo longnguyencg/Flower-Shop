@@ -21,9 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'ReturnShopController@index')->name('showList');
-//    Route::get('index','ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
 Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
+Route::get('showCart', 'ReturnShopController@showCart')->name('showCart');
 
 
 

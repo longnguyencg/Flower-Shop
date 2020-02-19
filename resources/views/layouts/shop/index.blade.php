@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href=""><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">2</span></a>
+                        <li><a href="{{route('showCart')}}"><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">2</span></a>
                             <div class="cart_down_area">
                                 <div class="cart_single">
                                     <a href="#"><img src="{{asset('img/cart/cart-1.jpg')}}" alt="" /></a>
@@ -251,57 +251,57 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul>
-                                <li><a href="index.html">Home</a>
+                                <li><a href="#">Home</a>
                                     <ul>
-                                        <li><a href="index-2.html">Home 2</a></li>
-                                        <li><a href="index-3.html">Home 3</a></li>
+                                        <li><a href="">Home 2</a></li>
+                                        <li><a href="">Home 3</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="shop.html">Clothings</a>
+                                <li><a href="">Clothings</a>
                                     <ul>
-                                        <li><a href="shop.html">Learning</a>
+                                        <li><a href="">Learning</a>
                                             <ul>
-                                                <li><a href="shop.html">Carnation</a></li>
-                                                <li><a href="shop.html">Daisy</a></li>
-                                                <li><a href="shop.html">Rose</a></li>
-                                                <li><a href="shop.html">Gladiolus</a></li>
+                                                <li><a href="">Carnation</a></li>
+                                                <li><a href="">Daisy</a></li>
+                                                <li><a href="">Rose</a></li>
+                                                <li><a href="">Gladiolus</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop.html">Lighting</a>
+                                        <li><a href="">Lighting</a>
                                             <ul>
-                                                <li><a href="shop.html">Carnation</a></li>
-                                                <li><a href="shop.html">Daisy</a></li>
-                                                <li><a href="shop.html">Rose</a></li>
-                                                <li><a href="shop.html">Gladiolus</a></li>
+                                                <li><a href="">Carnation</a></li>
+                                                <li><a href="">Daisy</a></li>
+                                                <li><a href="">Rose</a></li>
+                                                <li><a href="">Gladiolus</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="shop.html">Living Room</a></li>
-                                        <li><a href="shop.html">Lamp</a></li>
+                                        <li><a href="">Living Room</a></li>
+                                        <li><a href="">Lamp</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="shop.html">Lookbook</a>
+                                <li><a href="">Lookbook</a>
                                     <ul>
-                                        <li><a href="shop.html">Yellow Rose</a></li>
-                                        <li><a href="shop.html">White Ros</a></li>
+                                        <li><a href="">Yellow Rose</a></li>
+                                        <li><a href="">White Ros</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">Blog</a>
+                                <li><a href="">Blog</a>
                                     <ul>
-                                        <li><a href="single-blog.html">Single Blog</a></li>
+                                        <li><a href="">Single Blog</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="shop.html">Shop</a>
+                                <li><a href="">Shop</a>
                                     <ul>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="product.html">Product</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="my-account.html">My Account</a></li>
+                                        <li><a href="">Cart</a></li>
+                                        <li><a href="">Product</a></li>
+                                        <li><a href="">Checkout</a></li>
+                                        <li><a href="">My Account</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="about-us.html">Pages</a>
+                                <li><a href="">Pages</a>
                                     <ul>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="">About Us</a></li>
+                                        <li><a href="">Contact</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -316,32 +316,32 @@
 <!--End Main Menu area -->
 <!-- slider-area start -->
 @yield('start')
-Menu
+{{--Menu--}}
 <!-- slider-area end -->
 <!--Start Lateast Collection Top area -->
 @yield('lateast-top')
-latest
+{{--latest--}}
 <!--End Lateast Collection Top area -->
 <!--Start Lateast Collection bottom area -->
 @yield('lateast-bottom')
-latest bottom
+{{--latest bottom--}}
 <!--End Lateast Collection bottom area -->
 <!--Start Feature area -->
 @yield('feature')
-feature
+{{--feature--}}
 
 <!--End Feature area -->
 <!--Start Testimonila area -->
 @yield('testimonila')
-testimonila
+{{--testimonila--}}
 <!--End Testimonila area -->
 <!--Start Blog area -->
 @yield('blog')
-blog
+{{--blog--}}
 <!--End blog area -->
 <!--Start Contact info area -->
 @yield('contact')
-contact
+{{--contact--}}
 <!--End Contact info area -->
 <!--Start Branding area -->
 <div class="branding_area">

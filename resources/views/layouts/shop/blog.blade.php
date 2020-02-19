@@ -68,7 +68,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <!--Start Logo area -->
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{route('showList')}}">
                         <img src="{{asset('img/logo/logo3.png')}}" alt=""/>
                     </a>
                 </div>
@@ -98,7 +98,7 @@
                                 <div class="account_single_item">
                                     <h2>Setting</h2>
                                     <ul id="account_single_nav_3">
-                                        <li><a href="my-account.html">My Account</a></li>
+                                        <li><a href="">My Account</a></li>
                                         <li><a href="#">My Wishlist</a></li>
                                         <li><a href="#">My Cart</a></li>
                                         <li><a href="#">Checkout</a></li>
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="cart.html"><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">2</span></a>
+                        <li><a href=""><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">2</span></a>
                             <div class="cart_down_area">
                                 <div class="cart_single">
                                     <a href="#"><img src="{{asset('img/cart/cart-1.jpg')}}" alt=""/></a>
@@ -124,7 +124,7 @@
                                     <p>1 x $222.00</p>
                                 </div>
                                 <div class="cart_shoptings">
-                                    <a href="checkout.html">Checkout</a>
+                                    <a href="">Checkout</a>
                                 </div>
                             </div>
                         </li>
@@ -143,49 +143,49 @@
             <div class="col-md-12">
                 <div class="main_menu">
                     <ul id="nav_menu" class="active_cl">
-                        <li><a href="index.html"><span class="Home">Home</span></a>
+                        <li><a href="{{route('showList')}}"><span class="Home">Home</span></a>
                             <div class="home_mega_menu">
-                                <a href="index-2.html">Home 2</a>
-                                <a href="index-3.html">Home 3</a>
+                                <a href="">Home 2</a>
+                                <a href="">Home 3</a>
                             </div>
                         </li>
-                        <li><a href="shop.html"><span class="Clothings">Shop</span></a>
+                        <li><a href="{{route('showShop')}}"><span class="Clothings">Shop</span></a>
                             <!--Start Mega Menu area -->
                             <div class="mega_menu_list">
                                 <div class="single_megamenu">
                                     <h2>Learning</h2>
                                     <div class="items_list">
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Gladiolus</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Carnation</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Daisy</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Rose</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Gladiolus</a>
                                     </div>
                                 </div>
                                 <div class="single_megamenu">
                                     <h2>Lighting</h2>
                                     <div class="items_list">
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Gladiolus</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Carnation</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Daisy</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Rose</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Gladiolus</a>
                                     </div>
                                 </div>
                                 <div class="single_megamenu">
                                     <h2>Living Room</h2>
                                     <div class="items_list">
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Gladiolus</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Carnation</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Daisy</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Rose</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Gladiolus</a>
                                     </div>
                                 </div>
                                 <div class="single_megamenu">
                                     <h2>Lamp</h2>
                                     <div class="items_list">
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="shop.html"><i class="fa fa-angle-right"></i>Gladiolus</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Carnation</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Daisy</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Rose</a>
+                                        <a href=""><i class="fa fa-angle-right"></i>Gladiolus</a>
                                     </div>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@
                             </div>
                             <!--End Mega Menu area -->
                         </li>
-                        <li><a href="blog-left-sidebar.html"><span class="Footwear">Blog</span></a>
+                        <li><a href="{{route('showBlog')}}"><span class="Footwear">Blog</span></a>
                             <div class="home_mega_menu">
                                 <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
                                 <a href="blog-right-sidebar.html">Blog Right Sidebar </a>
