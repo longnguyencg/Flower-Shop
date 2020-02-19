@@ -50,9 +50,14 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label>review</label>
+                                <label>Review</label>
                                 <input type="text" class="form-control" name="review" placeholder="Enter review"
                                        value="{{ $review->review }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Star</label>
+                                <input type="number" class="form-control" name="star" placeholder="Enter star"
+                                value="{{ $review->star }}">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -76,7 +81,8 @@
                     <thead>
                     <tr>
                         <th>STT</th>
-                        <th>review</th>
+                        <th>Review</th>
+                        <th>Star</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -85,6 +91,7 @@
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ $review->review }}</td>
+                            <td>{{ $review->star }}</td>
                             <td>
                                 <a class="btn btn-danger" style="color: white"
                                    href="{{ route('review.destroy',$review->id) }}">Delete</a>
