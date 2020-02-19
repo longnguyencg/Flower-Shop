@@ -13,10 +13,6 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
@@ -70,7 +66,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#theme"
-               aria-expanded="true" aria-controls="collapseTwo">
+               aria-expanded="true" aria-controls="theme">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Theme</span>
             </a>
@@ -106,8 +102,7 @@
             <div id="form" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">FORM</h6>
-                    <a class="collapse-item" href="#">Create Form</a>
-                    <a class="collapse-item" href="#">List Form</a>
+                    <a class="collapse-item" href="{{route('form.index')}}">List Form</a>
                 </div>
             </div>
         </li>
@@ -165,8 +160,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">PRODUCT</h6>
-                    <a class="collapse-item" href="#">Show Product</a>
-                    <a class="collapse-item" href="#">Create Product</a>
+                    <a class="collapse-item" href="{{route('product.index')}}">Show Product</a>
+                    <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
                 </div>
             </div>
         </li>

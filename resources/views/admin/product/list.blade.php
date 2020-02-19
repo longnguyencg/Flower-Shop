@@ -24,14 +24,22 @@
                 </tr>
                 </tfoot>
                 <tbody>
+                @forelse($products as $key=> $product)
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
+                    <td>{{++$key}}</td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->price}}</td>
+                    <td>{{$product->quantity}}</td>
+                    <td>
+                        <a href="{{route('product.delete',$product->id)}}" class="btn btn-danger"  onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Delete</a>
+                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-dark" >Edit</a>
+                    </td>
                 </tr>
-
+                @empty
+                    <tr>
+                        <td colspan="5"> No data</td>
+                    </tr>
+                @endforelse
                 </tbody>
             </table>
         </div>
