@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,16 +23,25 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     });
 
+    Route::prefix('size')->group(function () {
+        Route::get('/list','SizeController@index')->name('size.index');
+        Route::get('/create','SizeController@create')->name('size.create');
+        Route::post('/store','SizeController@store')->name('size.store');
+        Route::get('/{id}destroy','SizeController@destroy')->name('size.destroy');
+        Route::get('/{id}edit','SizeController@edit')->name('size.edit');
+        Route::post('/{id}update','SizeController@update')->name('size.update');
+    });
 
-    Route::prefix('/post')->group(function () {
-        Route::get('/list', 'PostController@index')->name('post.index');
-        Route::get('/create', 'PostController@create')->name('post.create');
 
+    Route::prefix('/post')->group(function (){
+        Route::get('/list','PostController@index')->name('post.index');
+        Route::get('/create','PostController@create')->name('post.create');
     });
 
     Route::prefix('color')->group(function () {
@@ -42,7 +52,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/{id}edit', 'ColorController@edit')->name('color.edit');
         Route::post('/{id}update', 'ColorController@update')->name('color.update');
     });
-
 
     Route::prefix('types')->group(function () {
         Route::get('/', 'TypeController@index')->name('type.list');
