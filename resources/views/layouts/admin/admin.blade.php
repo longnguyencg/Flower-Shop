@@ -42,7 +42,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.index')}}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -55,7 +55,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{route('admin.index')}}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -93,8 +93,7 @@
             <div id="theme" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">THEME</h6>
-                    <a class="collapse-item" href="#">Create Theme</a>
-                    <a class="collapse-item" href="#">List Theme</a>
+                    <a class="collapse-item" href="{{route('theme.index')}}">List Theme</a>
                 </div>
             </div>
         </li>
@@ -135,8 +134,8 @@
             <div id="color" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">COLOR</h6>
-                    <a class="collapse-item" href="#">Create Color</a>
-                    <a class="collapse-item" href="#">List Color</a>
+                    <a class="collapse-item" href="{{route('color.create')}}">Create Color</a>
+                    <a class="collapse-item" href="{{route('color.list')}}">List Color</a>
                 </div>
             </div>
         </li>
@@ -149,8 +148,8 @@
             <div id="type" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">TYPE</h6>
-                    <a class="collapse-item" href="#">Create Type</a>
-                    <a class="collapse-item" href="#">List Type</a>
+                    <a class="collapse-item" href="{{route('type.create')}}">Create Type</a>
+                    <a class="collapse-item" href="{{route('type.list')}}">List Type</a>
                 </div>
             </div>
         </li>
