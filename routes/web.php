@@ -41,8 +41,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::post('/{id}/update', 'SizeController@update')->name('size.update');
     });
 
-
-
     Route::prefix('/post')->group(function () {
         Route::get('/', 'PostController@index')->name('post.index');
         Route::get('/create', 'PostController@create')->name('post.create');
@@ -51,6 +49,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/edit/{id}', 'PostController@edit')->name('post.edit');
         Route::post('/edit/{id}', 'PostController@update')->name('post.update');
     });
+
     Route::prefix('users')->group(function () {
         Route::get('/index', 'UserController@index')->name('user.index');
         Route::get('/delete/{id}', 'UserController@destroy')->name('user.destroy');
