@@ -5,43 +5,80 @@ namespace App\Http\Services\Post;
 
 
 use App\Http\Repositories\Post\PostRepoInterface;
+use App\Post;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostService implements PostServiceInterface
 {
     protected $postRepo;
 
-    public function __construct(PostRepoInterface $postRepo )
+    public function __construct(PostRepoInterface $postRepo)
     {
         $this->postRepo = $postRepo;
     }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return $this->postRepo->getAll();
     }
 
     public function store($request)
     {
-        // TODO: Implement store() method.
+        $post = new Post();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->content = $request->content;
+        $post->user_id = Auth::id();
+
+        if (!$request->hasFile('image')) {
+            $post->image = $request->image;
+        } else {
+            $image = $request->image;
+            $imageName = date('Y-m-d H:i:s') . $image->getClientOriginalName();
+            $request->image->storeAs('public/images/posts', $imageName);
+            $post->image = $imageName;
+        }
+        $this->postRepo->store($post);
     }
 
-    public function show($id)
-    {
-        // TODO: Implement show() method.
-    }
 
-    public function update($request, $obj)
+    public function update($request, $id)
     {
-        // TODO: Implement update() method.
+        $post = $this->postRepo->findById($id);
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->content = $request->content;
+        if ($request->image) {
+            $currentImage = $post->image;
+            if ($currentImage) {
+                Storage::delete('/public/images/posts/'.$currentImage);
+            }
+            $image = $request->image;
+            $imageName = date('Y-m-d H:i:s') . $image->getClientOriginalName();
+            $request->image->storeAs('public/images/posts', $imageName);
+            $post->image = $imageName;
+        }
+        $this->postRepo->update($post);
+
     }
 
     public function destroy($id)
     {
-        // TODO: Implement destroy() method.
+        $post = $this->postRepo->findById($id);
+        if ($post->image) {
+            Storage::delete('public/images/posts/'.$post->image);
+        }
+        $this->postRepo->destroy($post);
     }
 
     public function search($request)
     {
         // TODO: Implement search() method.
+    }
+
+    public function findById($id)
+    {
+        return $this->postRepo->findById($id);
     }
 }
