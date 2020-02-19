@@ -43,4 +43,9 @@ class ProductRepo implements ProductRepoInterface
     {
         // TODO: Implement search() method.
     }
+
+    public function getEightProduct()
+    {
+        return Product::orderBy('id','desc')->take(4)->get();
+    }
 }

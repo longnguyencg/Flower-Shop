@@ -102,4 +102,9 @@ class ProductService implements ProductServiceInterface
     {
         // TODO: Implement search() method.
     }
+
+    public function getEightProduct()
+    {
+        return $this->productRepo->getEightProduct();
+    }
 }
