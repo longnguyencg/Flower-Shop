@@ -23,29 +23,28 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('admin.index');
 
     Route::prefix('size')->group(function () {
-        Route::get('/list','SizeController@index')->name('size.index');
-        Route::get('/create','SizeController@create')->name('size.create');
-        Route::post('/store','SizeController@store')->name('size.store');
-        Route::get('/{id}destroy','SizeController@destroy')->name('size.destroy');
-        Route::get('/{id}edit','SizeController@edit')->name('size.edit');
-        Route::post('/{id}update','SizeController@update')->name('size.update');
+        Route::get('/list', 'SizeController@index')->name('size.index');
+        Route::get('/create', 'SizeController@create')->name('size.create');
+        Route::post('/store', 'SizeController@store')->name('size.store');
+        Route::get('/{id}destroy', 'SizeController@destroy')->name('size.destroy');
+        Route::get('/{id}edit', 'SizeController@edit')->name('size.edit');
+        Route::post('/{id}update', 'SizeController@update')->name('size.update');
     });
 
 
-    Route::prefix('/post')->group(function (){
-        Route::get('/','PostController@index')->name('post.index');
-        Route::get('/create','PostController@create')->name('post.create');
-        Route::post('/create','PostController@store')->name('post.store');
-        Route::get('/delete/{id}','PostController@destroy')->name('post.delete');
-        Route::get('/edit/{id}','PostController@edit')->name('post.edit');
-        Route::post('/edit/{id}','PostController@update')->name('post.update');
+    Route::prefix('/post')->group(function () {
+        Route::get('/', 'PostController@index')->name('post.index');
+        Route::get('/create', 'PostController@create')->name('post.create');
+        Route::post('/create', 'PostController@store')->name('post.store');
+        Route::get('/delete/{id}', 'PostController@destroy')->name('post.delete');
+        Route::get('/edit/{id}', 'PostController@edit')->name('post.edit');
+        Route::post('/edit/{id}', 'PostController@update')->name('post.update');
 
 
     });
@@ -57,6 +56,18 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/{id}destroy', 'ColorController@destroy')->name('color.destroy');
         Route::get('/{id}edit', 'ColorController@edit')->name('color.edit');
         Route::post('/{id}update', 'ColorController@update')->name('color.update');
+    });
+    Route::prefix('themes')->group(function () {
+        Route::get('/index', 'ThemeController@index')->name('theme.index');
+        Route::get('/delete/{id}', 'ThemeController@destroy')->name('theme.destroy');
+        Route::post('/create', 'ThemeController@store')->name('theme.create');
+        Route::post('/edit/{id}', 'ThemeController@update')->name('theme.edit');
+    });
+    Route::prefix('forms')->group(function () {
+        Route::get('/index', 'FormController@index')->name('form.index');
+        Route::get('/delete/{id}', 'FormController@destroy')->name('form.destroy');
+        Route::post('/create', 'FormController@store')->name('form.create');
+        Route::post('/edit/{id}', 'FormController@update')->name('form.edit');
     });
 
     Route::prefix('/product')->group(function () {
@@ -77,12 +88,11 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     });
 
-    Route::prefix('themes')->group(function () {
-        Route::get('/index', 'ThemeController@index')->name('theme.index');
-        Route::get('/delete/{id}', 'ThemeController@destroy')->name('theme.destroy');
-        Route::post('/create', 'ThemeController@store')->name('theme.create');
-        Route::post('/edit/{id}', 'ThemeController@update')->name('theme.edit');
-
+    Route::prefix('reviews')->group(function () {
+        Route::get('/index', 'ReviewController@index')->name('review.index');
+        Route::get('/delete/{id}', 'ReviewController@destroy')->name('review.destroy');
+        Route::post('/create', 'ReviewController@store')->name('review.create');
+        Route::post('/edit/{id}', 'ReviewController@update')->name('review.edit');
     });
 });
 
