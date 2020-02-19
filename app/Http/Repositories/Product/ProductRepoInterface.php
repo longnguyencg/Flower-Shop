@@ -8,5 +8,5 @@ use App\Http\Repositories\RepositoryInterface;
 
 interface ProductRepoInterface extends RepositoryInterface
 {
-
+    public function paginating();
 }

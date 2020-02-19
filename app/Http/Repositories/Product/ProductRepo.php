@@ -43,4 +43,9 @@ class ProductRepo implements ProductRepoInterface
     {
         // TODO: Implement search() method.
     }
+
+    public function paginating()
+    {
+        return $this->product->paginate(9);
+    }
 }

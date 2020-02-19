@@ -39,7 +39,8 @@ class ReturnShopController extends Controller
 
     public function showShop()
     {
-        return view('shop.shop');
+        $products = $this->productService->paginating();
+        return view('shop.shop',compact('products'));
     }
 
     public function showBlog()

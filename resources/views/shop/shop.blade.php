@@ -152,10 +152,85 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="catagory_banner">
+                                <img src="img/banner/category.jpg" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my_tabs">
+                        <ul class="tab_style">
+                            <li class="active"><a data-toggle="tab" href="#tab1"><span><i
+                                            class="fa fa-th"></i></span></a></li>
+                            <li><a data-toggle="tab" href="#tab2"><span><i class="fa fa-th-list"></i></span></a></li>
+                        </ul>
+                        <div class="limiter">
+                            <label>Show</label>
+                            <select>
+                                <option value="">9</option>
+                                <option value="" selected="selected">12</option>
+                                <option value="">24</option>
+                                <option value="">36</option>
+                            </select> per page
+                        </div>
+                        <div class="sort-by">
+                            <label>Sort By</label>
+                            <select>
+                                <option value="" selected="selected">Position</option>
+                                <option value="">Name</option>
+                                <option value="">Price</option>
+                            </select>
+                            <a href=""><i class="fa fa-long-arrow-up"></i></a>
+                        </div>
 
-                {{--            sadasdasdasdas--}}
+                        <div class="tab-content tab_content_style">
+                            <div id="tab1" class="tab-pane fade in active">
+                                <div class="row">
+                                    @foreach($products as $product)
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <div class="product_list">
+                                                <div class="single_product repomsive_768">
+                                                    <a href="product.html" target="main"><img style="width: 300px; height: 300px"
+                                                            src="{{asset('storage/images/products/'.$product->image)}}"
+                                                            alt=""/></a>
+                                                    <div class="product_details">
+                                                        <h2>{{$product->name}}</h2>
+                                                        <p><span class="regular_price">{{number_format($product->price)}}.VND</span><span
+                                                                class="popular_price">{{number_format($product->sale)}}</span></p>
+                                                    </div>
+                                                    <div class="product_detail">
+                                                        <div class="star_icon">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                        </div>
+                                                        <div class="product_button">
+                                                            <div class="cart_details">
+                                                                <a href="cart.html" target="blank">Add to cart</a>
+                                                            </div>
+                                                            <div class="cart_details">
+                                                                <a href="#" target="expand"><i class="fa fa-expand"></i></a>
+                                                            </div>
+                                                            <div class="cart_details">
+                                                                <a href="#" target="heart"><i class="fa fa-heart-o"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        {{$products->links()}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 @endsection
