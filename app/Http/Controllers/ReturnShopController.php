@@ -51,6 +51,12 @@ class ReturnShopController extends Controller
         return view('shop.blog',compact('posts'));
     }
 
+    public function singleBlog($id)
+    {
+        $post = $this->postService->findById($id);
+        return view('shop.singleBlog',compact('post'));
+    }
+
     public function showCart()
     {
         return view('shop.cart');

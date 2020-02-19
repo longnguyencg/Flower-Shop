@@ -14,9 +14,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
@@ -24,6 +24,7 @@ Route::get('/', 'ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
 Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
 Route::get('showCart', 'ReturnShopController@showCart')->name('showCart');
+Route::get('singleBlog/{id}', 'ReturnShopController@singleBlog')->name('singleBlog');
 
 
 
