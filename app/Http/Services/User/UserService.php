@@ -6,6 +6,7 @@ namespace App\Http\Services\User;
 
 use App\Http\Repositories\User\UserRepository;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserService implements UserServiceInterface
@@ -38,11 +39,17 @@ class UserService implements UserServiceInterface
     }
 
     public function update($request, $obj)
-    {;
-        $obj->name = $request->user;
-        $obj->email = $request->email;
-        $obj->password = Hash::make($request->password);
-        $this->userRepo->update($obj);
+    {
+        $current = Auth::user()->password;
+        if (Hash::check($request->oldPassword, $current)){
+           $obj->name = $request->user;
+           $obj->email = $request->email;
+           if ($request->password){
+               $obj->password = Hash::make($request->password);
+           }
+           $this->userRepo->update($obj);
+       }
+
     }
 
     public function destroy($obj)

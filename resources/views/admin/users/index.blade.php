@@ -1,6 +1,7 @@
 @extends('layouts.admin.admin')
 @section('page-heading','User')
 @section('content')
+
     @forelse($users as $key=>$user)
         <div class="modal fade" id="EditModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
@@ -26,8 +27,12 @@
                                 value="{{ $user->email }}">
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" name="password" value="*******">
+                                <label>New Password</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label>Old Password</label>
+                                <input type="password" class="form-control" name="oldPassword">
                             </div>
                         </div>
                         <div class="modal-footer">

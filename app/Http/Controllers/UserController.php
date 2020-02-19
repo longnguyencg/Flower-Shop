@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\User\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
