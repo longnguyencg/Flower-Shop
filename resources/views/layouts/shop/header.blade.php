@@ -26,51 +26,47 @@
                 <!--Start Header Right Cart area -->
                 <div class="account_card_area">
                     <ul id="account_nav">
-                        <li><a href="#"><i class="fa fa-key"></i>Account</a>
+                        <li><a href="#"><i class="fa fa-key"></i>{{__('language.Account')}}</a>
                             <div class="account_menu_list">
                                 <div class="account_single_item">
-                                    <h2>Currency</h2>
+                                    <h2>{{__('language.Currency')}}</h2>
                                     <ul id="account_single_nav_1">
-                                        <li><a href="#">Euro</a></li>
-                                        <li><a href="#">US Dollor</a></li>
+                                        <li><a href="#">{{__('language.Euro')}}</a></li>
+                                        <li><a href="#">{{__('language.US_Dollar')}}</a></li>
                                     </ul>
                                 </div>
                                 <div class="account_single_item">
-                                    <h2>Language</h2>
+                                    <h2>{{__('language.Language')}}</h2>
                                     <ul id="account_single_nav_2">
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">France</a></li>
-                                        <li><a href="#">Germany</a></li>
+                                        <li><a href="{{ route('user.change-language', 'en') }}">{{__('language.English')}}</a></li>
+                                        <li><a href="{{ route('user.change-language', 'vi') }}">{{__('language.Vietnames')}}</a></li>
                                     </ul>
                                 </div>
                                 <div class="account_single_item">
-                                    <h2>Setting</h2>
+                                    <h2>{{__('language.Setting')}}</h2>
                                     <ul id="account_single_nav_3">
-                                        <li><a href="#">My Account</a></li>
-                                        <li><a href="#">My Wishlist</a></li>
-                                        <li><a href="">My Cart</a></li>
-                                        <li><a href="">Checkout</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="">Blog</a></li>
-                                        <li><a href="#">Log In</a></li>
+                                        <li><a href="#">{{__('language.My_Account')}}</a></li>
+                                        <li><a href="#">{{__('language.My_Wishlist')}}</a></li>
+                                        <li><a href="">{{__('language.My_Cart')}}</a></li>
+                                        <li><a href="">{{__('language.Checkout')}}</a></li>
+                                        <li><a href="#">{{__('language.Testimonial')}}</a></li>
+                                        <li><a href="">{{__('language.Blog')}}</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('showCart')}}"><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">2</span></a>
+                        <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">{{ (Session::has('cart')) ? count(Session::get('cart')->items) : "0" }}</span></a>
                             <div class="cart_down_area">
+                                @foreach ($cart->items as $product)
                                 <div class="cart_single">
-                                    <a href="#"><img src="{{asset('img/cart/cart-1.jpg')}}" alt="" /></a>
-                                    <h2><a href="#">Pellentesque hendrerit</a> <a href="#"><span><i class="fa fa-trash"></i></span></a></h2>
-                                    <p>1 x $11.00</p>
+                                    <a href="#"><img src="{{asset('storage/images/products/'. $product['item']->image) }}" style="width: 20%;height: 20%" alt="" /></a>
+                                    <h2><a href="#">{{ $product['item']->name }}</a> <a href="#"><span><i class="fa fa-trash"></i></span></a></h2>
+                                    <p>{{ '$' . $product['item']->price }} * {{ $product['qty'] }}</p>
                                 </div>
-                                <div class="cart_single">
-                                    <a href="#"><img src="{{asset('img/cart/cart-2.jpg')}}" alt="" /></a>
-                                    <h2><a href="#">Pellentesque hendrerit</a> <a href="#"><span><i class="fa fa-trash"></i></span></a></h2>
-                                    <p>1 x $22.00</p>
-                                </div>
+                                @endforeach
+
                                 <div class="cart_shoptings">
-                                    <a href="">Checkout</a>
+                                    <a href="">{{__('language.Cart')}}</a>
                                 </div>
                             </div>
                         </li>
