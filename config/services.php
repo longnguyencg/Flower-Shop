@@ -31,9 +31,14 @@ return [
     ],
 
     'google' => [
-        'client_id' => '571472164021-p7ksg6cai6npceco0n8lcrl27mp9uspr.apps.googleusercontent.com',
-        'client_secret' => 'eie-FQtvxP1hTJm-sCBFpTYc',
-        'redirect' => 'http://127.0.0.1:8000/callback/google',
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT'),
+    ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
     ],
 
 ];
