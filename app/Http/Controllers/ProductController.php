@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = $this->productService->getAll();
-        return  view('admin.product.list',compact('products'));
+        return view('admin.product.list', compact('products'));
     }
 
     /**
@@ -50,13 +50,13 @@ class ProductController extends Controller
         $forms = $this->formService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
-        return  view('admin.product.create',compact('forms','types', 'sizes', 'themes'));
+        return view('admin.product.create', compact('forms', 'types', 'sizes', 'themes'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
@@ -68,7 +68,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -79,7 +79,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,20 +89,20 @@ class ProductController extends Controller
         $forms = $this->formService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
-        return  view('admin.product.edit',compact('product','types','forms','sizes','themes'));
+        return view('admin.product.edit', compact('product', 'types', 'forms', 'sizes', 'themes'));
 
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(ProductRequest $request, $id)
     {
-        $this->productService->update($request,$id);
+        $this->productService->update($request, $id);
         return redirect()->route('product.index');
     }
 
@@ -117,6 +117,5 @@ class ProductController extends Controller
         $this->productService->destroy($id);
         return redirect()->route('product.index');
     }
-
 
 }
