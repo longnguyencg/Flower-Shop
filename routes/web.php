@@ -42,6 +42,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.index');
 
+    Route::get('/logout','Auth\LoginController@logout')->name('logout');
+
     Route::prefix('size')->group(function () {
         Route::get('/list', 'SizeController@index')->name('size.index');
         Route::get('/create', 'SizeController@create')->name('size.create');
@@ -144,5 +146,4 @@ Route::middleware('locale')->group(function () {
     Route::get('change-language/{language}', 'LanguageController@changeLanguage')->name('user.change-language');
 
 });
-
 
