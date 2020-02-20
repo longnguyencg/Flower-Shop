@@ -12,7 +12,8 @@
                 <div class="slider-text">
                     <div class="middle-text">
                         <div class="width-cap">
-                            <h3 class="slider-tiile-top top-ani-1" style="font-size: 60px;"><span>{{__('language.Flower_For_your')}}</span>
+                            <h3 class="slider-tiile-top top-ani-1" style="font-size: 60px;">
+                                <span>{{__('language.Flower_For_your')}}</span>
                             </h3>
                             <h2 class="slider-tiile-middle middle-ani-1"><span>{{__('language.Special')}}</span></h2>
                             <div class="slider-readmore">
@@ -22,7 +23,8 @@
                                 <a href="{{route('showShop')}}">{{__('language.Shopping_Now')}}</a>
                             </div>
                         </div>
-                    </div>w
+                    </div>
+                    w
                 </div>
             </div>
             <div id="htmlcaption2" class="nivo-html-caption slider-caption">
@@ -30,9 +32,11 @@
                 <div class="slider-text">
                     <div class="middle-text">
                         <div class="width-cap">
-                            <h3 class="slider2-tiile-top top-ani-2"><span>{{__('language.The_Bigest_Selection_Of_Fresh_Flowers')}}</span>
+                            <h3 class="slider2-tiile-top top-ani-2">
+                                <span>{{__('language.The_Bigest_Selection_Of_Fresh_Flowers')}}</span>
                             </h3>
-                            <h2 class="slider2-tiile-middle middle-ani-2"><span>{{__('language.Fresh_Tulips')}}</span></h2>
+                            <h2 class="slider2-tiile-middle middle-ani-2"><span>{{__('language.Fresh_Tulips')}}</span>
+                            </h2>
                             <div class="slider2-readmore">
                                 <a href="">{{__('language.Contact')}}</a>
                             </div>
@@ -57,8 +61,9 @@
                             <h2><a href="#">{{__('language.Birthday_Bouguets')}}</a></h2>
                         </div>
                         <div class="shop_collection">
-                            <a href="">{{__('language.Shop_the_Collection')}} <span><img src="{{asset('img/arrow/bkg_newsletter.png')}}"
-                                                                      alt=""/></span></a>
+                            <a href="">{{__('language.Shop_the_Collection')}} <span><img
+                                        src="{{asset('img/arrow/bkg_newsletter.png')}}"
+                                        alt=""/></span></a>
                         </div>
                     </div>
                 </div>
@@ -70,8 +75,9 @@
                             <h2><a href="#">{{__('language.Wedding_Flower')}}</a></h2>
                         </div>
                         <div class="shop_collection">
-                            <a href="">{{__('language.Shop_the_Collection')}}<span><img src="{{asset('img/arrow/bkg_newsletter.png')}}"
-                                                                      alt=""/></span></a>
+                            <a href="">{{__('language.Shop_the_Collection')}}<span><img
+                                        src="{{asset('img/arrow/bkg_newsletter.png')}}"
+                                        alt=""/></span></a>
                         </div>
                     </div>
                 </div>
@@ -89,8 +95,9 @@
                             <h3><a href="#">{{__('language.Love_&_Romance')}}</a></h3>
                         </div>
                         <div class="shop_collection">
-                            <a href="">{{__('language.Shop_the_Collection')}}<span><img src="{{asset('img/arrow/bkg_newsletter.png')}}"
-                                                                      alt=""/></span></a>
+                            <a href="">{{__('language.Shop_the_Collection')}}<span><img
+                                        src="{{asset('img/arrow/bkg_newsletter.png')}}"
+                                        alt=""/></span></a>
                         </div>
                     </div>
                 </div>
@@ -102,8 +109,9 @@
                             <h3><a href="#">{{__('language.Valentine_Day_Flower')}}</a></h3>
                         </div>
                         <div class="shop_collection">
-                            <a href="">{{__('language.Shop_the_Collection')}}<span><img src="{{asset('img/arrow/bkg_newsletter.png')}}"
-                                                                      alt=""/></span></a>
+                            <a href="">{{__('language.Shop_the_Collection')}}<span><img
+                                        src="{{asset('img/arrow/bkg_newsletter.png')}}"
+                                        alt=""/></span></a>
                         </div>
                     </div>
                 </div>
@@ -115,8 +123,9 @@
                             <h3><a href="#">{{__('language.Sale_up_to_20%_off')}}</a></h3>
                         </div>
                         <div class="shop_collection">
-                            <a href="">{{__('language.Shop_the_Collection')}}<span><img src="{{asset('img/arrow/bkg_newsletter.png')}}"
-                                                                      alt=""/></span></a>
+                            <a href="">{{__('language.Shop_the_Collection')}}<span><img
+                                        src="{{asset('img/arrow/bkg_newsletter.png')}}"
+                                        alt=""/></span></a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +163,7 @@
                         <div class="product_list">
 
                             <div class="single_product">
-                                <a href="" target="main"><img
+                                <a href="{{ route('shop.index',$product->id) }}" target="main"><img
                                         src="{{asset('storage/images/products/'.$product->image)}}"
                                         style="width: 300px;height: 300px" alt=""/></a>
                                 <div class="product_details">
@@ -163,16 +172,10 @@
                                             class="popular_price">${{$product->sale}}</span></p>
                                 </div>
                                 <div class="product_detail">
-                                    <div class="star_icon">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
                                     <div class="product_button">
                                         <div class="cart_details">
-                                            <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to cart</a>
+                                            <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to
+                                                cart</a>
                                         </div>
                                         <div class="cart_details">
                                             <a href="#" target="expand"><i class="fa fa-expand"></i></a>
@@ -199,3 +202,4 @@
     </div>
 
 @endsection
+
