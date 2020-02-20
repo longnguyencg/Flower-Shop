@@ -39,6 +39,10 @@ Route::get('/findByTheme-{id}', 'ReturnShopController@findProductByThemeId')->na
 Route::get('/findByType-{id}', 'ReturnShopController@findProductByTypeId')->name('shop.searchByType');
 Route::get('/findByColor-{id}', 'ReturnShopController@findProductByColorId')->name('shop.searchByColor');
 
+Route::get('/details-{id}', 'DetailsProductController@index')->name('shop.index');
+Route::post('/new/review', 'DetailsProductController@store')->name('shop.store');
+
+
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', function () {

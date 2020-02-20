@@ -184,7 +184,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <div class="product_list">
                                                 <div class="single_product repomsive_768">
-                                                    <a href="product.html" target="main"><img
+                                                    <a href="{{ route('shop.index',$product->id) }}" target="main"><img
                                                             style="width: 300px; height: 300px"
                                                             src="{{asset('storage/images/products/'.$product->image)}}"
                                                             alt=""/></a>
