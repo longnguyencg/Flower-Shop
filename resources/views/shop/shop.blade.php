@@ -205,7 +205,7 @@
                                                         </div>
                                                         <div class="product_button">
                                                             <div class="cart_details">
-                                                                <a href="cart.html" target="blank">Add to cart</a>
+                                                                <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to cart</a>
                                                             </div>
                                                             <div class="cart_details">
                                                                 <a href="#" target="expand"><i class="fa fa-expand"></i></a>
