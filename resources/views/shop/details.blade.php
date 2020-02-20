@@ -90,8 +90,8 @@
                         <div class="cart_blog_item">
                             <div class="add-to-cart">
                                 <input type="text" title="Qty" value="1" class="qty"/>
-                                <button type="button" title="Add to Cart" class="cart_button"><span>Add to Cart</span>
-                                </button>
+                                <button class="cart_button"><a href="{{ route('cart.addToCart', $product->id) }}"  title="Add to Cart" ><span>Add to Cart</span>
+                                </a></button>
                             </div>
                         </div>
                     </div>

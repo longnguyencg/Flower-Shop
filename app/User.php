@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->belongsToMany('App\Product');
+        return $this->belongsToMany('App\Product','wishlists','user_id','product_id');
     }
 
     public function posts()
