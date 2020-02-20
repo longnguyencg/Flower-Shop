@@ -9,6 +9,8 @@ use App\Http\Services\Product\ProductService;
 use App\Http\Services\Size\SizeService;
 use App\Http\Services\Theme\ThemeService;
 use App\Http\Services\Type\TypeService;
+use App\Cart;
+use Illuminate\Support\Facades\Session;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -36,21 +38,22 @@ class ReturnShopController extends Controller
     public function index()
     {
         $products = $this->productService->getEightProduct();
-        return view('shop.index',compact('products'));
+        $cart = Session::get('cart');
+
+
+        return view('shop.index', compact('products', 'cart'));
     }
 
     public function showShop()
     {
-        return view('shop.shop');
+        $cart = Session::get('cart');
+        return view('shop.shop',compact('cart'));
     }
 
     public function showBlog()
     {
-        return view('shop.blog');
+        $cart = Session::get('cart');
+        return view('shop.blog',compact('cart'));
     }
 
-    public function showCart()
-    {
-        return view('shop.cart');
-    }
 }

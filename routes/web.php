@@ -20,12 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', 'ReturnShopController@index')->name('showList');
-Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
-Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
-Route::get('showCart', 'ReturnShopController@showCart')->name('showCart');
-
-
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -107,12 +101,21 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 });
 
 
+Route::get('/', 'ReturnShopController@index')->name('showList');
+Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
+Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
+Route::get('showCart', 'ReturnShopController@showCart')->name('showCart');
 
 
+Route::get('/cart', 'ShoppingCartController@index')->name('cart.index');
+Route::get('/index', 'ShoppingCartController@showFormCart')->name('cart.cart');
 
 
+//Cart
+Route::get('/add-to-cart/{id}', 'ShoppingCartController@addToCart')->name('cart.addToCart');
+Route::get('/remove-to-cart/{id}', 'ShoppingCartController@removeProductIntoCart')->name('cart.removeProductIntoCart');
+Route::post('/update-to-cart/{id}', 'ShoppingCartController@updateProductIntoCart')->name('cart.updateProductIntoCart');
 
-
-
-
+//Language
+Route::get('change-language/{language}', 'LanguageController@changeLanguage')->name('user.change-language');
 
