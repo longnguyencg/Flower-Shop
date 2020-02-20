@@ -31,10 +31,10 @@
                                 <th>{{__('language.Price')}}</th>
                                 <th>{{__('language.Quantity')}}</th>
                                 <th>{{__('language.Subtotal')}}</th>
-                                <th></th>
+                                <th style="width: 200%"></th>
                             </tr>
                             @if(Session::has('cart'))
-{{--                                {{dd($cart)}}--}}
+                                {{--                                {{dd($cart)}}--}}
                                 @foreach($cart->items as $product)
                                     <tr>
                                         <td><a href="#"><img
@@ -52,17 +52,18 @@
                                             </td>
                                             <td data-th="Subtotal" class="text-center">{{ $product['price']  }}</td>
                                             <td class="actions" data-th="">
-                                                <button class="btn btn-info btn-sm" type="submit"><i
-                                                        class="fa fa-refresh"></i></button>
+                                                <button class="btn btn-info  btn-sm" type="submit"><i
+                                                        class="fa fa-refresh fa-2x"></i></button>
                                                 <a class="btn btn-danger btn-sm"
-                                                   href="{{ route('cart.removeProductIntoCart', $product['item']->id) }}"  style="width: 100%"><i
-                                                        class="fa fa-trash-o"></i></a>
+                                                   href="{{ route('cart.removeProductIntoCart', $product['item']->id) }}"><i
+                                                        class="fa fa-trash-o fa-2x"></i></a>
                                             </td>
                                         </form>
                                     </tr>
                                 @endforeach
                                 <tr class="visible-xs">
-                                    <td class="text-center"><strong>{{__('language.Total_money')}}: ${{ $cart->totalPrice }}</strong></td>
+                                    <td class="text-center"><strong>{{__('language.Total_money')}}:
+                                            ${{ $cart->totalPrice }}</strong></td>
                                 </tr>
                                 <tfoot>
 
@@ -71,9 +72,11 @@
                                                 class="fa fa-angle-left"></i>{{__('language.Continue_Shopping')}}</a>
                                     </td>
                                     <td colspan="2" class="hidden-xs"></td>
+                                    <td class="hidden-lg"></td>
+                                    <td></td>
                                     <td class="hidden-xs text-center"><strong>{{__('language.Total_money')}}:
                                             ${{ $cart->totalPrice }}</strong></td>
-                                    <td><a href="#" class="btn btn-success btn-block">{{__('language.Checkout')}} <i
+                                    <td><a href="#" class="btn btn-success btn-block">{{__('language.Checkout')}}<i
                                                 class="fa fa-angle-right"></i></a></td>
                                 </tr>
                                 </tfoot>
