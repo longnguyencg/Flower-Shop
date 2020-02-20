@@ -27,8 +27,8 @@ class ReviewService implements ReviewServiceInterface
         $review = new review();
         $review->review = $request->review;
         $review->star = $request->star;
-        $review->product = $request->product;
-        $review->user = $request->user;
+        $review->product_id = $request->product;
+        $review->user_id = $request->user;
         $this->reviewRepo->store($review);
     }
 

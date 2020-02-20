@@ -109,7 +109,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/index', 'ReviewController@index')->name('review.index');
         Route::get('/delete/{id}', 'ReviewController@destroy')->name('review.destroy');
         Route::post('/create', 'ReviewController@store')->name('review.create');
-        Route::post('/edit/{id}', 'ReviewController@update')->name('review. edit');
+        Route::post('/edit/{id}', 'ReviewController@update')->name('review.edit');
     });
 
     Route::prefix('comments')->group(function (){
