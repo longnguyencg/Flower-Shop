@@ -11,6 +11,7 @@ use App\Http\Services\Size\SizeService;
 use App\Http\Services\Theme\ThemeService;
 use App\Http\Services\Type\TypeService;
 use App\Cart;
+use App\Http\Services\WishListService\WishListService;
 use Illuminate\Support\Facades\Session;
 use App\Product;
 use Illuminate\Http\Request;
@@ -25,8 +26,9 @@ class ReturnShopController extends Controller
     protected $postService;
     protected $themeService;
     protected $commentService;
+    protected $wishListService;
 
-    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService)
+    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService, WishListService $wishListService)
     {
         $this->productService = $productService;
         $this->formService = $formService;
@@ -36,6 +38,7 @@ class ReturnShopController extends Controller
         $this->postService = $postService;
         $this->themeService = $themeService;
         $this->commentService = $commentService;
+        $this->wishListService = $wishListService;
     }
 
     public function index()
@@ -125,6 +128,23 @@ class ReturnShopController extends Controller
         $products = $this->productService->findProductByTypeId($id);
         $cart = Session::get('cart');
         return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
+    }
+
+    public function wishlist()
+    {
+        return view('shop.wishList');
+    }
+
+    public function addToWishList($id)
+    {
+        $this->wishListService->store($id);
+        return redirect()->back();
+    }
+
+    public function deleteProductInWishList($id)
+    {
+        $this->wishListService->destroy($id);
+        return redirect()->route('wishlist.index');
     }
 
 

@@ -15,12 +15,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-
 Auth::routes();
 Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
-
 
 
 Route::get('/', 'ReturnShopController@index')->name('showList');
@@ -42,7 +40,6 @@ Route::get('/findByColor-{id}', 'ReturnShopController@findProductByColorId')->na
 Route::get('/details-{id}', 'DetailsProductController@index')->name('shop.index');
 Route::post('/new/review', 'DetailsProductController@store')->name('shop.store');
 Route::get('/star/{id}', 'DetailsProductController@detailOnHomePage');
-
 
 
 Route::middleware('auth')->prefix('admin')->group(function () {
@@ -149,6 +146,11 @@ Route::middleware('locale')->group(function () {
 
 //Language
     Route::get('change-language/{language}', 'LanguageController@changeLanguage')->name('user.change-language');
+
+//wishlist
+    Route::get('wishlist','ReturnShopController@index')->name('wishlist.index');
+    Route::get('add-to-wishlist/{id}','ReturnShopController@addToWishList')->name('wishlist.addToWishList');
+    Route::get('delete-wishlist/{id}','ReturnShopController@deleteProductInWishList')->name('wishlist.deleteFromWishList');
 
 });
 

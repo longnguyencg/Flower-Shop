@@ -75,6 +75,32 @@
                     </div>
                     <div class="product_options_area">
                         <div class="product_options_selection">
+                            <ul id="options_selection">
+                                <li><span class="star_color">*</span><span class="Product_color">color</span> <span
+                                        class="required">*Required Fields</span></li>
+                                <li>
+                                    <select>
+                                        <option value="" selected="selected">-- Please Select --</option>
+                                        <option value="">black +$2.00</option>
+                                        <option value="">blue +$1.00</option>
+                                        <option value="">yellow +$1.00</option>
+                                    </select>
+                                </li>
+                                <li><span class="star_color">*</span><span class="Product_color">size</span></li>
+                                <li>
+                                    <select>
+                                        <option value="" selected="selected">-- Please Select --</option>
+                                        <option value="">L +$2.00</option>
+                                        <option value="">M +$1.00</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cart_blog_item">
+                            <div class="add-to-cart">
+                                <input type="text" title="Qty" value="1" class="qty"/>
+                                <button class="cart_button"><a href="{{ route('cart.addToCart', $product->id) }}"  title="Add to Cart" ><span>Add to Cart</span>
+                                </a></button>
                             <div style="margin-left: 20px;margin-top: 10px">
                                 @forelse($reviews as $review)
                                     <i class="fa fa-user"></i> {{ $review->user->name }} rated
