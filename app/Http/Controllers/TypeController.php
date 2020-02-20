@@ -40,7 +40,8 @@ class TypeController extends Controller
 
     public function destroy($id)
     {
-        $this->typeService->destroy($id);
+        $type = $this->typeService->findById($id);
+        $this->typeService->destroy($type);
         return redirect()->route('type.list');
     }
 
