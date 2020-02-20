@@ -148,7 +148,7 @@ Route::middleware('locale')->group(function () {
     Route::get('change-language/{language}', 'LanguageController@changeLanguage')->name('user.change-language');
 
 //wishlist
-    Route::get('wishlist','ReturnShopController@index')->name('wishlist.index');
+    Route::get('wishlist','ReturnShopController@wishlist')->name('wishlist.index');
     Route::get('add-to-wishlist/{id}','ReturnShopController@addToWishList')->name('wishlist.addToWishList');
     Route::get('delete-wishlist/{id}','ReturnShopController@deleteProductInWishList')->name('wishlist.deleteFromWishList');
 

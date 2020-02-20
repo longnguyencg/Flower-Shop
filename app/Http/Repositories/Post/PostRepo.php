@@ -45,4 +45,9 @@ class PostRepo implements PostRepoInterface
     {
         return $this->post->findOrFail($id);
     }
+
+    public function lastestPosts()
+    {
+        return Post::orderBy('id', 'desc')->take(5)->get();
+    }
 }

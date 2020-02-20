@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app')/var/www/html/demo-laravel
 
 @section('content')
 <div class="container">

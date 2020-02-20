@@ -7,25 +7,22 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="catagory_price_color">
                         <div class="catagory_area">
-                            <h2>CATEGORY</h2>
+                            <h2>{{__('language.title')}}</h2>
                             <ul class="catagory">
-                                <li><a href="#"><i class="fa fa-angle-right"></i>LEARNING</a> <span>(4)</span></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>LIGHTING</a><span>(6)</span></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>LIVING ROOMS</a><span>(8)</span></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>LAMP</a><span>(10)</span></li>
+                                @foreach($themes as $theme)
+                                    <li><a href="{{route('shop.searchByTheme',$theme->id)}}"><i class="fa fa-angle-right"></i>{{$theme->theme}}</a>
+                                        <span>({{$theme->products->count()}})</span></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
                     <div class="popular_tag_area">
                         <div class="popular_items">
-                            <h2>POPULAR TAGS</h2>
+                            <h2>{{__('language.flower')}}</h2>
                             <ul id="single_popular">
-                                <li><a href="#">Nunc</a></li>
-                                <li><a href="#">aliquet</a></li>
-                                <li><a href="#">convallis</a></li>
-                                <li><a href="#">eros</a></li>
-                                <li><a href="#">facilisis</a></li>
-                                <li><a href="#">fashion</a></li>
+                                @foreach($types as $type)
+                                    <li><a href="{{route('shop.searchByType',$type->id)}}">{{$type->type}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -147,29 +144,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($products as $product)
                                     <tr class="wishlist_1">
                                         <td>
                                             <div class="cartpage-image">
-                                                <a href="#"><img src="img/cart/wishlist1.jpg" alt="" /></a>
+                                                <a href="#"><img src="{{asset('storage/images/products/'.$product->image)}}" alt="" style="width: 100px"/></a>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="cartpage-pro-dec">
-                                                <h2><a href="#">Consequences</a></h2>
-                                                <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus Males tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate Mollis eget non. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
+                                                <h2><a href="#">{{$product->name}}</a></h2>
+                                                {!!  $product->description !!}
                                                 <textarea class="yourmessage" placeholder="Please, enter your comments..."></textarea>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="cart-page-edit">
                                                 <div class="w-price">
-                                                    <span class="regular-price">$14.00</span>
+                                                    <span class="regular-price">{{$product->price}}</span>
                                                 </div>
                                                 <div class="cart-plus-minus">
                                                     <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
                                                 </div>
                                                 <div class="pro-add-to-cart">
-                                                    <p><a title="Add to Cart" href="#">Add to Cart</a></p>
+                                                    <p><a title="Add to Cart" href="{{route('cart.addToCart', $product->id)}}">Add to Cart</a></p>
                                                 </div>
                                                 <div class="w-edit">
                                                     <a href="#">Edit</a>
@@ -178,80 +176,11 @@
                                         </td>
                                         <td>
                                             <div class="cartpage-item-remove">
-                                                <a title="Remove" href="#">Remove</a>
+                                                <a title="Remove" href="{{route('wishlist.deleteFromWishList',$product->id)}}">Remove</a>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="wishlist_2">
-                                        <td>
-                                            <div class="cartpage-image">
-                                                <a href="#"><img src="img/cart/wishlist2.jpg" alt="" /></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cartpage-pro-dec">
-                                                <h2><a href="#">Donec non est</a></h2>
-                                                <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus Males tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate Mollis eget non. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis. </p>
-                                                <textarea class="yourmessage" placeholder="Please, enter your comments..."></textarea>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cart-page-edit">
-                                                <div class="w-price">
-                                                    <span class="regular-price">$9.99</span>
-                                                </div>
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
-                                                </div>
-                                                <div class="pro-add-to-cart">
-                                                    <p><a title="Add to Cart" href="cart.html">Add to Cart</a></p>
-                                                </div>
-                                                <div class="w-edit">
-                                                    <a href="#">Edit</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cartpage-item-remove">
-                                                <a title="Remove" href="#">Remove</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="wishlist_3">
-                                        <td>
-                                            <div class="cartpage-image">
-                                                <a href="#"><img src="img/cart/wishlist3.jpg" alt="" /></a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cartpage-pro-dec">
-                                                <h2><a href="#">Pellent  habitant </a></h2>
-                                                <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus Males tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate Mollis eget non. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis. </p>
-                                                <textarea class="yourmessage" placeholder="Please, enter your comments..."></textarea>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cart-page-edit">
-                                                <div class="w-price">
-                                                    <span class="regular-price">$14.99</span>
-                                                </div>
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
-                                                </div>
-                                                <div class="pro-add-to-cart">
-                                                    <p><a title="Add to Cart" href="cart.html">Add to Cart</a></p>
-                                                </div>
-                                                <div class="w-edit">
-                                                    <a href="#">Edit</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="cartpage-item-remove">
-                                                <a title="Remove" href="#">Remove</a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
