@@ -14,14 +14,13 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Auth::routes();
-Route::get('/ShowLogin', 'LoginController@showFormLogin')->name('showLogin');
+Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
 Route::get('/', 'ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
 Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
@@ -38,13 +37,17 @@ Route::get('/findByTheme-{id}', 'ReturnShopController@findProductByThemeId')->na
 Route::get('/findByType-{id}', 'ReturnShopController@findProductByTypeId')->name('shop.searchByType');
 Route::get('/findByColor-{id}', 'ReturnShopController@findProductByColorId')->name('shop.searchByColor');
 
+Route::get('/details-{id}', 'DetailsProductController@index')->name('shop.index');
+Route::post('/new/review', 'DetailsProductController@store')->name('shop.store');
+Route::get('/star/{id}', 'DetailsProductController@detailOnHomePage');
+
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('admin.index');
 
-    Route::get('/logout','Auth\LoginController@logout')->name('logout');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::prefix('size')->group(function () {
         Route::get('/list', 'SizeController@index')->name('size.index');
@@ -144,5 +147,15 @@ Route::middleware('locale')->group(function () {
 //Language
     Route::get('change-language/{language}', 'LanguageController@changeLanguage')->name('user.change-language');
 
+//wishlist
+    Route::get('wishlist','ReturnShopController@index')->name('wishlist.index');
+    Route::get('add-to-wishlist/{id}','ReturnShopController@addToWishList')->name('wishlist.addToWishList');
+    Route::get('delete-wishlist/{id}','ReturnShopController@deleteProductInWishList')->name('wishlist.deleteFromWishList');
+
 });
+
+//Login Google
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 

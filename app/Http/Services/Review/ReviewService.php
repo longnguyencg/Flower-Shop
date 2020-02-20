@@ -43,7 +43,9 @@ class ReviewService implements ReviewServiceInterface
         $obj->star = $request->star;
         $this->reviewRepo->update($obj);
     }
-
+    public function getByProduct($product_id){
+        return $this->reviewRepo->getByProduct($product_id);
+    }
     public function destroy($obj)
     {
         $this->reviewRepo->destroy($obj);

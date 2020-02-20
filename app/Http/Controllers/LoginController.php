@@ -6,13 +6,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Cart;
+use Illuminate\Support\Facades\Session;
 
 
 class LoginController
 {
     public function showFormLogin()
     {
-        return view('shop.login');
+        $cart = Session::get('cart');
+        return view('shop.login',compact('cart'));
     }
 
     public function login(Request $request)

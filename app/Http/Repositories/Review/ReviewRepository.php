@@ -15,6 +15,9 @@ class ReviewRepository implements ReviewRepositoryInterface
     {
         $this->review = $review;
     }
+    public function getByProduct($id){
+        return Review::where('product_id','like',$id)->paginate(4);
+    }
 
     public function getAll()
     {

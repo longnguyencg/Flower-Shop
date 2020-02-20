@@ -93,6 +93,32 @@
                         </div>
                     </div>
                 </form>
+                <form>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="new_customer">
+                            <h3>Registered Customers</h3>
+                            <p>If you have an account with us, please log in.</p>
+                            <ul class="register_form">
+                                <li>Email Address<span></span></li>
+                                <li>
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" name="email"/>
+                                    </div>
+                                </li>
+                                <li>Password<span></span></li>
+                                <li>
+                                    <div class="form-group">
+                                        <input class="form-control" type="password" name="password"/>
+                                    </div>
+                                </li>
+                                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i
+                                        class="fa fa-google"></i> Google</a>
+                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i
+                                        class="fa fa-facebook"></i> Facebook</a>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

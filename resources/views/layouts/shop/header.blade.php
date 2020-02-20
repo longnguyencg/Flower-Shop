@@ -26,7 +26,9 @@
                 <!--Start Header Right Cart area -->
                 <div class="account_card_area">
                     <ul id="account_nav">
-                        <li><a href="#"><i class="fa fa-key"></i>{{\Illuminate\Support\Facades\Auth::user()->name ?? __('language.Account')}}</a>
+                        <li><a href="#"><i
+                                    class="fa fa-key"></i>{{\Illuminate\Support\Facades\Auth::user()->name ?? __('language.Account')}}
+                            </a>
                             <div class="account_menu_list">
                                 <div class="account_single_item">
                                     <h2>{{__('language.Currency')}}</h2>
@@ -70,14 +72,15 @@
                                             <a href="#"><img
                                                     src="{{asset('storage/images/products/'. $product['item']->image) }}"
                                                     style="width: 20%;height: 20%" alt=""/></a>
-                                            <h2><a href="#">{{ $product['item']->name }}</a> <a href="#"><span><i
+                                            <h2><a href="#">{{ $product['item']->name }}</a> <a
+                                                    href="{{ route('cart.removeProductIntoCart', $product['item']->id) }}"><span><i
                                                             class="fa fa-trash"></i></span></a></h2>
                                             <p>{{ '$' . $product['item']->price }} * {{ $product['qty'] }}</p>
                                         </div>
                                     @endforeach
                                 @endif
                                 <div class="cart_shoptings">
-                                    <a href="">{{__('language.Cart')}}</a>
+                                    <a href="{{route('cart.index')}}">{{__('language.Cart')}}</a>
                                 </div>
                             </div>
                         </li>

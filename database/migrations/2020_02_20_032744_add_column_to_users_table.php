@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSampleDatasTable extends Migration
+class AddColumnToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateSampleDatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('sample_datas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('provider')->after('email');
+            $table->string('provider_id');
         });
     }
 
@@ -26,6 +26,8 @@ class CreateSampleDatasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sample_datas');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }
