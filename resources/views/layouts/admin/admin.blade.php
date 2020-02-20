@@ -51,6 +51,7 @@
 
 
         <!-- Nav Item - Pages Collapse Menu -->
+        @can('curd-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -64,112 +65,96 @@
                 </div>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#theme"
-               aria-expanded="true" aria-controls="theme">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Theme</span>
-            </a>
-            <div id="theme" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">THEME</h6>
-                    <a class="collapse-item" href="{{route('theme.index')}}">List Theme</a>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#theme"
+                   aria-expanded="true" aria-controls="theme">
+                    <i class="fab fa-themeisle"></i>
+                    <span>Theme</span>
+                </a>
+                <div id="theme" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">THEME</h6>
+                        <a class="collapse-item" href="{{route('theme.index')}}">List Theme</a>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
-               aria-expanded="true" aria-controls="collapseCategories">
-                <i class="fas fa-fw fa-list-alt"></i>
-                <span>Size</span>
-            </a>
-            <div id="collapseCategories" class="collapse" aria-labelledby="headingCategories"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Size</h6>
-                    <a class="collapse-item" href="{{route('size.create')}}">Create Size</a>
-                    <a class="collapse-item" href="{{route('size.index')}}">List Size</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
+                   aria-expanded="true" aria-controls="collapseCategories">
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>Size</span>
+                </a>
+                <div id="collapseCategories" class="collapse" aria-labelledby="headingCategories"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Size</h6>
+                        <a class="collapse-item" href="{{route('size.create')}}">Create Size</a>
+                        <a class="collapse-item" href="{{route('size.index')}}">List Size</a>
+                    </div>
                 </div>
-            </div>
-        </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#form"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa fa-heartbeat"></i>
+                    <span>Form</span>
+                </a>
+                <div id="form" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">FORM</h6>
+                        <a class="collapse-item" href="{{route('form.index')}}">List Form</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#color"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-palette"></i>
+                    <span>Color</span>
+                </a>
+                <div id="color" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">COLOR</h6>
+                        <a class="collapse-item" href="{{route('color.create')}}">Create Color</a>
+                        <a class="collapse-item" href="{{route('color.list')}}">List Color</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#type"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-table"></i>
+                    <span>Type</span>
+                </a>
+                <div id="type" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">TYPE</h6>
+                        <a class="collapse-item" href="{{route('type.create')}}">Create Type</a>
+                        <a class="collapse-item" href="{{route('type.list')}}">List Type</a>
+                    </div>
+                </div>
+            </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#form"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Form</span>
-            </a>
-            <div id="form" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">FORM</h6>
-                    <a class="collapse-item" href="{{route('form.index')}}">List Form</a>
-                </div>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#color"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Color</span>
-            </a>
-            <div id="color" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">COLOR</h6>
-                    <a class="collapse-item" href="{{route('color.create')}}">Create Color</a>
-                    <a class="collapse-item" href="{{route('color.list')}}">List Color</a>
-                </div>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#type"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Type</span>
-            </a>
-            <div id="type" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">TYPE</h6>
-                    <a class="collapse-item" href="{{route('type.create')}}">Create Type</a>
-                    <a class="collapse-item" href="{{route('type.list')}}">List Type</a>
-                </div>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#post"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Post</span>
-            </a>
-            <div id="post" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">POST</h6>
-                    <a class="collapse-item" href="{{route('post.create')}}">Create Post</a>
-                    <a class="collapse-item" href="{{route('post.index')}}">List Post</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fa fa-american-sign-language-interpreting"></i>
-                <span>Product</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                 data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">PRODUCT</h6>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                   aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fan"></i>
+                    <span>Product</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">PRODUCT</h6>
                     <a class="collapse-item" href="{{route('product.index')}}">List Product</a>
                     <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
                 </div>
             </div>
         </li>
-
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#review"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-award"></i>
                 <span>Review</span>
             </a>
             <div id="review" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -182,7 +167,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#comment"
                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-comment"></i>
                 <span>Comment</span>
             </a>
             <div id="comment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -192,8 +177,21 @@
                 </div>
             </div>
         </li>
-
-
+        @endcan
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#post"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-address-book"></i>
+                <span>Post</span>
+            </a>
+            <div id="post" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">POST</h6>
+                    <a class="collapse-item" href="{{route('post.create')}}">Create Post</a>
+                    <a class="collapse-item" href="{{route('post.index')}}">List Post</a>
+                </div>
+            </div>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
 

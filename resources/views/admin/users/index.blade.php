@@ -3,14 +3,15 @@
 @section('content')
 
     @forelse($users as $key=>$user)
-        <div class="modal fade" id="EditModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="EditModal{{ $user->id }}" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form method="post" action="{{ route('user.edit',$user->id) }}">
                         @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" >Edit user</h5>
+                            <h5 class="modal-title">Edit user</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -24,7 +25,7 @@
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Enter email"
-                                value="{{ $user->email }}">
+                                       value="{{ $user->email }}">
                             </div>
                             <div class="form-group">
                                 <label>New Password</label>
