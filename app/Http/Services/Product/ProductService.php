@@ -28,7 +28,7 @@ class ProductService implements ProductServiceInterface
         $product->name = $request->name;
         $product->quantity = $request->quantity;
         $product->price = $request->price;
-        $product->sale= $request->sale;
+        $product->sale = $request->sale;
         $product->size_id = $request->size;
         $product->form_id = $request->form;
         $product->description = $request->description;
@@ -60,7 +60,7 @@ class ProductService implements ProductServiceInterface
         $product->name = $request->name;
         $product->quantity = $request->quantity;
         $product->price = $request->price;
-        $product->sale= $request->sale;
+        $product->sale = $request->sale;
         $product->size_id = $request->size;
         $product->form_id = $request->form;
         $product->description = $request->description;
@@ -71,9 +71,8 @@ class ProductService implements ProductServiceInterface
 
         if ($request->hasFile('image')) {
             $currentImage = $product->image;
-            if ($currentImage)
-            {
-                Storage::delete('public/images/products/'.$currentImage);
+            if ($currentImage) {
+                Storage::delete('public/images/products/' . $currentImage);
             }
             $image = $request->image;
             $imageName = date('Y-m-d H:i:s') . $image->getClientOriginalName();
@@ -90,8 +89,8 @@ class ProductService implements ProductServiceInterface
         $product = $this->productRepo->findById($id);
 
         $currentImage = $product->image;
-        if($currentImage){
-            Storage::delete('public/images/products/'.$currentImage);
+        if ($currentImage) {
+            Storage::delete('public/images/products/' . $currentImage);
         }
         $product->themes()->detach();
         $product->types()->detach();
@@ -100,6 +99,39 @@ class ProductService implements ProductServiceInterface
 
     public function search($request)
     {
-        // TODO: Implement search() method.
+        $key = $request->key;
+        return $this->productRepo->search($key);
     }
+
+
+    public function paginating()
+    {
+        return $this->productRepo->paginating();
+    }
+
+    public function getEightProduct()
+    {
+        return $this->productRepo->getEightProduct();
+    }
+
+    public function findProductBySizeId($id)
+    {
+        return $this->productRepo->findProductBySizeId($id);
+    }
+
+    public function findProductByFormId($id)
+    {
+        return $this->productRepo->findProductByFormId($id);
+    }
+
+    public function findProductByThemeId($id)
+    {
+        return $this->productRepo->findProductByThemeId($id);
+    }
+
+    public function findProductByTypeId($id)
+    {
+        return $this->productRepo->findProductByTypeId($id);
+    }
+
 }

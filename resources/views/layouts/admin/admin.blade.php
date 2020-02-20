@@ -20,7 +20,6 @@
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
 
-
 </head>
 
 <body id="page-top">
@@ -61,8 +60,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">USER</h6>
-                    <a class="collapse-item" href="#">Create User</a>
-                    <a class="collapse-item" href="#">List User</a>
+                    <a class="collapse-item" href="{{route('user.index')}}">List User</a>
                 </div>
             </div>
         </li>
@@ -90,7 +88,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Size</h6>
                     <a class="collapse-item" href="{{route('size.create')}}">Create Size</a>
-                    <a class="collapse-item" href="{{route('size.index')}}">Show Size</a>
+                    <a class="collapse-item" href="{{route('size.index')}}">List Size</a>
                 </div>
             </div>
         </li>
@@ -162,7 +160,7 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">PRODUCT</h6>
-                    <a class="collapse-item" href="{{route('product.index')}}">Show Product</a>
+                    <a class="collapse-item" href="{{route('product.index')}}">List Product</a>
                     <a class="collapse-item" href="{{route('product.create')}}">Create Product</a>
                 </div>
             </div>
@@ -191,8 +189,7 @@
             <div id="comment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Comment</h6>
-                    <a class="collapse-item" href="#">Create Comment</a>
-                    <a class="collapse-item" href="#">List Comment</a>
+                    <a class="collapse-item" href="{{route('comment.index')}}">List Comment</a>
                 </div>
             </div>
         </li>
