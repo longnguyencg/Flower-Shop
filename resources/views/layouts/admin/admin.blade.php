@@ -18,7 +18,6 @@
     <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
 
-
 </head>
 
 <body id="page-top">
@@ -188,8 +187,7 @@
             <div id="comment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Comment</h6>
-                    <a class="collapse-item" href="#">Create Comment</a>
-                    <a class="collapse-item" href="#">List Comment</a>
+                    <a class="collapse-item" href="{{route('comment.index')}}">List Comment</a>
                 </div>
             </div>
         </li>

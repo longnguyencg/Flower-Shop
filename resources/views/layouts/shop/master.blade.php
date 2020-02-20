@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <!-- modernizr JS -->
     <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -83,5 +84,7 @@
 <script src="{{asset('js/plugins.js')}}"></script>
 <!-- main JS  -->
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
 </body>
 </html>

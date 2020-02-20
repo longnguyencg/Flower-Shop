@@ -1,12 +1,11 @@
-
 <div class="header_area_top">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <!--Start Search area -->
-                <form action="#" name="myForm">
+                <form action="{{route('shop.search')}}" name="myForm" method="GET">
                     <div class="search_box">
-                        <input name="Name" id="itp" class="input_text" type="text" value="Search"/>
+                        <input name="key" id="itp" class="input_text" type="text" placeholder="Search"/>
                         <button type="submit" class="btn-search">
                             <span><i class="fa fa-search"></i></span>
                         </button>
@@ -39,8 +38,8 @@
                                 <div class="account_single_item">
                                     <h2>{{__('language.Language')}}</h2>
                                     <ul id="account_single_nav_2">
-                                        <li><a href="#">{{__('language.English')}}</a></li>
-                                        <li><a href="#">{{__('language.Vietnames')}}</a></li>
+                                        <li><a href="{{ route('user.change-language', 'en') }}">{{__('language.English')}}</a></li>
+                                        <li><a href="{{ route('user.change-language', 'vi') }}">{{__('language.Vietnames')}}</a></li>
                                     </ul>
                                 </div>
                                 <div class="account_single_item">

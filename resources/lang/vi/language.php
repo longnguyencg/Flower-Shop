@@ -83,7 +83,6 @@ return [
     'Sale' => 'Bán',
 
 
-
 //    cart
     'Shopping_Cart' => ' Giỏ hàng mua sắm',
     'Image' => 'Hình ảnh',
@@ -122,4 +121,8 @@ return [
     'Special_Bouquet' => 'Bó hoa đặc biệt',
     'Breathtaking_Beauty_Bouquet' => 'Bó hoa làm đẹp ngoạn mục',
     'Cheerful_Wishes_Blooming_Basket' => 'Mong muốn vui vẻ Giỏ nở',
+    'title' => 'CHỦ ĐỀ',
+    'size' => 'KÍCH THƯỚC',
+    'category' => 'CHỦ ĐỀ',
+    'flower' => 'HOA TƯƠI',
 ];

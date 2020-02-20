@@ -109,7 +109,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -117,4 +117,6 @@ class ProductController extends Controller
         $this->productService->destroy($id);
         return redirect()->route('product.index');
     }
+
+
 }

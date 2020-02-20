@@ -4,7 +4,9 @@
 namespace App\Http\Services\Comment;
 
 
+use App\Comment;
 use App\Http\Repositories\Comment\CommentRepoInterface;
+use Illuminate\Support\Facades\Auth;
 
 class CommentService implements CommentServiceInterface
 {
@@ -22,7 +24,11 @@ class CommentService implements CommentServiceInterface
 
     public function store($request)
     {
-        // TODO: Implement store() method.
+        $comment = new Comment();
+        $comment->comment = $request->comment;
+        $comment->user_id = Auth::id();
+        $comment->post_id = $request->post_id;
+        $this->commentRepo->store($comment);
     }
 
     public function findById($id)
@@ -30,18 +36,27 @@ class CommentService implements CommentServiceInterface
         return $this->commentRepo->findById($id);
     }
 
-    public function update($request, $obj)
+    public function update($request, $id)
     {
-        // TODO: Implement update() method.
+        $comment = $this->commentRepo->findById($id);
+        $comment->comment = $request->comment;
+        $this->commentRepo->update($comment);
     }
 
-    public function destroy($obj)
+    public function destroy($id)
     {
-        // TODO: Implement destroy() method.
+        $comment = $this->commentRepo->findById($id);
+        $this->commentRepo->destroy($comment);
     }
 
     public function search($request)
     {
         // TODO: Implement search() method.
+    }
+
+
+    public function findByPostId($id)
+    {
+        return $this->commentRepo->findByPostId($id);
     }
 }

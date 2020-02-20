@@ -123,5 +123,10 @@ return [
     'Special_Bouquet' => 'Special Bouquet',
     'Breathtaking_Beauty_Bouquet' => 'Breathtaking Beauty Bouquet',
     'Cheerful_Wishes_Blooming_Basket' => 'Cheerful Wishes Blooming Basket',
-    'Nam_ullamcorper_vive' => 'Nam ullamcorper vive'
+    'Nam_ullamcorper_vive' => 'Nam ullamcorper vive',
+    'title' => 'THE',
+    'size' =>  'SIZE',
+    'category' => 'CATEGORY',
+    'flower' => 'FLOWER',
+
 ];
