@@ -6,6 +6,8 @@ use App\Http\Services\Product\ProductService;
 use App\Http\Services\Review\ReviewService;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Cart;
+use Illuminate\Support\Facades\Session;
 
 class DetailsProductController extends Controller
 {
@@ -20,6 +22,7 @@ class DetailsProductController extends Controller
 
     public function index($id)
     {
+        $cart = Session::get('cart');
         $product = $this->productService->findById($id);
         $reviews= $this->reviewService->getByProduct($id);
         $starResult=0;
@@ -30,7 +33,7 @@ class DetailsProductController extends Controller
         if (count($reviews)!=0){
             $avgStar = $starResult/count($reviews);
         }
-        return view('shop.details',compact('product','reviews','avgStar'));
+        return view('shop.details',compact('product','reviews','avgStar','cart'));
     }
     public function store(Request $request)
     {

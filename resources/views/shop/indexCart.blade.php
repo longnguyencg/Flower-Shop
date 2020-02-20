@@ -24,14 +24,14 @@
                         <h2>{{__('language.Shopping_Cart')}}</h2>
                     </div>
                     <div class="shopping-cart-table">
-                        <table class="cart_items">
+                        <table class="cart_items" b>
                             <tr>
                                 <th>{{__("language.Image")}}</th>
                                 <th>{{__('language.Product_Name')}}</th>
                                 <th>{{__('language.Price')}}</th>
                                 <th>{{__('language.Quantity')}}</th>
                                 <th>{{__('language.Subtotal')}}</th>
-                                <th style="width: 200%"></th>
+                                <th></th>
                             </tr>
                             @if(Session::has('cart'))
                                 {{--                                {{dd($cart)}}--}}
