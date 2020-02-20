@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Auth::routes();
+Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
+Route::post('/login', 'LoginController@login')->name('login');
+Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
 
 Route::get('/', 'ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
@@ -42,7 +47,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.index');
 
-    Route::get('/logout','Auth\LoginController@logout')->name('logout');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::prefix('size')->group(function () {
         Route::get('/list', 'SizeController@index')->name('size.index');
@@ -131,11 +136,8 @@ Route::middleware('locale')->group(function () {
     Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
     Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
     Route::get('showCart', 'ReturnShopController@showCart')->name('showCart');
-
-
     Route::get('/cart', 'ShoppingCartController@index')->name('cart.index');
     Route::get('/index', 'ShoppingCartController@showFormCart')->name('cart.cart');
-
 
 //Cart
     Route::get('/add-to-cart/{id}', 'ShoppingCartController@addToCart')->name('cart.addToCart');

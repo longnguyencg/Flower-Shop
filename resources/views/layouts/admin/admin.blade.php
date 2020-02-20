@@ -35,7 +35,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">Flower Shop Manager</div>
         </a>
 
 
@@ -44,9 +44,9 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('admin.index')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+            <a class="nav-link" href="{{route('showList')}}">
+                <i class="fas fa-fw fa-shopping-bag"></i>
+                <span>Flower Shop</span></a>
         </li>
 
 
@@ -175,8 +175,7 @@
             <div id="review" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">REVIEW</h6>
-                    <a class="collapse-item" href="#">Create Review</a>
-                    <a class="collapse-item" href="#">List Review</a>
+                    <a class="collapse-item" href="{{ route('review.index') }}">List Review</a>
                 </div>
             </div>
         </li>
@@ -451,7 +450,11 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item" href="{{route('logout')}}">
+
                             <a class="dropdown-item" onclick="return confirm('Bạn có muốn đăng xuất')" href="{{route('logout')}}">
+
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>

@@ -5,7 +5,7 @@
                 <!--Start Search area -->
                 <form action="{{route('shop.search')}}" name="myForm" method="GET">
                     <div class="search_box">
-                        <input name="key" id="itp" class="input_text" type="text" placeholder="Search"/>
+                        <input name="key" id="itp" class="input_text" type="text" placeholder="Search" required/>
                         <button type="submit" class="btn-search">
                             <span><i class="fa fa-search"></i></span>
                         </button>
@@ -26,7 +26,7 @@
                 <!--Start Header Right Cart area -->
                 <div class="account_card_area">
                     <ul id="account_nav">
-                        <li><a href="#"><i class="fa fa-key"></i>{{__('language.Account')}}</a>
+                        <li><a href="#"><i class="fa fa-key"></i>{{\Illuminate\Support\Facades\Auth::user()->name ?? __('language.Account')}}</a>
                             <div class="account_menu_list">
                                 <div class="account_single_item">
                                     <h2>{{__('language.Currency')}}</h2>
@@ -49,12 +49,14 @@
                                 <div class="account_single_item">
                                     <h2>{{__('language.Setting')}}</h2>
                                     <ul id="account_single_nav_3">
-                                        <li><a href="#">{{__('language.My_Account')}}</a></li>
+                                        <li><a href="{{route('showLogin')}}">{{__('language.My_Account')}}</a></li>
                                         <li><a href="#">{{__('language.My_Wishlist')}}</a></li>
                                         <li><a href="">{{__('language.My_Cart')}}</a></li>
                                         <li><a href="">{{__('language.Checkout')}}</a></li>
                                         <li><a href="#">{{__('language.Testimonial')}}</a></li>
                                         <li><a href="">{{__('language.Blog')}}</a></li>
+                                        <li><a href="{{route('showLogin')}}">Log In</a></li>
+                                        <li><a href="{{route('logout')}}">Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
