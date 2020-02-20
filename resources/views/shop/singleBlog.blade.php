@@ -133,7 +133,7 @@
 
                                 <div class="col-lg-12">
                                     <div class="send_button">
-                                        <button type="submit">Send</button>
+                                        <button type="submit" class="btn btn-dark" onclick="return confirm('Bạn cần đăng nhập để bình luận. Bạn có muốn đăng nhập không?')">Send</button>
                                     </div>
                                 </div>
                             </form>
