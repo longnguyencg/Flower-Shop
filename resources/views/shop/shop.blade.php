@@ -6,7 +6,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="catagory_price_color">
                         <div class="catagory_area">
-                            <h2>Chủ đề</h2>
+                            <h2>{{__('language.title')}}</h2>
                             <ul class="catagory">
                                 @foreach($themes as $theme)
                                     <li><a href="{{route('shop.searchByTheme',$theme->id)}}"><i class="fa fa-angle-right"></i>{{$theme->theme}}</a>
@@ -15,7 +15,7 @@
                             </ul>
                         </div>
                         <div class="catagory_area">
-                            <h2>Kích cỡ</h2>
+                            <h2>{{__('language.size')}}</h2>
                             <ul class="catagory">
                                 @foreach($sizes as $size)
                                     <li><a href="{{route('shop.searchBySize',$size->id)}}"><i class="fa fa-angle-right"></i>{{$size->size}}</a> <span>({{$size->products->count()}})</span>
@@ -24,7 +24,7 @@
                             </ul>
                         </div>
                         <div class="catagory_area">
-                            <h2>Thể loại</h2>
+                            <h2>{{__('language.category')}}</h2>
                             <ul class="catagory">
                                 @foreach($forms as $form)
                                     <li><a href="{{route('shop.searchByForm',$form->id)}}"><i class="fa fa-angle-right"></i>{{$form->form}}</a> <span>({{$form->products->count()}})</span>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="popular_tag_area">
                         <div class="popular_items">
-                            <h2>Hoa tươi</h2>
+                            <h2>{{__('language.flower')}}</h2>
                             <ul id="single_popular">
                                 @foreach($types as $type)
                                     <li><a href="{{route('shop.searchByType',$type->id)}}">{{$type->type}}</a></li>
