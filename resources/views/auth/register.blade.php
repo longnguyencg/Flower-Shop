@@ -68,6 +68,7 @@
                                 </button>
                             </div>
                         </div>
+                        <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
                     </form>
                 </div>
             </div>

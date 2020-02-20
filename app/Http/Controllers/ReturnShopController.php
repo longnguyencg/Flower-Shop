@@ -102,7 +102,6 @@ class ReturnShopController extends Controller
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductByFormId($id);
         $cart = Session::get('cart');
-
         return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
     }
 
@@ -114,7 +113,6 @@ class ReturnShopController extends Controller
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductByThemeId($id);
         $cart = Session::get('cart');
-
         return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
     }
 

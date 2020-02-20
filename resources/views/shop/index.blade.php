@@ -22,7 +22,7 @@
                                 <a href="{{route('showShop')}}">{{__('language.Shopping_Now')}}</a>
                             </div>
                         </div>
-                    </div>
+                    </div>w
                 </div>
             </div>
             <div id="htmlcaption2" class="nivo-html-caption slider-caption">
