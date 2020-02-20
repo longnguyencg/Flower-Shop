@@ -17,7 +17,7 @@
                 <!--Start Logo area -->
                 <div class="logo">
                     <a href="{{route('showList')}}">
-                        <img src="{{asset('img/logo/logo3.png')}}" alt="" />
+                        <img src="{{asset('img/logo/logo3.png')}}" alt=""/>
                     </a>
                 </div>
                 <!--End Logo area -->
@@ -38,8 +38,12 @@
                                 <div class="account_single_item">
                                     <h2>{{__('language.Language')}}</h2>
                                     <ul id="account_single_nav_2">
-                                        <li><a href="{{ route('user.change-language', 'en') }}">{{__('language.English')}}</a></li>
-                                        <li><a href="{{ route('user.change-language', 'vi') }}">{{__('language.Vietnames')}}</a></li>
+                                        <li>
+                                            <a href="{{ route('user.change-language', 'en') }}">{{__('language.English')}}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('user.change-language', 'vi') }}">{{__('language.Vietnames')}}</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="account_single_item">
@@ -55,16 +59,21 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i>Cart <span class="cart_zero">{{ (Session::has('cart')) ? count(Session::get('cart')->items) : "0" }}</span></a>
+                        <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i>Cart <span
+                                    class="cart_zero">{{ (Session::has('cart')) ? count(Session::get('cart')->items) : "0" }}</span></a>
                             <div class="cart_down_area">
-                                @foreach ($cart->items as $product)
-                                <div class="cart_single">
-                                    <a href="#"><img src="{{asset('storage/images/products/'. $product['item']->image) }}" style="width: 20%;height: 20%" alt="" /></a>
-                                    <h2><a href="#">{{ $product['item']->name }}</a> <a href="#"><span><i class="fa fa-trash"></i></span></a></h2>
-                                    <p>{{ '$' . $product['item']->price }} * {{ $product['qty'] }}</p>
-                                </div>
-                                @endforeach
-
+                                @if(Session::has('cart'))
+                                    @foreach ($cart->items as $product)
+                                        <div class="cart_single">
+                                            <a href="#"><img
+                                                    src="{{asset('storage/images/products/'. $product['item']->image) }}"
+                                                    style="width: 20%;height: 20%" alt=""/></a>
+                                            <h2><a href="#">{{ $product['item']->name }}</a> <a href="#"><span><i
+                                                            class="fa fa-trash"></i></span></a></h2>
+                                            <p>{{ '$' . $product['item']->price }} * {{ $product['qty'] }}</p>
+                                        </div>
+                                    @endforeach
+                                @endif
                                 <div class="cart_shoptings">
                                     <a href="">{{__('language.Cart')}}</a>
                                 </div>

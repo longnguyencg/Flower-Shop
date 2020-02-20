@@ -42,7 +42,6 @@ class ReturnShopController extends Controller
     {
         $products = $this->productService->getEightProduct();
         $cart = Session::get('cart');
-//        dd($cart);
         return view('shop.index', compact('products', 'cart'));
     }
 
