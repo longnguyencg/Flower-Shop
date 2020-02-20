@@ -14,14 +14,15 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+
 
 Auth::routes();
 Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
+
 Route::get('/', 'ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
 Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
@@ -44,7 +45,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.index');
 
-    Route::get('/logout','Auth\LoginController@logout')->name('logout');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::prefix('size')->group(function () {
         Route::get('/list', 'SizeController@index')->name('size.index');
@@ -145,4 +146,9 @@ Route::middleware('locale')->group(function () {
     Route::get('change-language/{language}', 'LanguageController@changeLanguage')->name('user.change-language');
 
 });
+
+//Login Google
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 

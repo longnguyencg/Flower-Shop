@@ -43,6 +43,8 @@
                                     <input class="form-control" type="password" name="password"/>
                                 </div>
                             </li>
+                            <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i class="fa fa-google"></i> Google</a>
+
                         </ul>
                     </div>
                     <div class="create_button_area">
