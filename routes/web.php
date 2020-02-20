@@ -147,3 +147,8 @@ Route::middleware('locale')->group(function () {
 
 });
 
+//Login Google
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
+
