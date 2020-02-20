@@ -145,3 +145,4 @@ Route::middleware('locale')->group(function () {
 
 });
 
+

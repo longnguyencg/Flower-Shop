@@ -124,7 +124,7 @@ return [
     'Breathtaking_Beauty_Bouquet' => 'Breathtaking Beauty Bouquet',
     'Cheerful_Wishes_Blooming_Basket' => 'Cheerful Wishes Blooming Basket',
     'Nam_ullamcorper_vive' => 'Nam ullamcorper vive',
-    'title' => 'THE',
+    'title' => 'THEME',
     'size' =>  'SIZE',
     'category' => 'CATEGORY',
     'flower' => 'FLOWER',

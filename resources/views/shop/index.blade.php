@@ -12,9 +12,9 @@
                 <div class="slider-text">
                     <div class="middle-text">
                         <div class="width-cap">
-                            <h3 class="slider-tiile-top top-ani-1" style="font-size: 60px;"><span>{{__('langugage.Flower_For_your')}}</span>
+                            <h3 class="slider-tiile-top top-ani-1" style="font-size: 60px;"><span>{{__('language.Flower_For_your')}}</span>
                             </h3>
-                            <h2 class="slider-tiile-middle middle-ani-1"><span>{{__('langugage.Special')}}</span></h2>
+                            <h2 class="slider-tiile-middle middle-ani-1"><span>{{__('language.Special')}}</span></h2>
                             <div class="slider-readmore">
                                 <a href="">{{__('language.Contact')}}</a>
                             </div>

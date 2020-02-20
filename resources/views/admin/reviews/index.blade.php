@@ -26,6 +26,22 @@
                             <label>Star</label>
                             <input type="number" class="form-control" name="star" placeholder="Enter star">
                         </div>
+                        <div class="form-group">
+                            <label>Product</label>
+                            <select class="form-control" name="product">
+                               @foreach($products as $product)
+                                   <option>{{ $product->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>User</label>
+                            <select class="form-control" name="user">
+                                @foreach($users as $user)
+                                    <option>{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Add</button>
@@ -36,14 +52,15 @@
         </div>
     </div>
     @forelse($reviews as $key=>$review)
-        <div class="modal fade" id="EditModal{{ $review->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="EditModal{{ $review->id }}" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <form method="post" action="{{ route('review.edit',$review->id) }}">
                         @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" >Edit review</h5>
+                            <h5 class="modal-title">Edit review</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -57,7 +74,23 @@
                             <div class="form-group">
                                 <label>Star</label>
                                 <input type="number" class="form-control" name="star" placeholder="Enter star"
-                                value="{{ $review->star }}">
+                                       value="{{ $review->star }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Product</label>
+                                <select class="form-control" name="product">
+                                    @foreach($products as $product)
+                                        <option @if($review->product->name = $product->name) selected @endif>{{ $product->name }}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>User</label>
+                                <select class="form-control" name="user">
+                                    @foreach($users as $user)
+                                        <option @if($review->user->name = $user->name) selected @endif>{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -72,7 +105,7 @@
     @endforelse
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">review List</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Review List</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -83,6 +116,8 @@
                         <th>STT</th>
                         <th>Review</th>
                         <th>Star</th>
+                        <th>Product</th>
+                        <th>User</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -92,6 +127,8 @@
                             <td>{{ ++$key }}</td>
                             <td>{{ $review->review }}</td>
                             <td>{{ $review->star }}</td>
+                            <td>{{ $review->product->name }}</td>
+                            <td>{{ $review->user->name }}</td>
                             <td>
                                 <a class="btn btn-danger" style="color: white"
                                    href="{{ route('review.destroy',$review->id) }}">Delete</a>
@@ -105,7 +142,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4">No data</td>
+                            <td colspan="6">No data</td>
                         </tr>
                     @endforelse
                     </tbody>

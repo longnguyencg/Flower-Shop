@@ -77,11 +77,6 @@
                             </div>
                         </li>
                         <li><a href="{{route('showBlog')}}"><span class="Footwear">{{__('language.BLOG')}}</span></a>
-                            <div class="home_mega_menu">
-                                <a href="">{{__('language.Blog_Left_Sidebar')}}</a>
-                                <a href="">{{__('language.Blog_Right_Sidebar')}}</a>
-                                <a href="">{{__('language.Single_Blog')}}</a>
-                            </div>
                         </li>
                         <li><a href=""><span class="Sales">{{__('language.Clothing')}}</span></a>
                         </li>
