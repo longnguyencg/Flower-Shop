@@ -55,6 +55,9 @@
                                         <li><a href="{{route('wishlist.index')}}">{{__('language.My_Wishlist')}}</a>
                                         </li>
                                         <li><a href="{{route('cart.index')}}">{{__('language.My_Cart')}}</a></li>
+                                        <li><a href="{{route('admin.index')}}">{{__('language.My_Account')}}</a></li>
+                                        <li><a href="#">{{__('language.My_Wishlist')}}</a></li>
+                                        <li><a href="">{{__('language.My_Cart')}}</a></li>
                                         <li><a href="">{{__('language.Checkout')}}</a></li>
                                         <li><a href="#">{{__('language.Testimonial')}}</a></li>
                                         <li><a href="">{{__('language.Blog')}}</a></li>
