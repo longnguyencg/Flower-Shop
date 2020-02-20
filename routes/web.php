@@ -41,6 +41,7 @@ Route::get('/findByColor-{id}', 'ReturnShopController@findProductByColorId')->na
 
 Route::get('/details-{id}', 'DetailsProductController@index')->name('shop.index');
 Route::post('/new/review', 'DetailsProductController@store')->name('shop.store');
+Route::get('/star/{id}', 'DetailsProductController@detailOnHomePage');
 
 
 

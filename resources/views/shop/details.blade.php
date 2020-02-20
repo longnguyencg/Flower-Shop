@@ -38,7 +38,7 @@
                         <div class="product_rating">
                             @if($avgStar!=0)
                                 @for($i=0;$i<$avgStar;$i++)<i class="fa fa-star"></i>  @endfor
-                                @for($i=0;$i<4-$avgStar;$i++)<i class="fa fa-star-o"></i>  @endfor
+                                @for($i=0;$i<5-$avgStar;$i++)<i class="fa fa-star-o"></i>  @endfor
                             @else No rate
                             @endif
                         </div>
@@ -54,45 +54,41 @@
                                 Mauris vel tellus non nunc mattis lobortis.</p>
                         </div>
                         <div class="product_blog_button">
-                            <div class="cart_blog_details blog_icon_border">
-                                <a href="" target="blank"><i class="fa fa-heart-o"></i></a>
+                            <div class="cart_blog_item">
+                                <div class="add-to-cart">
+                                    <input type="text" title="Qty" value="1" class="qty"/>
+                                    <button type="button" title="Add to Cart" class="cart_button"><span>Add to Cart</span>
+                                    </button>
+                                    <div class="cart_blog_details blog_icon_border" style="margin-left: 100px" >
+                                        <a href="" target="blank"><i class="fa fa-heart-o"></i></a>
+                                    </div>
+                                    <div class="cart_blog_details blog_icon_border">
+                                        <a href="" target="expand"><i class="fa fa-retweet"></i></a>
+                                    </div>
+                                    <div class="cart_blog_details blog_icon_border">
+                                        <a href="" target="heart"><i class="fa fa-envelope"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cart_blog_details blog_icon_border">
-                                <a href="" target="expand"><i class="fa fa-retweet"></i></a>
-                            </div>
-                            <div class="cart_blog_details blog_icon_border">
-                                <a href="" target="heart"><i class="fa fa-envelope"></i></a>
-                            </div>
+
                         </div>
                     </div>
                     <div class="product_options_area">
                         <div class="product_options_selection">
-                            <ul id="options_selection">
-                                <li><span class="star_color">*</span><span class="Product_color">color</span> <span
-                                        class="required">*Required Fields</span></li>
-                                <li>
-                                    <select>
-                                        <option value="" selected="selected">-- Please Select --</option>
-                                        <option value="">black +$2.00</option>
-                                        <option value="">blue +$1.00</option>
-                                        <option value="">yellow +$1.00</option>
-                                    </select>
-                                </li>
-                                <li><span class="star_color">*</span><span class="Product_color">size</span></li>
-                                <li>
-                                    <select>
-                                        <option value="" selected="selected">-- Please Select --</option>
-                                        <option value="">L +$2.00</option>
-                                        <option value="">M +$1.00</option>
-                                    </select>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cart_blog_item">
-                            <div class="add-to-cart">
-                                <input type="text" title="Qty" value="1" class="qty"/>
-                                <button type="button" title="Add to Cart" class="cart_button"><span>Add to Cart</span>
-                                </button>
+                            <div style="margin-left: 20px;margin-top: 10px">
+                                @forelse($reviews as $review)
+                                    <i class="fa fa-user"></i> {{ $review->user->name }} rated
+                                    with @for($i=0;$i<$review->star;$i++)<i class="fa fa-star"
+                                                                            style="color: orange"></i>  @endfor
+                                    @for($i=0;$i<5-$review->star;$i++)<i class="fa fa-star-o" style="color: orange"></i>  @endfor
+                                    <br>
+                                    {{ $review->review }}
+                                    <hr>
+                                @empty
+                                    No review about this product
+                                @endforelse
+                                    {{ $reviews->links() }}
+
                             </div>
                         </div>
                     </div>
@@ -165,19 +161,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div style="margin-top: 20px">
-                                    @forelse($reviews as $review)
-                                        <i class="fa fa-user"></i> {{ $review->user->name }} rated
-                                        with @for($i=0;$i<$review->star;$i++)<i class="fa fa-star"
-                                                                                style="color: orange"></i>  @endfor
-                                        @for($i=0;$i<5-$review->star;$i++)<i class="fa fa-star-o" style="color: orange"></i>  @endfor
-                                        <br>
-                                        {{ $review->review }}
-                                        <hr>
-                                    @empty
-                                        No review about this product
-                                    @endforelse
-                                </div>
+
                             </div>
                             <div id="tab-3" class="tab-pane fade">
                                 <div class="product_description">
