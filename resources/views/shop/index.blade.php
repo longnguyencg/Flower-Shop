@@ -154,7 +154,7 @@
                         <div class="product_list">
 
                             <div class="single_product">
-                                <a href="" target="main"><img
+                                <a href="{{ route('shop.index',$product->id) }}" target="main"><img
                                         src="{{asset('storage/images/products/'.$product->image)}}"
                                         style="width: 300px;height: 300px" alt=""/></a>
                                 <div class="product_details">

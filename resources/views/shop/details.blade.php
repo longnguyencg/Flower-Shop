@@ -37,7 +37,8 @@
                         <h2 class="blog_heading"><a href="">{{ $product->name }}</a></h2>
                         <div class="product_rating">
                             @if($avgStar!=0)
-                                @for($i=0;$i<$avgStar;$i++)<i class="fa fa-star"></i>@endfor
+                                @for($i=0;$i<$avgStar;$i++)<i class="fa fa-star"></i>  @endfor
+                                @for($i=0;$i<4-$avgStar;$i++)<i class="fa fa-star-o"></i>  @endfor
                             @else No rate
                             @endif
                         </div>
@@ -168,7 +169,9 @@
                                     @forelse($reviews as $review)
                                         <i class="fa fa-user"></i> {{ $review->user->name }} rated
                                         with @for($i=0;$i<$review->star;$i++)<i class="fa fa-star"
-                                                                                style="color: orange"></i>@endfor <br>
+                                                                                style="color: orange"></i>  @endfor
+                                        @for($i=0;$i<5-$review->star;$i++)<i class="fa fa-star-o" style="color: orange"></i>  @endfor
+                                        <br>
                                         {{ $review->review }}
                                         <hr>
                                     @empty
