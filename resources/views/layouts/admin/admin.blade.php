@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <title>SB Admin 2 - Dashboard</title>
 
@@ -173,8 +175,7 @@
             <div id="review" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">REVIEW</h6>
-                    <a class="collapse-item" href="#">Create Review</a>
-                    <a class="collapse-item" href="#">List Review</a>
+                    <a class="collapse-item" href="{{ route('review.index') }}">List Review</a>
                 </div>
             </div>
         </li>
@@ -187,8 +188,7 @@
             <div id="comment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Comment</h6>
-                    <a class="collapse-item" href="#">Create Comment</a>
-                    <a class="collapse-item" href="#">List Comment</a>
+                    <a class="collapse-item" href="{{route('comment.index')}}">List Comment</a>
                 </div>
             </div>
         </li>
@@ -450,7 +450,11 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
+
                             <a class="dropdown-item" href="{{route('logout')}}">
+
+                            <a class="dropdown-item" onclick="return confirm('Bạn có muốn đăng xuất')" href="{{route('logout')}}">
+
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -518,8 +522,6 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
-
-
 </body>
 
 

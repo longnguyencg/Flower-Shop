@@ -26,6 +26,9 @@ class ReviewService implements ReviewServiceInterface
     {
         $review = new review();
         $review->review = $request->review;
+        $review->star = $request->star;
+        $review->product_id = $request->product;
+        $review->user_id = $request->user;
         $this->reviewRepo->store($review);
     }
 
@@ -37,6 +40,7 @@ class ReviewService implements ReviewServiceInterface
     public function update($request, $obj)
     {;
         $obj->review = $request->review;
+        $obj->star = $request->star;
         $this->reviewRepo->update($obj);
     }
 

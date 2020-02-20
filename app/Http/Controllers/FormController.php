@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\Form\FormService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect, Illuminate\Support\Facades\Response, Illuminate\Support\Facades\DB, Illuminate\Support\Facades\Config;
+use Yajra\DataTables\Facades\DataTables;
 
 class FormController extends Controller
 {
@@ -17,7 +19,7 @@ class FormController extends Controller
     public function index()
     {
         $forms = $this->formService->getAll();
-        return view('admin.forms.index',compact('forms'));
+        return view('admin.forms.index', compact('forms'));
     }
 
     public function store(Request $request)
@@ -34,7 +36,7 @@ class FormController extends Controller
     public function update(Request $request, $id)
     {
         $form = $this->formService->findById($id);
-        $this->formService->update($request,$form);
+        $this->formService->update($request, $form);
         return redirect()->route('form.index');
     }
 

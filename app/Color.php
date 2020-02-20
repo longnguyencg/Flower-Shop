@@ -10,4 +10,5 @@ class Color extends Model
     {
         return $this->hasMany('App\Type');
     }
+
 }

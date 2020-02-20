@@ -21,7 +21,7 @@ class CommentRepo implements CommentRepoInterface
 
     public function store($obj)
     {
-        $obj->save;
+        $obj->save();
     }
 
     public function findById($id)
@@ -36,11 +36,16 @@ class CommentRepo implements CommentRepoInterface
 
     public function destroy($obj)
     {
-        $obj->delete();
+        $obj->delete($obj);
     }
 
     public function search($key)
     {
         // TODO: Implement search() method.
+    }
+
+    public function findByPostId($id)
+    {
+        return Comment::where('post_id',$id)->get();
     }
 }

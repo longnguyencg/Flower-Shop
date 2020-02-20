@@ -3,21 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\Review\ReviewService;
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
     protected $reviewService;
+    protected $product;
+    protected $user;
 
-    public function __construct(ReviewService $reviewService)
+    public function __construct(ReviewService $reviewService,Product $product,User $user)
     {
         $this->reviewService = $reviewService;
+        $this->product = $product;
+        $this->user = $user;
     }
 
     public function index()
     {
         $reviews = $this->reviewService->getAll();
-        return view('admin.reviews.index',compact('reviews'));
+        $products = $this->product->all();
+        $users = $this->user->all();
+        return view('admin.reviews.index',compact('reviews','products','users'));
     }
 
     public function store(Request $request)
