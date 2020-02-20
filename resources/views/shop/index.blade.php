@@ -181,7 +181,7 @@
                                             <a href="#" target="expand"><i class="fa fa-expand"></i></a>
                                         </div>
                                         <div class="cart_details">
-                                            <a href="#" target="heart"><i class="fa fa-heart-o"></i></a>
+                                            <a href="{{route('wishlist.addToWishList',$product->id)}}" target="heart"><i class="fa fa-heart-o"></i></a>
                                         </div>
                                     </div>
                                 </div>
