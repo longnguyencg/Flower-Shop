@@ -30,7 +30,7 @@
                             <label>Product</label>
                             <select class="form-control" name="product">
                                @foreach($products as $product)
-                                   <option>{{ $product->name }}</option>
+                                   <option value="{{ $product->id }}">{{ $product->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -38,7 +38,7 @@
                             <label>User</label>
                             <select class="form-control" name="user">
                                 @foreach($users as $user)
-                                    <option>{{ $user->name }}</option>
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -80,7 +80,7 @@
                                 <label>Product</label>
                                 <select class="form-control" name="product">
                                     @foreach($products as $product)
-                                        <option @if($review->product->name = $product->name) selected @endif>{{ $product->name }}</option>
+                                        <option @if($review->product->name = $product->name) selected @endif value="{{ $product->id }}">{{ $product->name }}</option>
                                         @endforeach
                                 </select>
                             </div>
@@ -88,7 +88,7 @@
                                 <label>User</label>
                                 <select class="form-control" name="user">
                                     @foreach($users as $user)
-                                        <option @if($review->user->name = $user->name) selected @endif>{{ $user->name }}</option>
+                                        <option @if($review->user->name = $user->name) selected @endif value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
