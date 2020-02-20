@@ -54,14 +54,14 @@ class ReturnShopController extends Controller
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->paginating();
-        return view('shop.shop',compact('products','forms','types','colors','sizes','themes','cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'colors', 'sizes', 'themes', 'cart'));
     }
 
     public function showBlog()
     {
         $cart = Session::get('cart');
         $posts = $this->postService->getAll();
-        return view('shop.blog',compact('posts','cart'));
+        return view('shop.blog', compact('posts', 'cart'));
     }
 
     public function singleBlog($id)
@@ -69,7 +69,7 @@ class ReturnShopController extends Controller
         $comments = $this->commentService->findByPostId($id);
         $post = $this->postService->findById($id);
         $cart = Session::get('cart');
-        return view('shop.singleBlog',compact('post','comments','cart'));
+        return view('shop.singleBlog', compact('post', 'comments', 'cart'));
     }
 
     public function search(Request $request)
@@ -80,7 +80,7 @@ class ReturnShopController extends Controller
         $themes = $this->themeService->getAll();
         $products = $this->productService->search($request);
         $cart = Session::get('cart');
-        return view('shop.shop',compact('products','forms','types','sizes','themes','cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
     }
 
     public function findProductBySizeId($id)
@@ -91,7 +91,7 @@ class ReturnShopController extends Controller
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductBySizeId($id);
         $cart = Session::get('cart');
-        return view('shop.shop',compact('products','forms','types','sizes','themes','cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
     }
 
     public function findProductByFormId($id)
@@ -103,7 +103,7 @@ class ReturnShopController extends Controller
         $products = $this->productService->findProductByFormId($id);
         $cart = Session::get('cart');
 
-        return view('shop.shop',compact('products','forms','types','sizes','themes','cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
     }
 
     public function findProductByThemeId($id)
@@ -115,7 +115,7 @@ class ReturnShopController extends Controller
         $products = $this->productService->findProductByThemeId($id);
         $cart = Session::get('cart');
 
-        return view('shop.shop',compact('products','forms','types','cart','sizes','themes'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
     }
 
     public function findProductByTypeId($id)
@@ -126,7 +126,7 @@ class ReturnShopController extends Controller
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductByTypeId($id);
         $cart = Session::get('cart');
-        return view('shop.shop',compact('products','forms','types','cart','sizes','themes'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
     }
 
 
