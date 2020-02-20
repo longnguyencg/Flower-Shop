@@ -172,13 +172,6 @@
                                             class="popular_price">${{$product->sale}}</span></p>
                                 </div>
                                 <div class="product_detail">
-                                    <div class="star_icon">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
                                     <div class="product_button">
                                         <div class="cart_details">
                                             <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to
@@ -209,3 +202,4 @@
     </div>
 
 @endsection
+
