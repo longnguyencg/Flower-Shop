@@ -4,7 +4,10 @@
 namespace App\Http\Repositories\Product;
 
 
+use App\Color;
 use App\Product;
+use App\Theme;
+use App\Type;
 
 class ProductRepo implements ProductRepoInterface
 {
@@ -53,4 +56,29 @@ class ProductRepo implements ProductRepoInterface
     {
         return Product::orderBy('id', 'desc')->take(4)->get();
     }
+
+    public function findProductBySizeId($id)
+    {
+        return Product::where('size_id','LIKE',$id)->paginate(6);
+    }
+
+    public function findProductByFormId($id)
+    {
+        return Product::where('form_id','LIKE',$id)->paginate(6);
+
+    }
+
+    public function findProductByThemeId($id)
+    {
+        return  Theme::find($id)->products()->paginate(6);
+
+    }
+
+    public function findProductByTypeId($id)
+    {
+        return  Type::find($id)->products()->paginate(6);
+
+    }
+
+
 }

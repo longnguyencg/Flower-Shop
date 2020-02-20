@@ -88,7 +88,7 @@
                             <div class="blog_info_details">
                                 <h2><a class="blog_info_heading" href="#">{{$post->title}}</a></h2>
                                 <p>{!! $post->description !!}</p>
-                                <a class="readmore_link" href="#" title="Images">Read more ...</a>
+                                <a class="readmore_link" href="{{route('singleBlog',$post->id)}}" title="{{$post->title}}">Read more ...</a>
                                 <a class="comments_link" href="#" title="1 comment">1 comment</a>
                             </div>
                         </div>

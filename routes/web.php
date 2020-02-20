@@ -14,9 +14,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
@@ -24,6 +24,13 @@ Route::get('/', 'ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
 Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
 Route::get('showCart', 'ReturnShopController@showCart')->name('showCart');
+Route::get('singleBlog-{id}', 'ReturnShopController@singleBlog')->name('singleBlog');
+Route::get('/search', 'ReturnShopController@search')->name('shop.search');
+Route::get('/findBySize-{id}', 'ReturnShopController@findProductBySizeId')->name('shop.searchBySize');
+Route::get('/findByForm-{id}', 'ReturnShopController@findProductByFormId')->name('shop.searchByForm');
+Route::get('/findByTheme-{id}', 'ReturnShopController@findProductByThemeId')->name('shop.searchByTheme');
+Route::get('/findByType-{id}', 'ReturnShopController@findProductByTypeId')->name('shop.searchByType');
+Route::get('/findByColor-{id}', 'ReturnShopController@findProductByColorId')->name('shop.searchByColor');
 
 
 
@@ -86,7 +93,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/delete/{id}', 'ProductController@destroy')->name('product.delete');
         Route::get('/edit/{id}', 'ProductController@edit')->name('product.edit');
         Route::post('/edit/{id}', 'ProductController@update')->name('product.update');
-        Route::get('/search', 'ProductController@search')->name('product.search');
     });
 
     Route::prefix('types')->group(function () {
@@ -104,6 +110,14 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/delete/{id}', 'ReviewController@destroy')->name('review.destroy');
         Route::post('/create', 'ReviewController@store')->name('review.create');
         Route::post('/edit/{id}', 'ReviewController@update')->name('review. edit');
+    });
+
+    Route::prefix('comments')->group(function (){
+        Route::get('/','CommentController@index')->name('comment.index');
+        Route::post('create','CommentController@store')->name('comment.store');
+        Route::get('delete/{id}','CommentController@destroy')->name('comment.delete');
+        Route::get('edit/{id}','CommentController@edit')->name('comment.edit');
+        Route::post('edit/{id}','CommentController@update')->name('comment.update');
     });
 });
 

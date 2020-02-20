@@ -11,5 +11,8 @@ interface ProductServiceInterface extends ServiceInterface
     public function paginating();
 
     public function getEightProduct();
-
+    public function findProductBySizeId($id);
+    public function findProductByFormId($id);
+    public function findProductByThemeId($id);
+    public function findProductByTypeId($id);
 }

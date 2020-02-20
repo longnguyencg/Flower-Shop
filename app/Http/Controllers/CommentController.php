@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\Comment\CommentServiceInterface;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
     protected $commentService;
 
-    public function __construct($commentService)
+    public function __construct(CommentServiceInterface $commentService)
     {
         $this->commentService = $commentService;
     }
@@ -20,7 +21,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = $this->commentService->getAll();
+        return view('admin.comments.list',compact('comments'));
     }
 
     /**
@@ -30,7 +32,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -41,7 +43,8 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->commentService->store($request);
+        return redirect()->back();
     }
 
     /**
@@ -63,7 +66,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = $this->commentService->findById($id);
+        return  view('admin.comments.edit',compact('comment'));
     }
 
     /**
@@ -75,7 +79,8 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->commentService->update($request,$id);
+        return redirect()->route('comment.index');
     }
 
     /**
@@ -86,6 +91,8 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->commentService->destroy($id);
+        return redirect()->back();
     }
+
 }
