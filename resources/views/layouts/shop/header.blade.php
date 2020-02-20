@@ -49,7 +49,7 @@
                                 <div class="account_single_item">
                                     <h2>{{__('language.Setting')}}</h2>
                                     <ul id="account_single_nav_3">
-                                        <li><a href="{{route('showLogin')}}">{{__('language.My_Account')}}</a></li>
+                                        <li><a href="{{route('admin.index')}}">{{__('language.My_Account')}}</a></li>
                                         <li><a href="#">{{__('language.My_Wishlist')}}</a></li>
                                         <li><a href="">{{__('language.My_Cart')}}</a></li>
                                         <li><a href="">{{__('language.Checkout')}}</a></li>
