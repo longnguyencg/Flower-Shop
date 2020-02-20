@@ -175,8 +175,7 @@
             <div id="review" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">REVIEW</h6>
-                    <a class="collapse-item" href="#">Create Review</a>
-                    <a class="collapse-item" href="#">List Review</a>
+                    <a class="collapse-item" href="{{ route('review.index') }}">List Review</a>
                 </div>
             </div>
         </li>

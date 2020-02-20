@@ -24,13 +24,19 @@
                         </div>
                         <div class="form-group">
                             <label>Star</label>
-                            <input type="number" class="form-control" name="star" placeholder="Enter star">
+                            <select class="form-control" name="star">
+                                <option><i class="fas fa-star">1</i></option>
+                                <option><i class="fas fa-star">2</i></option>
+                                <option><i class="fas fa-star">3</i></option>
+                                <option><i class="fas fa-star">4</i></option>
+                                <option><i class="fas fa-star">5</i></option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Product</label>
                             <select class="form-control" name="product">
-                               @foreach($products as $product)
-                                   <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                @foreach($products as $product)
+                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -73,22 +79,34 @@
                             </div>
                             <div class="form-group">
                                 <label>Star</label>
-                                <input type="number" class="form-control" name="star" placeholder="Enter star"
-                                       value="{{ $review->star }}">
+                                <select class="form-control" name="star">
+                                    <option @if($review->star == 1) selected @endif><i class="fas fa-star">1</i>
+                                    </option>
+                                    <option @if($review->star == 2) selected @endif><i class="fas fa-star">2</i>
+                                    </option>
+                                    <option @if($review->star == 3) selected @endif><i class="fas fa-star">3</i>
+                                    </option>
+                                    <option @if($review->star == 4) selected @endif><i class="fas fa-star">4</i>
+                                    </option>
+                                    <option @if($review->star == 5) selected @endif><i class="fas fa-star">5</i>
+                                    </option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Product</label>
                                 <select class="form-control" name="product">
                                     @foreach($products as $product)
-                                        <option @if($review->product->name = $product->name) selected @endif value="{{ $product->id }}">{{ $product->name }}</option>
-                                        @endforeach
+                                        <option @if($review->product->name == $product->name) selected
+                                                @endif value="{{ $product->id }}">{{ $product->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>User</label>
                                 <select class="form-control" name="user">
                                     @foreach($users as $user)
-                                        <option @if($review->user->name = $user->name) selected @endif value="{{ $user->id }}">{{ $user->name }}</option>
+                                        <option @if($review->user->name == $user->name) selected
+                                                @endif value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -126,7 +144,7 @@
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ $review->review }}</td>
-                            <td>{{ $review->star }}</td>
+                            <td>@for($i=0;$i<$review->star;$i++)<i class="fas fa-star"></i>@endfor</td>
                             <td>{{ $review->product->name }}</td>
                             <td>{{ $review->user->name }}</td>
                             <td>
