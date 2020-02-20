@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Auth::routes();
-Route::get('/ShowLogin', 'LoginController@showFormLogin')->name('showLogin');
+Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/', 'ReturnShopController@index')->name('showList');
