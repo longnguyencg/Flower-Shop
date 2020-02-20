@@ -19,7 +19,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/ShowLogin', 'LoginController@showFormLogin')->name('showLogin');
+Route::post('/login', 'LoginController@login')->name('login');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/', 'ReturnShopController@index')->name('showList');
 Route::get('showShop', 'ReturnShopController@showShop')->name('showShop');
 Route::get('showBlog', 'ReturnShopController@showBlog')->name('showBlog');
@@ -106,12 +108,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::post('/edit/{id}', 'ReviewController@update')->name('review. edit');
     });
 });
-
-
-
-
-
-
 
 
 

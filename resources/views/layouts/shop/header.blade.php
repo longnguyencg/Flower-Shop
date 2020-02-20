@@ -5,7 +5,7 @@
                 <!--Start Search area -->
                 <form action="{{route('product.search')}}" name="myForm" method="GET">
                     <div class="search_box">
-                        <input name="key" id="itp" class="input_text" type="text" placeholder="Search"/>
+                        <input name="key" id="itp" class="input_text" type="text" placeholder="Search" required/>
                         <button type="submit" class="btn-search">
                             <span><i class="fa fa-search"></i></span>
                         </button>
@@ -46,13 +46,14 @@
                                 <div class="account_single_item">
                                     <h2>Setting</h2>
                                     <ul id="account_single_nav_3">
-                                        <li><a href="#">My Account</a></li>
+                                        <li><a href="{{route('admin.index')}}">My Account</a></li>
                                         <li><a href="#">My Wishlist</a></li>
                                         <li><a href="">My Cart</a></li>
                                         <li><a href="">Checkout</a></li>
                                         <li><a href="#">Testimonial</a></li>
                                         <li><a href="">Blog</a></li>
-                                        <li><a href="#">Log In</a></li>
+                                        <li><a href="{{route('showLogin')}}">Log In</a></li>
+                                        <li><a href="">Log Out</a></li>
                                     </ul>
                                 </div>
                             </div>
