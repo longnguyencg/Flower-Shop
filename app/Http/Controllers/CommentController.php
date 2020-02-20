@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentRequest;
 use App\Http\Services\Comment\CommentServiceInterface;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
         $this->commentService->store($request);
         return redirect()->back();
@@ -77,7 +78,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CommentRequest $request, $id)
     {
         $this->commentService->update($request,$id);
         return redirect()->route('comment.index');

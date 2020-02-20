@@ -8,5 +8,6 @@ use App\Http\Services\ServiceInterface;
 
 interface PostServiceInterface extends ServiceInterface
 {
+    public function lastestPosts();
 
 }

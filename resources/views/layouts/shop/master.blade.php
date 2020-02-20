@@ -85,6 +85,7 @@
 <!-- main JS  -->
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('js/my.js')}}"></script>
 
 </body>
 </html>
