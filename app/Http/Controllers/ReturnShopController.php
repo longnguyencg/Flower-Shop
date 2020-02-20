@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\Color\ColorService;
+use App\Http\Services\Comment\CommentService;
 use App\Http\Services\Form\FormService;
 use App\Http\Services\Post\PostService;
 use App\Http\Services\Product\ProductService;
@@ -21,8 +22,9 @@ class ReturnShopController extends Controller
     protected $sizeService;
     protected $postService;
     protected $themeService;
+    protected $commentService;
 
-    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService)
+    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService)
     {
         $this->productService = $productService;
         $this->formService = $formService;
@@ -31,6 +33,7 @@ class ReturnShopController extends Controller
         $this->sizeService = $sizeService;
         $this->postService = $postService;
         $this->themeService = $themeService;
+        $this->commentService = $commentService;
     }
 
     public function index()
@@ -41,8 +44,13 @@ class ReturnShopController extends Controller
 
     public function showShop()
     {
+        $forms = $this->formService->getAll();
+        $types = $this->typeService->getAll();
+        $colors = $this->colorService->getAll();
+        $sizes = $this->sizeService->getAll();
+        $themes = $this->themeService->getAll();
         $products = $this->productService->paginating();
-        return view('shop.shop',compact('products'));
+        return view('shop.shop',compact('products','forms','types','colors','sizes','themes'));
     }
 
     public function showBlog()
@@ -53,13 +61,71 @@ class ReturnShopController extends Controller
 
     public function singleBlog($id)
     {
+        $comments = $this->commentService->findByPostId($id);
         $post = $this->postService->findById($id);
-        return view('shop.singleBlog',compact('post'));
+        return view('shop.singleBlog',compact('post','comments'));
     }
+
+    public function search(Request $request)
+    {
+        $forms = $this->formService->getAll();
+        $types = $this->typeService->getAll();
+        $colors = $this->colorService->getAll();
+        $sizes = $this->sizeService->getAll();
+        $themes = $this->themeService->getAll();
+        $products = $this->productService->search($request);
+        return view('shop.shop',compact('products','forms','types','colors','sizes','themes'));
+    }
+
 
     public function showCart()
     {
         return view('shop.cart');
     }
+
+    public function findProductBySizeId($id)
+    {
+        $forms = $this->formService->getAll();
+        $types = $this->typeService->getAll();
+        $colors = $this->colorService->getAll();
+        $sizes = $this->sizeService->getAll();
+        $themes = $this->themeService->getAll();
+        $products = $this->productService->findProductBySizeId($id);
+        return view('shop.shop',compact('products','forms','types','colors','sizes','themes'));
+    }
+
+    public function findProductByFormId($id)
+    {
+        $forms = $this->formService->getAll();
+        $types = $this->typeService->getAll();
+        $colors = $this->colorService->getAll();
+        $sizes = $this->sizeService->getAll();
+        $themes = $this->themeService->getAll();
+        $products = $this->productService->findProductByFormId($id);
+        return view('shop.shop',compact('products','forms','types','colors','sizes','themes'));
+    }
+
+    public function findProductByThemeId($id)
+    {
+        $forms = $this->formService->getAll();
+        $types = $this->typeService->getAll();
+        $colors = $this->colorService->getAll();
+        $sizes = $this->sizeService->getAll();
+        $themes = $this->themeService->getAll();
+        $products = $this->productService->findProductByThemeId($id);
+        return view('shop.shop',compact('products','forms','types','colors','sizes','themes'));
+    }
+
+    public function findProductByTypeId($id)
+    {
+        $forms = $this->formService->getAll();
+        $types = $this->typeService->getAll();
+        $colors = $this->colorService->getAll();
+        $sizes = $this->sizeService->getAll();
+        $themes = $this->themeService->getAll();
+        $products = $this->productService->findProductByTypeId($id);
+        return view('shop.shop',compact('products','forms','types','colors','sizes','themes'));
+    }
+
 
 }

@@ -1,9 +1,9 @@
 @extends('layouts.shop.master')
 @section('content')
-    <!--End Header Top area -->
-    <!--Start Main Menu area -->
-    <!--End Main Menu area -->
-    <!--Start blog list area -->
+
+
+
+
     <div class="blog_post_area">
         <div class="container">
             <div class="row">
@@ -63,39 +63,57 @@
                             <li>{{$post->title}}</li>
                         </ul>
                     </div>
-                        <div class="single_blog_area">
-                            <img src="{{asset('storage/images/posts/'.$post->image)}}" alt=""/>
+                    <div class="single_blog_area">
+                        <img src="{{asset('storage/images/posts/'.$post->image)}}" alt=""/>
+                    </div>
+                    <div class="blog_details_area">
+                        <i class="fa fa-picture-o"></i>
+                        <div class="blog_details_list">
+                            <ul class="blog_author">
+                                <li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>
+                                <li><i class="fa fa-user"></i> {{$post->user->name}}</li>
+                                <li><i class="fa fa-eye"></i> Hits: 256</li>
+                                <li>
+                                    <div class="star_blog">
+                                        Rating:
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="blog_details_area">
-                            <i class="fa fa-picture-o"></i>
-                            <div class="blog_details_list">
-                                <ul class="blog_author">
-                                    <li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>
-                                    <li><i class="fa fa-user"></i> {{$post->user->name}}</li>
-                                    <li><i class="fa fa-eye"></i> Hits: 256</li>
-                                    <li>
-                                        <div class="star_blog">
-                                            Rating:
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="blog_info_details">
-                                <h2><a class="blog_info_heading" href="#">{{$post->title}}</a></h2>
-                                <p>{!! $post->description !!}</p>
-                                {!! $post->content !!}
-                            </div>
+                        <div class="blog_info_details">
+                            <h2><a class="blog_info_heading" href="#">{{$post->title}}</a></h2>
+                            <p>{!! $post->description !!}</p>
+                            {!! $post->content !!}
                         </div>
-
-                    <div class="blog_social_icon">
-                        <img src="{{asset('img/social/shareicon.png')}}" alt="" />
                     </div>
 
+                    <div class="blog_social_icon">
+                        <img src="{{asset('img/social/shareicon.png')}}" alt=""/>
+                    </div>
+                    <div>
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col"><h4>Bình Luận</h4></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($comments as $comment)
+                                <tr>
+                                    <td scope="row">
+                                        <i>{{$comment->user->name}}:</i>
+                                        {!! $comment->comment !!}
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div class="blog_add_comment_area">
                         <div class="row">
@@ -104,17 +122,20 @@
                                     <h2>Add comment</h2>
                                 </div>
                             </div>
-                            <form method="post" action="">
-                            <div class="col-lg-12">
-                                <div class="comment_textarea">
-                                    <textarea cols="65" rows="8"></textarea>
+                            <form method="post" action="{{route('comment.store')}}">
+                                @csrf
+                                <div class="col-lg-12">
+                                    <input type="text" name="post_id" value="{{$post->id}}" hidden>
+                                    <div class="comment_textarea">
+                                        <textarea cols="65" rows="8" name="comment" class="ckeditor"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="send_button">
-                                    <input type="submit" value="Send">
+
+                                <div class="col-lg-12">
+                                    <div class="send_button">
+                                        <button type="submit">Send</button>
+                                    </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -124,4 +145,13 @@
 
         </div>
     </div>
+
 @endsection
+
+
+
+
+
+
+
+

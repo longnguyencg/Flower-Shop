@@ -118,9 +118,5 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
-    public function search(Request $request)
-    {
-        $products = $this->productService->search($request);
-        return view('shop.shop',['products'=>$products]);
-    }
+
 }
