@@ -5,8 +5,10 @@
     ============================================ -->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home 1 | fc flower</title>
-    <meta name="description" content="">
+    <title>Flower Shop</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+{{--    <meta name="description" content="">--}}
     <!-- Mobile specific metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -92,6 +94,7 @@
 <!-- main JS  -->
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('js/my.js')}}"></script>
 
 
 {{--<script src="https://unpkg.com/feather-icons"></script>--}}

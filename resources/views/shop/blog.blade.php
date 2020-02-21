@@ -1,14 +1,11 @@
 @extends('layouts.shop.master')
 @section('content')
-    <!--End Header Top area -->
-    <!--Start Main Menu area -->
-    <!--End Main Menu area -->
-    <!--Start blog list area -->
-{{--    @include('layouts.shop.weather')--}}
     <div class="blog_post_area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    @include('layouts.shop.weather')
+
                     <div class="blog_right_sidebar">
                         <h2 class="sp_module_title"><span>{{__('language.Newsletter')}}</span></h2>
                         <div class="sub_area">
@@ -20,34 +17,12 @@
                         <div class="latest_posts">
                             <h3 class="sp_module_title sp_module_title_rv"><span>{{__('language.Latest_Posts')}}</span>
                             </h3>
-                            <div class="single_l_post">
-                                <a href="#">{{__('language.Images')}}</a>
-                                <p>{{__('language.23_May_2015')}}</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">Video</a>
-                                <p>{{__('language.23_May_2015')}}</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">{{__('language.Jerky_shank_chicken_boudin')}}</a>
-                                <p>2 Jun 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">{{__('language.Nirob')}}</a>
-                                <p>20 Oct 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">{{__('language.Salim')}}</a>
-                                <p>6 Sept 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">{{__('language.shank_chicken_oudin')}}</a>
-                                <p>7 Sept 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">{{__('language.Parvez')}}</a>
-                                <p>8 Sept 2015</p>
-                            </div>
+                            @foreach($lastestPosts as $lastpost)
+                                <div class="single_l_post">
+                                    <a href="{{route('singleBlog',$lastpost->id)}}">{{$lastpost->title}}</a>
+                                    <p>{{$lastpost->created_at}}</p>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="add_r_sidebar">
                             <p class="banner_block"><a href="#"><img alt="" src="{{asset('img/banner/3.jpg')}}"></a></p>

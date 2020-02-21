@@ -1,4 +1,4 @@
-<div class="header_area_top">
+<div class="header_area_top" >
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
@@ -52,13 +52,20 @@
                                     <h2>{{__('language.Setting')}}</h2>
                                     <ul id="account_single_nav_3">
                                         <li><a href="{{route('showLogin')}}">{{__('language.My_Account')}}</a></li>
+                                        <li><a href="{{route('wishlist.index')}}">{{__('language.My_Wishlist')}}</a>
+                                        </li>
+                                        <li><a href="{{route('cart.index')}}">{{__('language.My_Cart')}}</a></li>
+                                        <li><a href="{{route('admin.index')}}">{{__('language.My_Account')}}</a></li>
                                         <li><a href="#">{{__('language.My_Wishlist')}}</a></li>
                                         <li><a href="">{{__('language.My_Cart')}}</a></li>
                                         <li><a href="">{{__('language.Checkout')}}</a></li>
                                         <li><a href="#">{{__('language.Testimonial')}}</a></li>
                                         <li><a href="">{{__('language.Blog')}}</a></li>
-                                        <li><a href="{{route('showLogin')}}">Log In</a></li>
-                                        <li><a href="{{route('logout')}}">Log Out</a></li>
+                                        @auth
+                                            <li><a href="{{route('logout')}}">Log Out</a></li>
+                                        @else
+                                            <li><a href="{{route('showLogin')}}">Log In</a></li>
+                                        @endauth
                                     </ul>
                                 </div>
                             </div>

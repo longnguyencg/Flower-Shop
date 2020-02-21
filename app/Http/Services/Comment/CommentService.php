@@ -59,4 +59,17 @@ class CommentService implements CommentServiceInterface
     {
         return $this->commentRepo->findByPostId($id);
     }
+
+    public function findByPostIdUseAJAX($id)
+    {
+        $comments =  $this->commentRepo->findByPostId($id);
+        $arr = [];
+        foreach ($comments as $comment){
+            $obj = new \stdClass();
+            $obj->comment = $comment->comment;
+            $obj->name = $comment->user->name;
+            array_push($arr,$obj);
+        }
+        return $arr;
+    }
 }

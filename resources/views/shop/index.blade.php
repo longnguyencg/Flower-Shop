@@ -172,13 +172,6 @@
                                             class="popular_price">${{$product->sale}}</span></p>
                                 </div>
                                 <div class="product_detail">
-                                    <div class="star_icon">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
                                     <div class="product_button">
                                         <div class="cart_details">
                                             <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to
@@ -188,7 +181,7 @@
                                             <a href="#" target="expand"><i class="fa fa-expand"></i></a>
                                         </div>
                                         <div class="cart_details">
-                                            <a href="#" target="heart"><i class="fa fa-heart-o"></i></a>
+                                            <a href="{{route('wishlist.addToWishList',$product->id)}}" target="heart"><i class="fa fa-heart-o"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -209,3 +202,4 @@
     </div>
 
 @endsection
+

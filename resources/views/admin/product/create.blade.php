@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label>Sale</label>
-            <input type="number" class="form-control" name="sale" placeholder="%" value="{{old('sale')}}" required>
+            <input type="number" class="form-control" name="sale" value="{{old('sale')}}" required>
             @if($errors->has('sale'))
                 {{$errors->first('sale')}}
             @endif
