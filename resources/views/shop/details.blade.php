@@ -2,7 +2,7 @@
 @section('content')
     <div class="breadcrumbs_area">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcrumb-single breadcrumb_top">
                         <ul id="breadcrumbs">
@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="blog_single_view_area">
+    <div class="blog_single_view_area" style=" 900px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -24,7 +24,7 @@
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="blog_tabs">
                                     <a class="fancybox" href="{{asset('storage/images/products/'.$product->image)}}"
-                                       data-fancybox-group="gallery" title="Hoa huong duong"><img style="width: 350px"
+                                       data-fancybox-group="gallery" title="Hoa huong duong"><img style="width: 350px;"
                                                                                                   src="{{asset('storage/images/products/'.$product->image)}}"
                                                                                                   alt=""/></a>
                                 </div>
@@ -48,12 +48,8 @@
                         <div class="pricing_rate">
                             @if($product->quantity != 0)
                                 <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
-                                <p class="rating_dollor rating_margin"><span
+                                <p class="rating_dollor rating_margin"><span class="rating_value_one dollor_size">${{$product->sale}}</span> <span
                                         class="rating_value_two">${{ $product->price }}</span></p>
-                                <p class="blog_texts">cerat a felis. Suspendisse aliquet urna pretium eros convallis
-                                    interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla
-                                    purus.
-                                    Mauris vel tellus non nunc mattis lobortis.</p>
                             @else <p class="stack">Availability:<span class="in-stock"> Out of stock</span></p>
                             @endif
                         </div>
@@ -101,10 +97,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="my_tabs_description">
-                                <ul class="tab_style">
+                            <div class="my_tabs_description ">
+                                <ul class="tab_style mb-5">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#tab-1">Product Description</a>
+                                        <a data-toggle="tab" href="#tab-1" >Product Description</a>
                                     </li>
                                     <li>
                                         <a data-toggle="tab" href="#tab-2">Reviews</a>
@@ -164,45 +160,12 @@
                                             </form>
                                         @else <br>
                                         <h4> You need login to review about this product</h4>
-                                        <a data-toggle="modal"
-                                           data-target="#exampleModal">Login now?</a>
+                                        <a href="{{route('showLogin')}}">Login now?</a>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document" style="width: 400px">
-                    <div class="modal-content">
-                        <form method="post" action="{{ route('login.review',$product->id) }}">
-                            @csrf
-                            <div class="modal-header">
-                                <h2 class="modal-title" id="exampleModalLabel">Login</h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" name="password">
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Login</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
