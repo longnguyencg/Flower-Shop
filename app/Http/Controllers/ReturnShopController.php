@@ -11,6 +11,7 @@ use App\Http\Services\Size\SizeService;
 use App\Http\Services\Theme\ThemeService;
 use App\Http\Services\Type\TypeService;
 use App\Cart;
+use App\Http\Services\Weather\weatherService;
 use Illuminate\Support\Facades\Session;
 use App\Product;
 use Illuminate\Http\Request;
@@ -25,8 +26,11 @@ class ReturnShopController extends Controller
     protected $postService;
     protected $themeService;
     protected $commentService;
+    protected $weatherService;
 
-    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService)
+    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService,
+                                ColorService $colorService, SizeService $sizeService, PostService $postService,
+                                ThemeService $themeService, CommentService $commentService, weatherService $weatherService)
     {
         $this->productService = $productService;
         $this->formService = $formService;
@@ -36,6 +40,7 @@ class ReturnShopController extends Controller
         $this->postService = $postService;
         $this->themeService = $themeService;
         $this->commentService = $commentService;
+        $this->weatherService = $weatherService;
     }
 
     public function index()
@@ -47,6 +52,8 @@ class ReturnShopController extends Controller
 
     public function showShop()
     {
+        $weather = $this->weatherService->listWeather();
+//        dd($weather);
         $cart = Session::get('cart');
         $forms = $this->formService->getAll();
         $types = $this->typeService->getAll();
@@ -54,7 +61,7 @@ class ReturnShopController extends Controller
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->paginating();
-        return view('shop.shop', compact('products', 'forms', 'types', 'colors', 'sizes', 'themes', 'cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'colors', 'sizes', 'themes', 'cart','weather'));
     }
 
     public function showBlog()

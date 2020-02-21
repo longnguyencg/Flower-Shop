@@ -4,6 +4,7 @@
     <!--Start Main Menu area -->
     <!--End Main Menu area -->
     <!--Start blog list area -->
+{{--    @include('layouts.shop.weather')--}}
     <div class="blog_post_area">
         <div class="container">
             <div class="row">
