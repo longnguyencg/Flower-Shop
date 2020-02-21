@@ -62,4 +62,11 @@ class UserService implements UserServiceInterface, RoleConstant
     {
         return $this->userRepo->search($request->key);
     }
+
+    public function editRole($request,$id)
+    {
+        $user = $this->userRepo->findById($id);
+        $user->role = $request->role;
+        $this->userRepo->update($user);
+    }
 }

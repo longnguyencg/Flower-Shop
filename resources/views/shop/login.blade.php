@@ -16,7 +16,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="new_customer">
                             <h3>NEW CUSTOMERS</h3>
-                            <p>If you  don't have an account with us, please register</p>
+                            <p>If you don't have an account with us, please register</p>
                             <ul class="register_form">
                                 <li>Name<span></span></li>
                                 <li>
@@ -84,11 +84,11 @@
                                         <input class="form-control" type="password" name="password"/>
                                     </div>
                                 </li>
+                                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i
+                                        class="fa fa-google"></i> Google</a>
+                                <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i
+                                        class="fa fa-facebook"></i> Facebook</a>
                             </ul>
-                            <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i
-                                    class="fa fa-google"></i> Google</a>
-                            <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i
-                                    class="fa fa-facebook"></i> Facebook</a>
                         </div>
                         <div class="create_button_area">
                             <a href="">Forgot Your Password?</a>
@@ -97,9 +97,8 @@
                             </button>
                         </div>
                     </div>
-
+                </form>
             </div>
         </div>
-    </div>
     <!--End Register & login area -->
 @endsection

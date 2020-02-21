@@ -2,7 +2,7 @@
 @section('content')
     <div class="breadcrumbs_area">
         <div class="container">
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcrumb-single breadcrumb_top">
                         <ul id="breadcrumbs">
@@ -48,6 +48,8 @@
                         <div class="pricing_rate">
                             @if($product->quantity != 0)
                                 <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
+                            <p style="color: #1cc88a">Welcome to MONK-EYES Shopping, this is the shopping cart page</p>
+                            <p style="color: #00A9E0">Please take a look at the specifications of this product</p>
                                 <p class="rating_dollor rating_margin"><span class="rating_value_one dollor_size">${{$product->sale}}</span> <span
                                         class="rating_value_two">${{ $product->price }}</span></p>
                             @else <p class="stack">Availability:<span class="in-stock"> Out of stock</span></p>
@@ -98,10 +100,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="my_tabs_description ">
-                                <ul class="tab_style mb-5">
+                            <div class="my_tabs_description">
+                                <ul class="tab_style">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#tab-1" >Product Description</a>
+                                        <a data-toggle="tab" href="#tab-1">Product Description</a>
                                     </li>
                                     <li>
                                         <a data-toggle="tab" href="#tab-2">Reviews</a>

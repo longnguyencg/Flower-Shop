@@ -86,13 +86,14 @@ class ReturnShopController extends Controller
 
     public function search(Request $request)
     {
+        $weather = $this->weatherService->listWeather();
         $forms = $this->formService->getAll();
         $types = $this->typeService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->search($request);
         $cart = Session::get('cart');
-        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart','weather'));
     }
 
     public function findProductBySizeId($id)

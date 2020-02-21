@@ -181,7 +181,7 @@
                                     </div>
                                     <div class="product_button">
                                         <div class="cart_details">
-                                            <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to
+                                            <a href="{{ route('cart.addToCart', $product->id) }}">Add to
                                                 cart</a>
                                         </div>
                                         <div class="cart_details">

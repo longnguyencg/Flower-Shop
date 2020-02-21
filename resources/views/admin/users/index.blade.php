@@ -8,7 +8,7 @@
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form method="post" action="{{ route('user.edit',$user->id) }}">
+                    <form method="post" action="{{ route('user.editUser',$user->id) }}">
                         @csrf
                         <div class="modal-header">
                             <h5 class="modal-title">Edit user</h5>
@@ -26,6 +26,13 @@
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Enter email"
                                        value="{{ $user->email }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Role</label>
+                                <select class="form-control" name="role">
+                                    <option value="1">Admin</option>
+                                    <option value="2">User</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>New Password</label>
@@ -77,6 +84,8 @@
                                         data-target="#EditModal{{ $user->id }}">
                                     Edit
                                 </button>
+                                <a class="btn btn-success" style="color: white"
+                                   href="{{ route('user.showEditRole',$user->id) }}">EditRole</a>
                             </td>
                         </tr>
                     @empty
