@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
             'title'=>'required|min:3|max:255',
             'description'=>'required|min:3|max:255',
             'content'=>'required|min:10',
-            'image'=>'required|image'
+            'image'=>'image'
         ];
     }
 }
