@@ -75,7 +75,7 @@
                                     </div>
                                     <div style="margin-left: 20px;margin-top: 10px">
                                         @forelse($reviews as $review)
-                                            <i class="fa fa-user"></i> {{ $review->user->name }} rated
+                                            <i class="fa fa-user"> </i> {{ $review->user->name }} rated
                                             with @for($i=0;$i<$review->star;$i++)<i class="fa fa-star"
                                                                                     style="color: orange"></i>  @endfor
                                             @for($i=0;$i<5-$review->star;$i++)<i class="fa fa-star-o"
@@ -83,6 +83,7 @@
                                             <br>
                                             {{ $review->review }}
                                             <hr>
+
                                         @empty
                                             No review about this product
                                         @endforelse
@@ -116,6 +117,52 @@
                                     </div>
                                     <div id="tab-2" class="tab-pane fade">
                                         @if(\Illuminate\Support\Facades\Auth::user())
+                                            @if(\App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id))
+                                                <form method="post" action="{{ route('shop.store') }}">
+                                                    @csrf
+                                                    <div class="product_description">
+                                                        <div class="fieldsets">
+                                                            <h3>You're reviewing: <span>{{ $product->name }}</span></h3>
+                                                            <h4>How do you rate this product?*</h4>
+                                                            <div class="start_tab_pricing_area">
+                                                                <fieldset>
+                                                                    <div class="form-group" style="max-width: 100px">
+                                                                        <label>Star</label>
+                                                                        <select class="form-control" name="star">
+                                                                            <option @if(\App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id)->star == 1) selected @endif><i class="fa fa-star" >1</i></option>
+                                                                            <option @if(\App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id)->star == 2) selected @endif><i class="fa fa-star" >2</i></option>
+                                                                            <option @if(\App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id)->star == 3) selected @endif><i class="fa fa-star" >3</i></option>
+                                                                            <option @if(\App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id)->star == 4) selected @endif><i class="fa fa-star" >4</i></option>
+                                                                            <option @if(\App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id)->star == 5) selected @endif><i class="fa fa-star" >5</i></option>
+                                                                        </select>
+                                                                    </div>
+                                                                </fieldset>
+                                                            </div>
+
+                                                            <div class="rating_contact">
+                                                                <ul id="review_contact">
+                                                                    <li><input type="number" name="user"
+                                                                               class="input-text required-entry"
+                                                                               value="{{ \Illuminate\Support\Facades\Auth::user()->id }}"
+                                                                               hidden></li>
+                                                                    <li><input type="number" name="product"
+                                                                               class="input-text required-entry"
+                                                                               value="{{ $product->id }}" hidden></li>
+                                                                    <li>Review<span>*</span></li>
+                                                                    <li><textarea name="review" cols="5" rows="3"
+                                                                                  class="required-entry">{{ \App\Http\Repositories\Review\ReviewRepository::searchByUserAndProduct(\Illuminate\Support\Facades\Auth::user()->id,$product->id)->review }}</textarea></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="review_button">
+                                                                <button type="submit" title="Submit Review" class="button">
+                                                                    Submit
+                                                                    Review
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                @else
                                             <form method="post" action="{{ route('shop.store') }}">
                                                 @csrf
                                                 <div class="product_description">
@@ -160,6 +207,7 @@
                                                     </div>
                                                 </div>
                                             </form>
+                                            @endif
                                         @else <br>
                                         <h4> You need login to review about this product</h4>
                                         <a href="{{route('showLogin')}}">Login now?</a>
