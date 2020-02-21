@@ -2,7 +2,7 @@
 @section('content')
     <div class="breadcrumbs_area">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcrumb-single breadcrumb_top">
                         <ul id="breadcrumbs">
@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="blog_single_view_area">
+    <div class="blog_single_view_area" style=" 900px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -48,7 +48,7 @@
                         <div class="pricing_rate">
                             @if($product->quantity != 0)
                                 <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
-                                <p class="rating_dollor rating_margin"><span
+                                <p class="rating_dollor rating_margin"><span class="rating_value_one dollor_size">${{$product->sale}}</span> <span
                                         class="rating_value_two">${{ $product->price }}</span></p>
                             @else <p class="stack">Availability:<span class="in-stock"> Out of stock</span></p>
                             @endif
@@ -97,10 +97,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="my_tabs_description">
-                                <ul class="tab_style">
+                            <div class="my_tabs_description ">
+                                <ul class="tab_style mb-5">
                                     <li class="active">
-                                        <a data-toggle="tab" href="#tab-1">Product Description</a>
+                                        <a data-toggle="tab" href="#tab-1" >Product Description</a>
                                     </li>
                                     <li>
                                         <a data-toggle="tab" href="#tab-2">Reviews</a>
