@@ -8,7 +8,7 @@
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <form method="post" action="{{ route('user.edit',$user->id) }}">
+                    <form method="post" action="{{ route('user.editUser',$user->id) }}">
                         @csrf
                         <div class="modal-header">
                             <h5 class="modal-title">Edit user</h5>

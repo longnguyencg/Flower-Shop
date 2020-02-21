@@ -55,4 +55,18 @@ class UserController extends Controller
         $user = $this->userService->findById($id);
         return view('admin.users.edit',compact('user'));
     }
+
+    public function edit($id)
+    {
+        $user = $this->userService->findById($id);
+        return view('admin.users.editAUser',compact('user'));
+    }
+
+    public function updateUser(Request $request,$id)
+    {
+        $user = $this->userService->findById($id);
+        $this->userService->update($request, $user);
+        return redirect()->route('admin.index');
+
+    }
 }
