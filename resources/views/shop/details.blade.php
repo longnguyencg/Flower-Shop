@@ -46,17 +46,22 @@
                             {{ $reviews->count() }} Review(s)
                         </div>
                         <div class="pricing_rate">
-                            <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
-                            <p class="rating_dollor rating_margin"><span
-                                    class="rating_value_two">${{ $product->price }}</span></p>
-                            <p class="blog_texts">cerat a felis. Suspendisse aliquet urna pretium eros convallis
-                                interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.
-                                Mauris vel tellus non nunc mattis lobortis.</p>
+                            @if($product->quantity != 0)
+                                <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
+                                <p class="rating_dollor rating_margin"><span
+                                        class="rating_value_two">${{ $product->price }}</span></p>
+                                <p class="blog_texts">cerat a felis. Suspendisse aliquet urna pretium eros convallis
+                                    interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla
+                                    purus.
+                                    Mauris vel tellus non nunc mattis lobortis.</p>
+                            @else <p class="stack">Availability:<span class="in-stock"> Out of stock</span></p>
+                            @endif
                         </div>
                         <div class="product_options_area">
                             <div class="cart_blog_item">
                                 <div class="add-to-cart">
-                                    <input type="text" title="Qty" style="width: 150px" value="{{$product->quantity}}" class="qty"/>
+                                    <input type="text" title="Qty" style="width: 150px" value="{{$product->quantity}}"
+                                           class="qty"/>
                                     <button class="cart_button"><a href="{{ route('cart.addToCart', $product->id) }}"
                                                                    title="Add to Cart"><span>Add to Cart</span>
                                         </a></button>
