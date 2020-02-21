@@ -164,8 +164,7 @@
                                             </form>
                                         @else <br>
                                         <h4> You need login to review about this product</h4>
-                                        <a data-toggle="modal"
-                                           data-target="#exampleModal">Login now?</a>
+                                        <a href="{{route('showLogin')}}">Login now?</a>
                                         @endif
                                     </div>
                                 </div>
@@ -175,37 +174,37 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog" role="document" style="width: 400px">
-                    <div class="modal-content">
-                        <form method="post" action="{{ route('login.review',$product->id) }}">
-                            @csrf
-                            <div class="modal-header">
-                                <h2 class="modal-title" id="exampleModalLabel">Login</h2>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" name="password">
-                                </div>
+            {{--            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"--}}
+            {{--                 aria-hidden="true">--}}
+            {{--                <div class="modal-dialog" role="document" style="width: 400px">--}}
+            {{--                    <div class="modal-content">--}}
+            {{--                        <form method="post" action="{{ route('login.review',$product->id) }}">--}}
+            {{--                            @csrf--}}
+            {{--                            <div class="modal-header">--}}
+            {{--                                <h2 class="modal-title" id="exampleModalLabel">Login</h2>--}}
+            {{--                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+            {{--                                    <span aria-hidden="true">&times;</span>--}}
+            {{--                                </button>--}}
+            {{--                            </div>--}}
+            {{--                            <div class="modal-body">--}}
+            {{--                                <div class="form-group">--}}
+            {{--                                    <label>Email</label>--}}
+            {{--                                    <input type="email" class="form-control" name="email" placeholder="Enter email">--}}
+            {{--                                </div>--}}
+            {{--                                <div class="form-group">--}}
+            {{--                                    <label>Password</label>--}}
+            {{--                                    <input type="password" class="form-control" name="password">--}}
+            {{--                                </div>--}}
 
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Login</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            {{--                            </div>--}}
+            {{--                            <div class="modal-footer">--}}
+            {{--                                <button type="submit" class="btn btn-primary">Login</button>--}}
+            {{--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+            {{--                            </div>--}}
+            {{--                        </form>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
     </div>
 
