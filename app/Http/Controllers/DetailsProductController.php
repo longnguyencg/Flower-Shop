@@ -23,7 +23,6 @@ class DetailsProductController extends Controller
 
     public function index($id)
     {
-        $cart = Session::get('cart');
         $product = $this->productService->findById($id);
         $reviews= $this->reviewService->getByProduct($id);
         $starResult=0;
