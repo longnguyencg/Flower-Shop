@@ -32,4 +32,17 @@ class LoginController
         }
         return back();
     }
+    public function loginToReview(Request $request, $id){
+        $email = $request->email;
+        $password = $request->password;
+
+        $data = [
+            'email' => $email,
+            'password' => $password
+        ];
+        if (Auth::attempt($data)) {
+            return redirect()->route('shop.index',$id);
+        }
+        else return back();
+    }
 }

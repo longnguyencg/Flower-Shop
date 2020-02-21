@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::post('/login-{id}', 'LoginController@loginToReview')->name('login.review');
 
 
 
