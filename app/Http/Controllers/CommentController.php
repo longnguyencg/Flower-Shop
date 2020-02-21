@@ -44,8 +44,10 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request)
     {
+        $post_id = $request->post_id;
         $this->commentService->store($request);
-        return redirect()->back();
+        $comments = $this->commentService->findByPostIdUseAJAX($post_id);
+        return response()->json(['data'=>$comments]);
     }
 
     /**
