@@ -24,7 +24,7 @@
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="blog_tabs">
                                     <a class="fancybox" href="{{asset('storage/images/products/'.$product->image)}}"
-                                       data-fancybox-group="gallery" title="Hoa huong duong"><img style="width: 350px"
+                                       data-fancybox-group="gallery" title="Hoa huong duong"><img style="width: 350px;"
                                                                                                   src="{{asset('storage/images/products/'.$product->image)}}"
                                                                                                   alt=""/></a>
                                 </div>
@@ -49,9 +49,7 @@
                             <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
                             <p class="rating_dollor rating_margin"><span
                                     class="rating_value_two">${{ $product->price }}</span></p>
-                            <p class="blog_texts">cerat a felis. Suspendisse aliquet urna pretium eros convallis
-                                interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.
-                                Mauris vel tellus non nunc mattis lobortis.</p>
+
                         </div>
                         <div class="product_options_area">
                             <div class="cart_blog_item">
