@@ -75,13 +75,19 @@
                                 <li>Email Address<span></span></li>
                                 <li>
                                     <div class="form-group">
-                                        <input class="form-control" type="email" name="email"/>
+                                        <input class="form-control" type="email" name="email" required/>
+                                        @if($errors->has('email'))
+                                            {{$errors->first('email')}}
+                                        @endif
                                     </div>
                                 </li>
                                 <li>Password<span></span></li>
                                 <li>
                                     <div class="form-group">
-                                        <input class="form-control" type="password" name="password"/>
+                                        <input class="form-control" type="password" name="password" required/>
+                                        @if($errors->has('password'))
+                                            {{$errors->first('password')}}
+                                        @endif
                                     </div>
                                 </li>
                                 <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i
