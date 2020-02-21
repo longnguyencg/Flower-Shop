@@ -56,11 +56,11 @@
                         <div class="product_options_area">
                             <div class="cart_blog_item">
                                 <div class="add-to-cart">
-                                    <input type="text" title="Qty" value="{{$product->quantity}}" class="qty"/>
+                                    <input type="text" title="Qty" style="width: 150px" value="{{$product->quantity}}" class="qty"/>
                                     <button class="cart_button"><a href="{{ route('cart.addToCart', $product->id) }}"
                                                                    title="Add to Cart"><span>Add to Cart</span>
                                         </a></button>
-                                    <div class="cart_blog_details blog_icon_border" style="margin-left: 100px">
+                                    <div class="cart_blog_details blog_icon_border" style="margin-left: 20px">
                                         <a href="{{route('wishlist.addToWishList',$product->id)}}" target="blank"><i
                                                 class="fa fa-heart-o"></i></a>
                                     </div>
