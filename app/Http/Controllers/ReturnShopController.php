@@ -11,6 +11,7 @@ use App\Http\Services\Size\SizeService;
 use App\Http\Services\Theme\ThemeService;
 use App\Http\Services\Type\TypeService;
 use App\Cart;
+use App\Http\Services\WishListService\WishListService;
 use Illuminate\Support\Facades\Session;
 use App\Product;
 use Illuminate\Http\Request;
@@ -25,8 +26,9 @@ class ReturnShopController extends Controller
     protected $postService;
     protected $themeService;
     protected $commentService;
+    protected $wishListService;
 
-    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService)
+    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService, WishListService $wishListService)
     {
         $this->productService = $productService;
         $this->formService = $formService;
@@ -36,6 +38,7 @@ class ReturnShopController extends Controller
         $this->postService = $postService;
         $this->themeService = $themeService;
         $this->commentService = $commentService;
+        $this->wishListService = $wishListService;
     }
 
     public function index()
@@ -61,7 +64,8 @@ class ReturnShopController extends Controller
     {
         $cart = Session::get('cart');
         $posts = $this->postService->getAll();
-        return view('shop.blog', compact('posts', 'cart'));
+        $lastestPosts = $this->postService->lastestPosts();
+        return view('shop.blog', compact('posts', 'cart','lastestPosts'));
     }
 
     public function singleBlog($id)
@@ -69,7 +73,9 @@ class ReturnShopController extends Controller
         $comments = $this->commentService->findByPostId($id);
         $post = $this->postService->findById($id);
         $cart = Session::get('cart');
-        return view('shop.singleBlog', compact('post', 'comments', 'cart'));
+        $lastestPosts = $this->postService->lastestPosts();
+
+        return view('shop.singleBlog', compact('post', 'comments', 'cart','lastestPosts'));
     }
 
     public function search(Request $request)
@@ -125,6 +131,27 @@ class ReturnShopController extends Controller
         $products = $this->productService->findProductByTypeId($id);
         $cart = Session::get('cart');
         return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
+    }
+
+    public function wishlist()
+    {
+        $products = $this->wishListService->getAll();
+        $themes = $this->themeService->getAll();
+        $types = $this->typeService->getAll();
+        $cart = Session::get('cart');
+        return view('shop.wishList',compact('products','themes','types','cart'));
+    }
+
+    public function addToWishList($id)
+    {
+        $this->wishListService->store($id);
+        return redirect()->back();
+    }
+
+    public function deleteProductInWishList($id)
+    {
+        $this->wishListService->destroy($id);
+        return redirect()->route('wishlist.index');
     }
 
 

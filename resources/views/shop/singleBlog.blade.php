@@ -2,8 +2,6 @@
 @section('content')
 
 
-
-
     <div class="blog_post_area">
         <div class="container">
             <div class="row">
@@ -17,35 +15,15 @@
                             </form>
                         </div>
                         <div class="latest_posts">
-                            <h3 class="sp_module_title sp_module_title_rv"><span>Latest Posts</span></h3>
-                            <div class="single_l_post">
-                                <a href="#">Images</a>
-                                <p>23 May 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">Video</a>
-                                <p>23 May 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">Jerky shank chicken boudin</a>
-                                <p>2 Jun 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">Nirob</a>
-                                <p>20 Oct 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">Salim</a>
-                                <p>6 Sept 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">shank chicken boudin</a>
-                                <p>7 Sept 2015</p>
-                            </div>
-                            <div class="single_l_post">
-                                <a href="#">Parvez</a>
-                                <p>8 Sept 2015</p>
-                            </div>
+                            <h3 class="sp_module_title sp_module_title_rv"><span>{{__('language.Latest_Posts')}}</span></h3>
+
+                            @foreach($lastestPosts as $lastpost)
+                                <div class="single_l_post">
+                                    <a class="show_a_post" href="{{route('singleBlog',$lastpost->id)}}">{{$lastpost->title}}</a>
+                                    <p>{{$lastpost->created_at}}</p>
+                                </div>
+                            @endforeach
+
                         </div>
                         <div class="add_r_sidebar">
                             <p class="banner_block"><a href="#"><img alt="" src="{{asset('img/banner/3.jpg')}}"></a></p>
@@ -102,7 +80,7 @@
                                 <th scope="col"><h4>Bình Luận</h4></th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="list-comments">
                             @foreach($comments as $comment)
                                 <tr>
                                     <td scope="row">
@@ -122,22 +100,29 @@
                                     <h2>Add comment</h2>
                                 </div>
                             </div>
-                            <form method="post" action="{{route('comment.store')}}">
+                            <form method="post" id="send_comment" action="{{route('comment.store')}}">
                                 @csrf
+
                                 <div class="col-lg-12">
-                                    <input type="text" name="post_id" value="{{$post->id}}" hidden>
+                                    <input type="text" name="post_id" id="post_id" value="{{$post->id}}" hidden>
                                     <div class="comment_textarea">
-                                        <textarea cols="65" rows="8" name="comment" class="ckeditor"></textarea>
+                                        <textarea cols="65" rows="8" name="comment" id="post_comment" class="post_comment ckeditor" required></textarea>
+                                        <div class="comment_error">
+
+                                            @if($errors->has('comment'))
+                                                {{$errors->first('comment')}}
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <div class="send_button">
-                                        <button type="submit" class="btn btn-dark"
+                                        <button type="button"  id="send_a_comment" class="send_a_comment btn btn-dark"
                                                 @auth
                                                 @else
                                                 onclick="return confirm('Bạn cần đăng nhập để bình luận. Bạn có muốn đăng nhập không?')"
-                                            @endauth>Send
+                                            @endauth >Send
                                         </button>
                                     </div>
                                 </div>

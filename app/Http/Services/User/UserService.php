@@ -4,12 +4,13 @@
 namespace App\Http\Services\User;
 
 
+use App\Http\Controllers\RoleConstant;
 use App\Http\Repositories\User\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UserService implements UserServiceInterface
+class UserService implements UserServiceInterface, RoleConstant
 {
     protected $userRepo;
 
