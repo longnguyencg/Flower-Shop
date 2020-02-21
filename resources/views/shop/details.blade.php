@@ -53,25 +53,6 @@
                                 interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.
                                 Mauris vel tellus non nunc mattis lobortis.</p>
                         </div>
-                        <div class="product_blog_button">
-                            <div class="cart_blog_item">
-                                <div class="add-to-cart">
-                                    <input type="text" title="Qty" value="1" class="qty"/>
-                                    <button type="button" title="Add to Cart" class="cart_button">
-                                        <span>Add to Cart</span>
-                                    </button>
-                                    <div class="cart_blog_details blog_icon_border" style="margin-left: 100px">
-                                        <a href="" target="blank"><i class="fa fa-heart-o"></i></a>
-                                    </div>
-                                    <div class="cart_blog_details blog_icon_border">
-                                        <a href="" target="expand"><i class="fa fa-retweet"></i></a>
-                                    </div>
-                                    <div class="cart_blog_details blog_icon_border">
-                                        <a href="" target="heart"><i class="fa fa-envelope"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="product_options_area">
                             <div class="cart_blog_item">
                                 <div class="add-to-cart">
