@@ -46,10 +46,6 @@
                             {{ $reviews->count() }} Review(s)
                         </div>
                         <div class="pricing_rate">
-                            <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
-                            <p class="rating_dollor rating_margin"><span
-                                    class="rating_value_two">${{ $product->price }}</span></p>
-
                             @if($product->quantity != 0)
                                 <p class="stack">Availability:<span class="in-stock"> In stock</span></p>
                                 <p class="rating_dollor rating_margin"><span
