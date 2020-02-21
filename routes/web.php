@@ -72,6 +72,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('/index', 'UserController@index')->name('user.index');
         Route::get('/delete/{id}', 'UserController@destroy')->name('user.destroy');
         Route::post('/edit/{id}', 'UserController@update')->name('user.edit');
+        Route::post('/editUser/{id}', 'UserController@updateUser')->name('user.editUser');
+        Route::get('/edit/{id}', 'UserController@edit')->name('user.showedit');
         Route::post('/editRole/{id}', 'UserController@editRole')->name('user.role');
         Route::get('/editRole/{id}', 'UserController@showEditRole')->name('user.showEditRole');
     });
