@@ -51,7 +51,7 @@
 
 
         <!-- Nav Item - Pages Collapse Menu -->
-        @can('curd-user')
+        @can('crud-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -65,6 +65,8 @@
                 </div>
             </div>
         </li>
+        @endcan
+        @can('crud-user')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#theme"
                    aria-expanded="true" aria-controls="theme">
@@ -78,6 +80,8 @@
                     </div>
                 </div>
             </li>
+        @endcan
+        @can('crud-user')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
                    aria-expanded="true" aria-controls="collapseCategories">
@@ -93,6 +97,8 @@
                     </div>
                 </div>
             </li>
+        @endcan
+        @can('crud-user')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#form"
                    aria-expanded="true" aria-controls="collapseTwo">
@@ -106,6 +112,8 @@
                     </div>
                 </div>
             </li>
+        @endcan
+        @can('crud-user')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#color"
                    aria-expanded="true" aria-controls="collapseTwo">
@@ -120,6 +128,8 @@
                     </div>
                 </div>
             </li>
+        @endcan
+        @can('crud-user')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#type"
                    aria-expanded="true" aria-controls="collapseTwo">
@@ -134,8 +144,8 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
+        @endcan
+        @can('crud-user')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                    aria-expanded="true" aria-controls="collapseUtilities">
@@ -151,6 +161,8 @@
                 </div>
             </div>
         </li>
+        @endcan
+        @can('crud-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#review"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -164,6 +176,8 @@
                 </div>
             </div>
         </li>
+        @endcan
+        @can('crud-user')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#comment"
                aria-expanded="true" aria-controls="collapseTwo">

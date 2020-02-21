@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\User\UserService;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -18,6 +19,9 @@ class UserController extends Controller
 
     public function index()
     {
+        if(!Gate::allows('crud-user')){
+            abort('403');
+        }
         $users = $this->userService->getAll();
         return view('admin.users.index',compact('users'));
     }
@@ -29,7 +33,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = $this->userService->findById($id);
-        $this->userService->update($request,$user);
+        $this->userService->update($request, $user);
         return redirect()->route('user.index');
     }
 
@@ -38,5 +42,17 @@ class UserController extends Controller
         $user = $this->userService->findById($id);
         $this->userService->destroy($user);
         return redirect()->route('user.index');
+    }
+
+    public function editRole(Request $request, $id)
+    {
+        $this->userService->editRole($request, $id);
+        return redirect()->route('user.index');
+    }
+
+    public function showEditRole($id)
+    {
+        $user = $this->userService->findById($id);
+        return view('admin.users.edit',compact('user'));
     }
 }
