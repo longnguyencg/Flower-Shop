@@ -36,10 +36,10 @@
                             @if(Session::has('cart'))
                                 @forelse($cart->items as $product)
                                     <tr>
-                                        <td><a href="#"><img
+                                        <td><a href="{{ route('shop.index',$product['item']->id) }}"><img
                                                     src="{{asset('storage/images/products/'. $product['item']->image) }}"
                                                     alt="" style="width: 200px;height: 200px"/></a></td>
-                                        <td><a href="#">{{ $product['item']->name }}</a></td>
+                                        <td><a href="{{ route('shop.index',$product['item']->id) }}">{{ $product['item']->name }}</a></td>
                                         <td><a href="#">{{ '$' . $product['item']->price }}</a></td>
                                         <form action="{{ route('cart.updateProductIntoCart', $product['item']->id) }}"
                                               method="post">
