@@ -24,7 +24,7 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'comment'=>'required|min:10',
+            'comment'=>'required',
         ];
     }
 }
