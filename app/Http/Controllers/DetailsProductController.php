@@ -25,14 +25,6 @@ class DetailsProductController extends Controller
     {
         $product = $this->productService->findById($id);
         $reviews= $this->reviewService->getByProduct($id);
-//        $starResult=0;
-//        $avgStar=0;
-//        foreach ($reviews as $review){
-//            $starResult += $review->star;
-//        }
-//        if (count($reviews)!=0){
-//            $avgStar = $starResult/count($reviews);
-//        }
         $avgStar = ProductService::getStar($id);
         $cart = Session::get('cart');
         return view('shop.details',compact('product','reviews','avgStar','cart'));
