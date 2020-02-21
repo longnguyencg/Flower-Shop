@@ -4,7 +4,7 @@
 namespace App\Http\Services\Weather;
 use GuzzleHttp\Client;
 
-class weatherService
+class WeatherService
 {
     public function listWeather()
     {
