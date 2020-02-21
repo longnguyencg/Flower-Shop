@@ -30,15 +30,6 @@
                     </div>
                 </div>
                 <div class="pagination_wrapper">
-                    <ul class="pagination">
-                        <li class="active"><a>1</a></li>
-                        <li><a class="" href="#" title="2">2</a></li>
-                        <li><a class="" href="#" title="3">3</a></li>
-                        <li><a class="next" href="#" title="»">»</a></li>
-                        <li><a class="" href="#" title="End">{{__('language.End')}}</a></li>
-                    </ul>
-
-
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                         <div class="breadcrumb-single blog_top_area">
                             <ul id="breadcrumbs">
@@ -75,7 +66,7 @@
                                     <p>{!! $post->description !!}</p>
                                     <a class="readmore_link" href="{{route('singleBlog',$post->id)}}"
                                        title="{{$post->title}}">Read more ...</a>
-                                    <a class="comments_link" href="#" title="1 comment">1 comment</a>
+                                    <a class="comments_link" href="#" title="comment">{{$post->comments->count()}}-Comment</a>
                                 </div>
                             </div>
                         @endforeach
