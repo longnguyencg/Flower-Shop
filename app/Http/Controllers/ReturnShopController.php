@@ -27,8 +27,8 @@ class ReturnShopController extends Controller
     protected $postService;
     protected $themeService;
     protected $commentService;
-    protected $weatherService;
     protected $wishListService;
+    protected $weatherService;
 
     public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService, WishListService $wishListService, WeatherService $weatherService)
     {
@@ -70,7 +70,7 @@ class ReturnShopController extends Controller
         $weather = $this->weatherService->listWeather();
         $posts = $this->postService->getAll();
         $lastestPosts = $this->postService->lastestPosts();
-        return view('shop.blog', compact('posts', 'cart', 'lastestPosts','weather'));
+        return view('shop.blog', compact('posts', 'cart', 'lastestPosts', 'weather'));
     }
 
     public function singleBlog($id)
@@ -81,7 +81,7 @@ class ReturnShopController extends Controller
         $cart = Session::get('cart');
         $lastestPosts = $this->postService->lastestPosts();
 
-        return view('shop.singleBlog', compact('post', 'comments', 'cart', 'lastestPosts','weather'));
+        return view('shop.singleBlog', compact('post', 'comments', 'cart', 'lastestPosts', 'weather'));
     }
 
     public function search(Request $request)
@@ -146,7 +146,7 @@ class ReturnShopController extends Controller
         $themes = $this->themeService->getAll();
         $types = $this->typeService->getAll();
         $cart = Session::get('cart');
-        return view('shop.wishList', compact('products', 'themes', 'types', 'cart','weather'));
+        return view('shop.wishList', compact('products', 'themes', 'types', 'cart', 'weather'));
     }
 
     public function addToWishList($id)

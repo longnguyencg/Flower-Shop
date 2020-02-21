@@ -5,16 +5,21 @@ namespace App\Http\Services\Product;
 
 
 use App\Http\Repositories\Product\ProductRepoInterface;
+use App\Http\Repositories\Review\ReviewRepository;
+use App\Http\Services\Review\ReviewService;
 use App\Product;
+use App\Review;
 use Illuminate\Support\Facades\Storage;
 
 class ProductService implements ProductServiceInterface
 {
     protected $productRepo;
+    protected $reviewRepo;
 
-    public function __construct(ProductRepoInterface $productRepo)
+    public function __construct(ProductRepoInterface $productRepo, ReviewRepository $reviewRepo)
     {
         $this->productRepo = $productRepo;
+        $this->reviewRepo = $reviewRepo;
     }
 
     public function getAll()
@@ -52,6 +57,7 @@ class ProductService implements ProductServiceInterface
     public function findById($id)
     {
         return $this->productRepo->findById($id);
+
     }
 
     public function update($request, $id)
@@ -133,5 +139,18 @@ class ProductService implements ProductServiceInterface
     {
         return $this->productRepo->findProductByTypeId($id);
     }
-
+    public static function getStar($id)
+    {
+            $product = Product::findOrFail($id);
+            $reviews = $product->reviews;
+            $starResult=0;
+            $avgStar=0;
+            foreach ($reviews as $review){
+                $starResult += $review->star;
+            }
+            if (count($reviews)!=0){
+                $avgStar = $starResult/count($reviews);
+            }
+        return $avgStar;
+    }
 }
