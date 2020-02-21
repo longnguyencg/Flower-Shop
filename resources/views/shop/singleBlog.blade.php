@@ -118,12 +118,13 @@
 
                                 <div class="col-lg-12">
                                     <div class="send_button">
-                                        <button type="button"  id="send_a_comment" class="send_a_comment btn btn-dark"
+                                        <a type="button"  id="send_a_comment" class="send_a_comment btn btn-primary"
                                                 @auth
                                                 @else
-                                                onclick="return confirm('Bạn cần đăng nhập để bình luận. Bạn có muốn đăng nhập không?')"
+                                                onclick="return confirm('Bạn cần đăng nhập để bình luận.')"
+                                                href="{{route('showLogin')}}"
                                             @endauth >Send
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>

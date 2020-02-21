@@ -15,6 +15,21 @@ class LoginController
     public function showFormLogin()
     {
         $cart = Session::get('cart');
+        if (session('link')) {
+            $myPath     = session('link');
+            $loginPath  = url('/login');
+            $previous   = url()->previous();
+
+            if ($previous = $loginPath) {
+                session(['link' => $myPath]);
+            }
+            else{
+                session(['link' => $previous]);
+            }
+        }
+        else{
+            session(['link' => url()->previous()]);
+        }
         return view('shop.login',compact('cart'));
     }
 
@@ -28,7 +43,7 @@ class LoginController
             'password' => $password
         ];
         if (Auth::attempt($data)) {
-            return redirect()->route('admin.index');
+            return redirect(session('link'));
         }
         return back();
     }
