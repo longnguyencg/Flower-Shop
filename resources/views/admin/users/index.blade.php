@@ -28,6 +28,13 @@
                                        value="{{ $user->email }}">
                             </div>
                             <div class="form-group">
+                                <label for="exampleFormControlSelect1">Role</label>
+                                <select class="form-control" name="role">
+                                    <option value="1">Admin</option>
+                                    <option value="2">User</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>New Password</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
@@ -77,6 +84,8 @@
                                         data-target="#EditModal{{ $user->id }}">
                                     Edit
                                 </button>
+                                <a class="btn btn-success" style="color: white"
+                                   href="{{ route('user.showEditRole',$user->id) }}">EditRole</a>
                             </td>
                         </tr>
                     @empty
