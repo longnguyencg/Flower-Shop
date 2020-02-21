@@ -15,4 +15,5 @@ interface ProductServiceInterface extends ServiceInterface
     public function findProductByFormId($id);
     public function findProductByThemeId($id);
     public function findProductByTypeId($id);
+    public static function getStar($id);
 }
