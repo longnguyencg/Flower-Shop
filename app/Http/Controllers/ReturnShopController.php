@@ -11,7 +11,7 @@ use App\Http\Services\Size\SizeService;
 use App\Http\Services\Theme\ThemeService;
 use App\Http\Services\Type\TypeService;
 use App\Cart;
-use App\Http\Services\Weather\weatherService;
+use App\Http\Services\Weather\WeatherService;
 use App\Http\Services\WishListService\WishListService;
 use Illuminate\Support\Facades\Session;
 use App\Product;
@@ -30,7 +30,7 @@ class ReturnShopController extends Controller
     protected $weatherService;
     protected $wishListService;
 
-    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService, WishListService $wishListService, weatherService $weatherService)
+    public function __construct(ProductService $productService, FormService $formService, TypeService $typeService, ColorService $colorService, SizeService $sizeService, PostService $postService, ThemeService $themeService, CommentService $commentService, WishListService $wishListService, WeatherService $weatherService)
     {
         $this->productService = $productService;
         $this->formService = $formService;
