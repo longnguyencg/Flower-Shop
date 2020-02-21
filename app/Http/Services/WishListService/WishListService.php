@@ -20,15 +20,24 @@ class WishListService implements WishListServiceInterface
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return Auth::user()->products;
+    }
+
+    public function checkProductIdInWishList($id)
+    {
+        $productsWishlist = Auth::user()->products;
+        foreach ($productsWishlist as $product)
+            if ($product->id == $id)
+                return true;
+
+        return false;
+
     }
 
     public function store($id)
     {
-        $productsWishlist = Auth::user()->products;
-        foreach($productsWishlist as $product)
-            if($product->id == $id)
-                return redirect()->back();
+        if ($this->checkProductIdInWishList($id))
+            return redirect()->back();
         Auth::user()->products()->attach($id);
     }
 
@@ -51,4 +60,6 @@ class WishListService implements WishListServiceInterface
     {
         // TODO: Implement search() method.
     }
+
+
 }

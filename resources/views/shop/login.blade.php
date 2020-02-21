@@ -16,6 +16,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="new_customer">
                             <h3>NEW CUSTOMERS</h3>
+                            <p>If you don't have an account with us, please register</p>
                             <ul class="register_form">
                                 <li>Name<span></span></li>
                                 <li>
@@ -94,12 +95,10 @@
                             <button type="submit" class="create_button">
                                 Login
                             </button>
-
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
     <!--End Register & login area -->
 @endsection

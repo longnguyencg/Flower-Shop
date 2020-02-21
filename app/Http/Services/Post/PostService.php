@@ -81,4 +81,9 @@ class PostService implements PostServiceInterface
     {
         return $this->postRepo->findById($id);
     }
+
+    public function lastestPosts()
+    {
+        return $this->postRepo->lastestPosts();
+    }
 }

@@ -64,7 +64,8 @@ class ReturnShopController extends Controller
     {
         $cart = Session::get('cart');
         $posts = $this->postService->getAll();
-        return view('shop.blog', compact('posts', 'cart'));
+        $lastestPosts = $this->postService->lastestPosts();
+        return view('shop.blog', compact('posts', 'cart','lastestPosts'));
     }
 
     public function singleBlog($id)
@@ -72,7 +73,9 @@ class ReturnShopController extends Controller
         $comments = $this->commentService->findByPostId($id);
         $post = $this->postService->findById($id);
         $cart = Session::get('cart');
-        return view('shop.singleBlog', compact('post', 'comments', 'cart'));
+        $lastestPosts = $this->postService->lastestPosts();
+
+        return view('shop.singleBlog', compact('post', 'comments', 'cart','lastestPosts'));
     }
 
     public function search(Request $request)
@@ -132,7 +135,11 @@ class ReturnShopController extends Controller
 
     public function wishlist()
     {
-        return view('shop.wishList');
+        $products = $this->wishListService->getAll();
+        $themes = $this->themeService->getAll();
+        $types = $this->typeService->getAll();
+        $cart = Session::get('cart');
+        return view('shop.wishList',compact('products','themes','types','cart'));
     }
 
     public function addToWishList($id)
