@@ -34,8 +34,7 @@
                                 <th></th>
                             </tr>
                             @if(Session::has('cart'))
-                                {{--                                {{dd($cart)}}--}}
-                                @foreach($cart->items as $product)
+                                @forelse($cart->items as $product)
                                     <tr>
                                         <td><a href="#"><img
                                                     src="{{asset('storage/images/products/'. $product['item']->image) }}"
@@ -60,7 +59,11 @@
                                             </td>
                                         </form>
                                     </tr>
-                                @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center" style="color: deeppink"><p> "Bạn chưa mua sản phẩm nào" </p></td>
+                                    </tr>
+                                @endforelse
                                 <tr class="visible-xs">
                                     <td class="text-center"><strong>{{__('language.Total_money')}}:
                                             ${{ $cart->totalPrice }}</strong></td>
@@ -82,7 +85,7 @@
                                 </tfoot>
                             @else
                                 <tr>
-                                    <td colspan="5" class="text-center" style="color: deeppink"><p>{{ "Bạn chưa mua sản phẩm nào" }}</p></td>
+                                    <td colspan="5" class="text-center" style="color: deeppink"><p> "Bạn chưa mua sản phẩm nào" </p></td>
                                 </tr>
                             @endif
                         </table>
@@ -91,13 +94,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
 @endsection
 
