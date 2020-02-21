@@ -6,6 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    @include('layouts.shop.weather')
                     <div class="blog_right_sidebar">
                         <h2 class="sp_module_title"><span>Newsletter</span></h2>
                         <div class="sub_area">

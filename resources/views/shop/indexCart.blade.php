@@ -24,7 +24,7 @@
                         <h2>{{__('language.Shopping_Cart')}}</h2>
                     </div>
                     <div class="shopping-cart-table">
-                        <table class="cart_items" b>
+                        <table class="cart_items">
                             <tr>
                                 <th>{{__("language.Image")}}</th>
                                 <th>{{__('language.Product_Name')}}</th>
@@ -82,7 +82,7 @@
                                 </tfoot>
                             @else
                                 <tr>
-                                    <td colspan="5" class="text-center"><p>{{ "Bạn chưa mua sản phẩm nào" }}</p></td>
+                                    <td colspan="5" class="text-center" style="color: deeppink"><p>{{ "Bạn chưa mua sản phẩm nào" }}</p></td>
                                 </tr>
                             @endif
                         </table>
