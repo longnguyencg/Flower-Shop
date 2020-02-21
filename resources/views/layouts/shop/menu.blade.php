@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!--Start desktop menu area -->
-                <div class="main_menu">
+                <div class="main_menu" >
                     <ul id="nav_menu" class="active_cl">
                         <li><a href="{{route('showList')}}"><span class="Home">{{__('language.Home')}}</span></a>
                         </li>

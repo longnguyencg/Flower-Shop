@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/login', 'LoginController@showFormLogin')->name('showLogin');
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/logout', 'LoginController@logout')->name('logout');
+Route::post('/login-{id}', 'LoginController@loginToReview')->name('login.review');
 
 
 Route::get('/', 'ReturnShopController@index')->name('showList');
@@ -157,5 +158,8 @@ Route::middleware('locale')->group(function () {
 //Login Google
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
+
+//Weather
+
 
 

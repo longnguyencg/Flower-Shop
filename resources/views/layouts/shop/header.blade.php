@@ -1,7 +1,7 @@
-<div class="header_area_top">
+<div class="header_area_top" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
                 <!--Start Search area -->
                 <form action="{{route('shop.search')}}" name="myForm" method="GET">
                     <div class="search_box">

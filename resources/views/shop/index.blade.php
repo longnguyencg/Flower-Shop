@@ -172,6 +172,13 @@
                                             class="popular_price">${{$product->sale}}</span></p>
                                 </div>
                                 <div class="product_detail">
+                                    <div class="star_icon">
+                                        @if(\App\Http\Services\Product\ProductService::getStar($product->id)!=0)
+                                            @for($i=0;$i<\App\Http\Services\Product\ProductService::getStar($product->id);$i++)<i class="fa fa-star"></i>  @endfor
+                                            @for($i=0;$i<5-\App\Http\Services\Product\ProductService::getStar($product->id);$i++)<i class="fa fa-star-o"></i>  @endfor
+                                        @else No rate
+                                        @endif
+                                    </div>
                                     <div class="product_button">
                                         <div class="cart_details">
                                             <a href="{{ route('cart.addToCart', $product->id) }}" target="blank">Add to

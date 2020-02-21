@@ -1,9 +1,14 @@
 @extends('layouts.shop.master')
 @section('content')
-    <div class="clothing_product_area">
-        <div class="container">
+
+{{--    @dd($weather)--}}
+
+<div class="clothing_product_area" >
+    <div class="container">
             <div class="row">
+
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    @include('layouts.shop.weather')
                     <div class="catagory_price_color">
                         <div class="catagory_area">
                             <h2>{{__('language.title')}}</h2>
@@ -197,11 +202,11 @@
                                                     </div>
                                                     <div class="product_detail">
                                                         <div class="star_icon">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
+                                                            @if(\App\Http\Services\Product\ProductService::getStar($product->id)!=0)
+                                                                @for($i=0;$i<\App\Http\Services\Product\ProductService::getStar($product->id);$i++)<i class="fa fa-star"></i>  @endfor
+                                                                @for($i=0;$i<5-\App\Http\Services\Product\ProductService::getStar($product->id);$i++)<i class="fa fa-star-o"></i>  @endfor
+                                                            @else No rate
+                                                            @endif
                                                         </div>
                                                         <div class="product_button">
                                                             <div class="cart_details">

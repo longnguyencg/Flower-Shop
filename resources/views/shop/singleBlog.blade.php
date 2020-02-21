@@ -6,6 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    @include('layouts.shop.weather')
                     <div class="blog_right_sidebar">
                         <h2 class="sp_module_title"><span>Newsletter</span></h2>
                         <div class="sub_area">
@@ -118,12 +119,13 @@
 
                                 <div class="col-lg-12">
                                     <div class="send_button">
-                                        <button type="button"  id="send_a_comment" class="send_a_comment btn btn-dark"
+                                        <a type="button"  id="send_a_comment" class="send_a_comment btn btn-primary"
                                                 @auth
                                                 @else
-                                                onclick="return confirm('Bạn cần đăng nhập để bình luận. Bạn có muốn đăng nhập không?')"
+                                                onclick="return confirm('Bạn cần đăng nhập để bình luận.')"
+                                                href="{{route('showLogin')}}"
                                             @endauth >Send
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>

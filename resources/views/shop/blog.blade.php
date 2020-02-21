@@ -1,13 +1,11 @@
 @extends('layouts.shop.master')
 @section('content')
-    <!--End Header Top area -->
-    <!--Start Main Menu area -->
-    <!--End Main Menu area -->
-    <!--Start blog list area -->
     <div class="blog_post_area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    @include('layouts.shop.weather')
+
                     <div class="blog_right_sidebar">
                         <h2 class="sp_module_title"><span>{{__('language.Newsletter')}}</span></h2>
                         <div class="sub_area">

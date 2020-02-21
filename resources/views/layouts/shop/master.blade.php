@@ -15,6 +15,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.ico')}}">
     <!-- font awesome -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+
+{{--    <link rel="shortcut icon" type="image/x-icon"--}}
+{{--          href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">--}}
+{{--    <link rel="mask-icon" type=""--}}
+{{--          href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"--}}
+{{--          color="#111">--}}
     <!-- carousel CSS -->
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
     <!-- carousel Theme CSS -->
@@ -49,7 +55,8 @@
 </head>
 <body>
 <!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 @include('layouts.shop.header')
 
@@ -88,6 +95,24 @@
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('js/my.js')}}"></script>
+
+
+{{--<script src="https://unpkg.com/feather-icons"></script>--}}
+{{--<script>--}}
+{{--    window.console = window.console || function (t) {--}}
+{{--    };--}}
+{{--</script>--}}
+{{--<script>--}}
+{{--    if (document.location.search.match(/type=embed/gi)) {--}}
+{{--        window.parent.postMessage("resize", "*");--}}
+{{--    }--}}
+{{--</script>--}}
+{{--<script--}}
+{{--    src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>--}}
+{{--<script id="rendered-js">--}}
+{{--    feather.replace();--}}
+{{--    //# sourceURL=pen.js--}}
+{{--// </script>--}}
 
 </body>
 </html>
