@@ -98,46 +98,50 @@ class ReturnShopController extends Controller
 
     public function findProductBySizeId($id)
     {
+        $weather = $this->weatherService->listWeather();
         $forms = $this->formService->getAll();
         $types = $this->typeService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductBySizeId($id);
         $cart = Session::get('cart');
-        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart','weather'));
     }
 
     public function findProductByFormId($id)
     {
+        $weather = $this->weatherService->listWeather();
         $forms = $this->formService->getAll();
         $types = $this->typeService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductByFormId($id);
         $cart = Session::get('cart');
-        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'sizes', 'themes', 'cart','weather'));
     }
 
     public function findProductByThemeId($id)
     {
+        $weather = $this->weatherService->listWeather();
         $forms = $this->formService->getAll();
         $types = $this->typeService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductByThemeId($id);
         $cart = Session::get('cart');
-        return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes','weather'));
     }
 
     public function findProductByTypeId($id)
     {
+        $weather = $this->weatherService->listWeather();
         $forms = $this->formService->getAll();
         $types = $this->typeService->getAll();
         $sizes = $this->sizeService->getAll();
         $themes = $this->themeService->getAll();
         $products = $this->productService->findProductByTypeId($id);
         $cart = Session::get('cart');
-        return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes'));
+        return view('shop.shop', compact('products', 'forms', 'types', 'cart', 'sizes', 'themes','weather'));
     }
 
     public function wishlist()
