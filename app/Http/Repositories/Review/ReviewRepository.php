@@ -15,8 +15,10 @@ class ReviewRepository implements ReviewRepositoryInterface
     {
         $this->review = $review;
     }
-    public function getByProduct($id){
-        return Review::where('product_id','like',$id)->paginate(4);
+
+    public function getByProduct($id)
+    {
+        return Review::where('product_id', 'like', $id)->paginate(4);
     }
 
     public function getAll()
@@ -37,6 +39,11 @@ class ReviewRepository implements ReviewRepositoryInterface
     public function destroy($obj)
     {
         $obj->delete();
+    }
+
+    public static function searchByUserAndProduct($user_id, $product_id)
+    {
+        return Review::where('user_id','like',$user_id)->where('product_id','like',$product_id)->first();
     }
 
     public function search($key)

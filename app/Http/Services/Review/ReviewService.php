@@ -24,12 +24,21 @@ class ReviewService implements ReviewServiceInterface
 
     public function store($request)
     {
-        $review = new review();
-        $review->review = $request->review;
-        $review->star = $request->star;
-        $review->product_id = $request->product;
-        $review->user_id = $request->user;
-        $this->reviewRepo->store($review);
+        $oldReview = ReviewRepository::searchByUserAndProduct($request->user, $request->product);
+        if ($oldReview){
+            $oldReview->review = $request->review;
+            $oldReview->star = $request->star;
+            $this->reviewRepo->store($oldReview);
+        }
+        else{
+            $review = new review();
+            $review->review = $request->review;
+            $review->star = $request->star;
+            $review->product_id = $request->product;
+            $review->user_id = $request->user;
+            $this->reviewRepo->store($review);
+        }
+
     }
 
     public function findById($id)
@@ -38,14 +47,18 @@ class ReviewService implements ReviewServiceInterface
     }
 
     public function update($request, $obj)
-    {;
+    {
+        ;
         $obj->review = $request->review;
         $obj->star = $request->star;
         $this->reviewRepo->update($obj);
     }
-    public function getByProduct($product_id){
+
+    public function getByProduct($product_id)
+    {
         return $this->reviewRepo->getByProduct($product_id);
     }
+
     public function destroy($obj)
     {
         $this->reviewRepo->destroy($obj);
